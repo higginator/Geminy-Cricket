@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
+		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
+		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
+		33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DA918FA55BF00936260 /* InfoPlist.strings */; };
+		33B40DAD18FA55BF00936260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DAC18FA55BF00936260 /* main.m */; };
+		33B40DB118FA55BF00936260 /* RFHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DB018FA55BF00936260 /* RFHAppDelegate.m */; };
+		33B40DB318FA55BF00936260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DB218FA55BF00936260 /* Images.xcassets */; };
+		33B40DBA18FA55BF00936260 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DB918FA55BF00936260 /* XCTest.framework */; };
+		33B40DBB18FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
+		33B40DBC18FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
+		33B40DC418FA55BF00936260 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DC218FA55BF00936260 /* InfoPlist.strings */; };
+		33B40DC618FA55BF00936260 /* Geminy_CricketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DC518FA55BF00936260 /* Geminy_CricketTests.m */; };
+		33B40DD718FA55D400936260 /* RFHGemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DD018FA55D400936260 /* RFHGemObject.m */; };
+		33B40DD818FA55D400936260 /* RFHHumanPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DD218FA55D400936260 /* RFHHumanPlayer.m */; };
+		33B40DD918FA55D400936260 /* RFHPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DD418FA55D400936260 /* RFHPlayer.m */; };
+		33B40DDA18FA55D400936260 /* RFHRobotPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DD618FA55D400936260 /* RFHRobotPlayer.m */; };
+		33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DDC18FA55F500936260 /* RFHViewController.m */; };
+		33B40DDF18FA55F500936260 /* RFHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DDD18FA55F500936260 /* RFHViewController.xib */; };
+		33B40DE118FA569E00936260 /* Chipped_Ruby.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DE018FA569E00936260 /* Chipped_Ruby.png */; };
+		33B40DE418FA587400936260 /* RFHGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DE318FA587400936260 /* RFHGameView.m */; };
+		33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */; };
+		33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33B40DBD18FA55BF00936260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33B40D9518FA55BE00936260 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33B40D9C18FA55BE00936260;
+			remoteInfo = "Geminy Cricket";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		33B40DA418FA55BF00936260 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		33B40DA818FA55BF00936260 /* Geminy Cricket-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Geminy Cricket-Info.plist"; sourceTree = "<group>"; };
+		33B40DAA18FA55BF00936260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33B40DAC18FA55BF00936260 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33B40DAE18FA55BF00936260 /* Geminy Cricket-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Geminy Cricket-Prefix.pch"; sourceTree = "<group>"; };
+		33B40DAF18FA55BF00936260 /* RFHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RFHAppDelegate.h; sourceTree = "<group>"; };
+		33B40DB018FA55BF00936260 /* RFHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFHAppDelegate.m; sourceTree = "<group>"; };
+		33B40DB218FA55BF00936260 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		33B40DB818FA55BF00936260 /* Geminy CricketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Geminy CricketTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B40DB918FA55BF00936260 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		33B40DC118FA55BF00936260 /* Geminy CricketTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Geminy CricketTests-Info.plist"; sourceTree = "<group>"; };
+		33B40DC318FA55BF00936260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33B40DC518FA55BF00936260 /* Geminy_CricketTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Geminy_CricketTests.m; sourceTree = "<group>"; };
+		33B40DCF18FA55D400936260 /* RFHGemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGemObject.h; sourceTree = "<group>"; };
+		33B40DD018FA55D400936260 /* RFHGemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGemObject.m; sourceTree = "<group>"; };
+		33B40DD118FA55D400936260 /* RFHHumanPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHHumanPlayer.h; sourceTree = "<group>"; };
+		33B40DD218FA55D400936260 /* RFHHumanPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHHumanPlayer.m; sourceTree = "<group>"; };
+		33B40DD318FA55D400936260 /* RFHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHPlayer.h; sourceTree = "<group>"; };
+		33B40DD418FA55D400936260 /* RFHPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHPlayer.m; sourceTree = "<group>"; };
+		33B40DD518FA55D400936260 /* RFHRobotPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHRobotPlayer.h; sourceTree = "<group>"; };
+		33B40DD618FA55D400936260 /* RFHRobotPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHRobotPlayer.m; sourceTree = "<group>"; };
+		33B40DDB18FA55F500936260 /* RFHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHViewController.h; sourceTree = "<group>"; };
+		33B40DDC18FA55F500936260 /* RFHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHViewController.m; sourceTree = "<group>"; };
+		33B40DDD18FA55F500936260 /* RFHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHViewController.xib; sourceTree = "<group>"; };
+		33B40DE018FA569E00936260 /* Chipped_Ruby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chipped_Ruby.png; sourceTree = "<group>"; };
+		33B40DE218FA587400936260 /* RFHGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGameView.h; sourceTree = "<group>"; };
+		33B40DE318FA587400936260 /* RFHGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGameView.m; sourceTree = "<group>"; };
+		33B40DE618FA9A9B00936260 /* RFHGemImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGemImageContainer.h; sourceTree = "<group>"; };
+		33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGemImageContainer.m; sourceTree = "<group>"; };
+		33B40DE918FAAB7F00936260 /* RFHGameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGameBoard.h; sourceTree = "<group>"; };
+		33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGameBoard.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33B40D9A18FA55BE00936260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */,
+				33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */,
+				33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B40DB518FA55BF00936260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DBA18FA55BF00936260 /* XCTest.framework in Frameworks */,
+				33B40DBC18FA55BF00936260 /* UIKit.framework in Frameworks */,
+				33B40DBB18FA55BF00936260 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33B40D9418FA55BE00936260 = {
+			isa = PBXGroup;
+			children = (
+				33B40DA618FA55BF00936260 /* Geminy Cricket */,
+				33B40DBF18FA55BF00936260 /* Geminy CricketTests */,
+				33B40D9F18FA55BF00936260 /* Frameworks */,
+				33B40D9E18FA55BE00936260 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33B40D9E18FA55BE00936260 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33B40D9D18FA55BE00936260 /* Geminy Cricket.app */,
+				33B40DB818FA55BF00936260 /* Geminy CricketTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33B40D9F18FA55BF00936260 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DA018FA55BF00936260 /* Foundation.framework */,
+				33B40DA218FA55BF00936260 /* CoreGraphics.framework */,
+				33B40DA418FA55BF00936260 /* UIKit.framework */,
+				33B40DB918FA55BF00936260 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33B40DA618FA55BF00936260 /* Geminy Cricket */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DCF18FA55D400936260 /* RFHGemObject.h */,
+				33B40DD018FA55D400936260 /* RFHGemObject.m */,
+				33B40DE518FA69CC00936260 /* Player */,
+				33B40DAF18FA55BF00936260 /* RFHAppDelegate.h */,
+				33B40DB018FA55BF00936260 /* RFHAppDelegate.m */,
+				33B40DDB18FA55F500936260 /* RFHViewController.h */,
+				33B40DDC18FA55F500936260 /* RFHViewController.m */,
+				33B40DE918FAAB7F00936260 /* RFHGameBoard.h */,
+				33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */,
+				33B40DE618FA9A9B00936260 /* RFHGemImageContainer.h */,
+				33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */,
+				33B40DE218FA587400936260 /* RFHGameView.h */,
+				33B40DE318FA587400936260 /* RFHGameView.m */,
+				33B40DDD18FA55F500936260 /* RFHViewController.xib */,
+				33B40DB218FA55BF00936260 /* Images.xcassets */,
+				33B40DE018FA569E00936260 /* Chipped_Ruby.png */,
+				33B40DA718FA55BF00936260 /* Supporting Files */,
+			);
+			path = "Geminy Cricket";
+			sourceTree = "<group>";
+		};
+		33B40DA718FA55BF00936260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DA818FA55BF00936260 /* Geminy Cricket-Info.plist */,
+				33B40DA918FA55BF00936260 /* InfoPlist.strings */,
+				33B40DAC18FA55BF00936260 /* main.m */,
+				33B40DAE18FA55BF00936260 /* Geminy Cricket-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33B40DBF18FA55BF00936260 /* Geminy CricketTests */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DC518FA55BF00936260 /* Geminy_CricketTests.m */,
+				33B40DC018FA55BF00936260 /* Supporting Files */,
+			);
+			path = "Geminy CricketTests";
+			sourceTree = "<group>";
+		};
+		33B40DC018FA55BF00936260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DC118FA55BF00936260 /* Geminy CricketTests-Info.plist */,
+				33B40DC218FA55BF00936260 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33B40DE518FA69CC00936260 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				33B40DD118FA55D400936260 /* RFHHumanPlayer.h */,
+				33B40DD218FA55D400936260 /* RFHHumanPlayer.m */,
+				33B40DD318FA55D400936260 /* RFHPlayer.h */,
+				33B40DD418FA55D400936260 /* RFHPlayer.m */,
+				33B40DD518FA55D400936260 /* RFHRobotPlayer.h */,
+				33B40DD618FA55D400936260 /* RFHRobotPlayer.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33B40D9C18FA55BE00936260 /* Geminy Cricket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33B40DC918FA55BF00936260 /* Build configuration list for PBXNativeTarget "Geminy Cricket" */;
+			buildPhases = (
+				33B40D9918FA55BE00936260 /* Sources */,
+				33B40D9A18FA55BE00936260 /* Frameworks */,
+				33B40D9B18FA55BE00936260 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Geminy Cricket";
+			productName = "Geminy Cricket";
+			productReference = 33B40D9D18FA55BE00936260 /* Geminy Cricket.app */;
+			productType = "com.apple.product-type.application";
+		};
+		33B40DB718FA55BF00936260 /* Geminy CricketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33B40DCC18FA55BF00936260 /* Build configuration list for PBXNativeTarget "Geminy CricketTests" */;
+			buildPhases = (
+				33B40DB418FA55BF00936260 /* Sources */,
+				33B40DB518FA55BF00936260 /* Frameworks */,
+				33B40DB618FA55BF00936260 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33B40DBE18FA55BF00936260 /* PBXTargetDependency */,
+			);
+			name = "Geminy CricketTests";
+			productName = "Geminy CricketTests";
+			productReference = 33B40DB818FA55BF00936260 /* Geminy CricketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33B40D9518FA55BE00936260 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RFH;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Higgnet;
+				TargetAttributes = {
+					33B40DB718FA55BF00936260 = {
+						TestTargetID = 33B40D9C18FA55BE00936260;
+					};
+				};
+			};
+			buildConfigurationList = 33B40D9818FA55BE00936260 /* Build configuration list for PBXProject "Geminy Cricket" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 33B40D9418FA55BE00936260;
+			productRefGroup = 33B40D9E18FA55BE00936260 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33B40D9C18FA55BE00936260 /* Geminy Cricket */,
+				33B40DB718FA55BF00936260 /* Geminy CricketTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33B40D9B18FA55BE00936260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DDF18FA55F500936260 /* RFHViewController.xib in Resources */,
+				33B40DE118FA569E00936260 /* Chipped_Ruby.png in Resources */,
+				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
+				33B40DB318FA55BF00936260 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B40DB618FA55BF00936260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DC418FA55BF00936260 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33B40D9918FA55BE00936260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DD718FA55D400936260 /* RFHGemObject.m in Sources */,
+				33B40DD818FA55D400936260 /* RFHHumanPlayer.m in Sources */,
+				33B40DDA18FA55D400936260 /* RFHRobotPlayer.m in Sources */,
+				33B40DAD18FA55BF00936260 /* main.m in Sources */,
+				33B40DB118FA55BF00936260 /* RFHAppDelegate.m in Sources */,
+				33B40DE418FA587400936260 /* RFHGameView.m in Sources */,
+				33B40DD918FA55D400936260 /* RFHPlayer.m in Sources */,
+				33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */,
+				33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */,
+				33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B40DB418FA55BF00936260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B40DC618FA55BF00936260 /* Geminy_CricketTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33B40DBE18FA55BF00936260 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33B40D9C18FA55BE00936260 /* Geminy Cricket */;
+			targetProxy = 33B40DBD18FA55BF00936260 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		33B40DA918FA55BF00936260 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33B40DAA18FA55BF00936260 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		33B40DC218FA55BF00936260 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33B40DC318FA55BF00936260 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33B40DC718FA55BF00936260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		33B40DC818FA55BF00936260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33B40DCA18FA55BF00936260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
+				INFOPLIST_FILE = "Geminy Cricket/Geminy Cricket-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		33B40DCB18FA55BF00936260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
+				INFOPLIST_FILE = "Geminy Cricket/Geminy Cricket-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		33B40DCD18FA55BF00936260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geminy Cricket.app/Geminy Cricket";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Geminy CricketTests/Geminy CricketTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		33B40DCE18FA55BF00936260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geminy Cricket.app/Geminy Cricket";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
+				INFOPLIST_FILE = "Geminy CricketTests/Geminy CricketTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33B40D9818FA55BE00936260 /* Build configuration list for PBXProject "Geminy Cricket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33B40DC718FA55BF00936260 /* Debug */,
+				33B40DC818FA55BF00936260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33B40DC918FA55BF00936260 /* Build configuration list for PBXNativeTarget "Geminy Cricket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33B40DCA18FA55BF00936260 /* Debug */,
+				33B40DCB18FA55BF00936260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33B40DCC18FA55BF00936260 /* Build configuration list for PBXNativeTarget "Geminy CricketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33B40DCD18FA55BF00936260 /* Debug */,
+				33B40DCE18FA55BF00936260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33B40D9518FA55BE00936260 /* Project object */;
+}
