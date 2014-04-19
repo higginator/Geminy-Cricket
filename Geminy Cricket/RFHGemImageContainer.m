@@ -19,7 +19,7 @@
         _onBoard = onBoard;
         _gemOriginalCenter = CGPointMake(0, 0);
         _imageView = [[UIImageView alloc] init];
-        _imageView.image = [UIImage imageNamed:@"Chipped_Ruby.png"];
+        //_imageView.image = [UIImage imageNamed:@"Chipped_Ruby.png"];
     }
     return self;
 }

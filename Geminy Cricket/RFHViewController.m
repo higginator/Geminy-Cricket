@@ -37,6 +37,8 @@
     
     NSMutableArray *vacantCells;
     
+    NSInteger boardOffsetX, boardOffsetY;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +63,11 @@
     human.turn = YES;
     robotOpponent = [[RFHRobotPlayer alloc] initWithName:@"Robopponent" Color:[UIColor cyanColor]];
     [self initializeRobotGemHand];
+    
+    boardOffsetX = 10;
+    boardOffsetY = 86;
+    moveCount = 0;
+    
     //for (int i = 0; i < 9; i++) {
     //    [board.boardObjects addObject:[RFHGemObject randomGem]];
     //}
@@ -247,6 +254,7 @@
                 board.boardColors[0] = touchedGem.owner.color;
                 board.boardBools[0] = [NSNumber numberWithBool:YES];
                 vacantCells[0] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellOneRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellTwoRectangle, collectionLocation)) {
@@ -258,6 +266,7 @@
                     board.boardColors[1] = touchedGem.owner.color;
                     board.boardBools[1] = [NSNumber numberWithBool:YES];
                     vacantCells[1] = [NSNull null];
+                    [self centerImage:touchedGem Rect:cellTwoRectangle];
                     [self boardCheck:touchedGem collectionLocation:collectionLocation];
                 }
         } else if (CGRectContainsPoint(cellThreeRectangle, collectionLocation)) {
@@ -269,6 +278,7 @@
                 board.boardColors[2] = touchedGem.owner.color;
                 board.boardBools[2] = [NSNumber numberWithBool:YES];
                 vacantCells[2] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellThreeRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellFourRectangle, collectionLocation)) {
@@ -280,6 +290,7 @@
                 board.boardColors[3] = touchedGem.owner.color;
                 board.boardBools[3] = [NSNumber numberWithBool:YES];
                 vacantCells[3] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellFourRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellFiveRectangle, collectionLocation)) {
@@ -291,6 +302,7 @@
                 board.boardColors[4] = touchedGem.owner.color;
                 board.boardBools[4] = [NSNumber numberWithBool:YES];
                 vacantCells[4] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellFiveRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellSixRectangle, collectionLocation)) {
@@ -302,6 +314,7 @@
                 board.boardColors[5] = touchedGem.owner.color;
                 board.boardBools[5] = [NSNumber numberWithBool:YES];
                 vacantCells[5] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellSixRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellSevenRectangle, collectionLocation)) {
@@ -313,6 +326,7 @@
                 board.boardColors[6] = touchedGem.owner.color;
                 board.boardBools[6] = [NSNumber numberWithBool:YES];
                 vacantCells[6] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellSevenRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellEightRectangle, collectionLocation)) {
@@ -324,6 +338,7 @@
                 board.boardColors[7] = touchedGem.owner.color;
                 board.boardBools[7] = [NSNumber numberWithBool:YES];
                 vacantCells[7] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellEightRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellNineRectangle, collectionLocation)) {
@@ -335,11 +350,15 @@
                 board.boardColors[8] = touchedGem.owner.color;
                 board.boardBools[8] = [NSNumber numberWithBool:YES];
                 vacantCells[8] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellNineRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         }
+
         [self changeTurnOrder];
-        [self robotMakeTurn];
+        if (moveCount < 9) {
+            [self robotMakeTurn];
+        }
     }
 }
 
@@ -388,6 +407,13 @@
 
 #pragma mark - Custom Game Functions
 
+-(void)centerImage:(RFHGemImageContainer *)imageContainer Rect:(CGRect)rect
+{
+    float x = CGRectGetMidX(rect) + boardOffsetX;
+    float y = CGRectGetMidY(rect) + boardOffsetY;
+    imageContainer.imageView.center = CGPointMake(x,y);
+}
+
 -(void)robotMakeTurn
 {
     UICollectionViewCell *cell;
@@ -410,7 +436,8 @@
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
-    NSLog(@"The cell's center is %f and %f",cell.center.x, cell.center.y);
+    
+    moveCount++;
     [self updateBoardColorV2:cell.center];
     [self changeTurnOrder];
     
@@ -468,7 +495,7 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
                 board.boardColors[1] = sender.owner.color;
-                NSLog(@"%@", board.boardColors[1]);
+                [self updateBoardColorV2:CGPointMake(CGRectGetMidX(cellOneRectangle), CGRectGetMidY(cellOneRectangle))];
             }
         }
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
@@ -632,6 +659,7 @@
         }
     }
     moveCount++;
+    NSLog(@"Movecount is %ld", moveCount);
     [self updateBoardColorV2:loc];
 }
 
