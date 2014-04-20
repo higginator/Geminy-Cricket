@@ -15,7 +15,7 @@
     return [NSString stringWithFormat:@"%@ gem with value %lx", self.color, (long)self.value];
 }
 
--(instancetype)initWithColor:(NSString *)color Value:(NSInteger)n {
+-(instancetype)initWithColor:(UIColor *)color Value:(NSInteger)n {
     if (self = [super init]) {
         _value = n;
         _color = color;
@@ -25,20 +25,20 @@
 }
 
 -(instancetype)init {
-    return [self initWithColor:@"Grey" Value:0];
+    return [self initWithColor:[UIColor grayColor] Value:0];
 }
 
 +(instancetype)randomGem {
     // colors is a a random color between Red, Blue, Green, and Yellow
     // value is a random value 1-9
-    NSArray *colors = @[@"Red", @"Blue", @"Green", @"Yellow"];
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
     int colorsIndex = arc4random() % [colors count];
     int val = 0;
     while (val == 0) {
         val = arc4random() % 10;
     }
     
-    NSString *color = colors[colorsIndex];
+    UIColor *color = colors[colorsIndex];
     
     return [[self alloc] initWithColor:color Value:val];
 }

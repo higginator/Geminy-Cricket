@@ -11,12 +11,12 @@
 @interface RFHGemObject : NSObject
 
 @property (nonatomic) NSInteger value;
-@property (nonatomic, copy) NSString *color;
+@property (nonatomic, copy) UIColor *color;
 //implement images later
 @property (nonatomic) UIImage *gemImage;
 //@property (nonatomic) CGPoint gemOriginalCenter;
 // The designated initializer
--(instancetype)initWithColor:(NSString *)color Value:(NSInteger)n;
+-(instancetype)initWithColor:(UIColor *)color Value:(NSInteger)n;
 +(instancetype)randomGem;
 
 @end
