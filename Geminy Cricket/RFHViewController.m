@@ -249,7 +249,6 @@
     collectionViewRect.size = self.collectionView.frame.size;
     //if gem not dropped on board, return the gem to gem Hand
     if (!CGRectContainsPoint(collectionViewRect, location)) {
-        NSLog(@"Does Not contain point!!!");
         touchedGem.imageView.center = touchedGem.gemOriginalCenter;
     } else if (touchedGem) {
         //check the 9 spots for which one the gem was dropped into
@@ -447,13 +446,13 @@
         }
     }
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
-    NSLog(@"%@ will be placed at %d", robotGemImage, cellIndex);
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
-    
+    NSString *cellName = [NSString stringWithFormat:@"cell%@Rectangle", [numberMappings objectForKey:[NSString stringWithFormat:@"%d", cellIndex + 1]]];
+    CGRect cellRect = [[myItems objectForKey:cellName] CGRectValue];
+    robotGemImage.imageView.center = CGPointMake(CGRectGetMidX(cellRect) + boardOffsetX, CGRectGetMidY(cellRect) + boardOffsetY);
+    [self.view addSubview:robotGemImage.imageView];
     [self boardCheck:robotGemImage collectionLocation:cell.center];
-    // moveCount++;
-    // [self updateBoardColorV2:cell.center];
     [self changeTurnOrder];
     
 }
@@ -482,10 +481,7 @@
 {
     int humanTotal = 0;
     for (UIColor *color in board.boardColors) {
-        NSLog(@"THERE IS A GEM");
-        NSLog(@"gem color is %@ and human color is %@", color, human.color);
         if (color == human.color) {
-            NSLog(@"GEM COLORS ARE EQUAL");
             humanTotal++;
         }
     }
@@ -713,7 +709,6 @@
         }
     }
     moveCount++;
-    NSLog(@"Movecount is %ld", moveCount);
     [self updateBoardColorV2:loc];
 }
 
@@ -762,7 +757,7 @@
     cell = [self.collectionView cellForItemAtIndexPath:sortedVisibleCells[8]];
     cellNineRectangle.origin = cell.frame.origin;
     cellNineRectangle.size = cell.frame.size;
-    NSLog(@"Origin of rect 1 is %f %f and size of rect is %f %f", cellOneRectangle.origin.x, cellOneRectangle.origin.y, cellOneRectangle.size.width, cellOneRectangle.size.height);
+
     gemOneRect.origin = self.gemOne.imageView.frame.origin;
     gemOneRect.size = self.gemOne.imageView.bounds.size;
     gemTwoRect.origin = self.gemTwo.imageView.frame.origin;

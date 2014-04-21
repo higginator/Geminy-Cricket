@@ -20,4 +20,6 @@
 @property (nonatomic) RFHGemImageContainer *gemFive;
 @property (nonatomic) RFHGemImageContainer *gemSix;
 
+@property IBOutlet UIButton *resetButton;
+
 @end

@@ -18,8 +18,10 @@
         _owner = robot;
         _onBoard = onBoard;
         _gemOriginalCenter = CGPointMake(0, 0);
-        _imageView = [[UIImageView alloc] init];
-        //_imageView.image = [UIImage imageNamed:@"Chipped_Ruby.png"];
+        //_imageView = [[UIImageView alloc] init];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        //_imageView.backgroundColor = [UIColor purpleColor];
+        _imageView.image = gem.gemImage;
     }
     return self;
 }

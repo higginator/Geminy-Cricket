@@ -17,6 +17,7 @@
     // Override point for customization after application launch.
     RFHViewController *rvc = [[RFHViewController alloc] init];
     self.window.rootViewController = rvc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
