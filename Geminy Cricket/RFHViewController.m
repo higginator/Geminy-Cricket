@@ -157,6 +157,16 @@
     self.gemFive.owner = human;
     self.gemSix.owner = human;
     
+    // set gemContainers gem
+    self.gemOne.gem = gemHand[0];
+    self.gemTwo.gem = gemHand[1];
+    self.gemThree.gem = gemHand[2];
+    self.gemFour.gem = gemHand[3];
+    self.gemFive.gem = gemHand[4];
+    self.gemSix.gem = gemHand[5];
+
+    
+    
     // add gems to screen
     [self.view addSubview:self.gemOne.imageView];
     [self.view addSubview:self.gemTwo.imageView];
@@ -258,16 +268,16 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellTwoRectangle, collectionLocation)) {
-                if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
-                    touchedGem.imageView.center = touchedGem.gemOriginalCenter;
-                } else {
-                    touchedGem.onBoard = YES;
-                    board.boardObjects[1] = touchedGem;
-                    board.boardColors[1] = touchedGem.owner.color;
-                    board.boardBools[1] = [NSNumber numberWithBool:YES];
-                    vacantCells[1] = [NSNull null];
-                    [self centerImage:touchedGem Rect:cellTwoRectangle];
-                    [self boardCheck:touchedGem collectionLocation:collectionLocation];
+            if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+                touchedGem.imageView.center = touchedGem.gemOriginalCenter;
+            } else {
+                touchedGem.onBoard = YES;
+                board.boardObjects[1] = touchedGem;
+                board.boardColors[1] = touchedGem.owner.color;
+                board.boardBools[1] = [NSNumber numberWithBool:YES];
+                vacantCells[1] = [NSNull null];
+                [self centerImage:touchedGem Rect:cellTwoRectangle];
+                [self boardCheck:touchedGem collectionLocation:collectionLocation];
                 }
         } else if (CGRectContainsPoint(cellThreeRectangle, collectionLocation)) {
             if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
@@ -437,11 +447,13 @@
         }
     }
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
+    NSLog(@"%@ will be placed at %d", robotGemImage, cellIndex);
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
     
-    moveCount++;
-    [self updateBoardColorV2:cell.center];
+    [self boardCheck:robotGemImage collectionLocation:cell.center];
+    // moveCount++;
+    // [self updateBoardColorV2:cell.center];
     [self changeTurnOrder];
     
 }
@@ -469,14 +481,14 @@
 -(void)declareWinner
 {
     int humanTotal = 0;
-    for (RFHGemImageContainer *gemContainer in board.boardObjects) {
+    for (UIColor *color in board.boardColors) {
         NSLog(@"THERE IS A GEM");
-        if (gemContainer.gem.color == human.color) {
+        NSLog(@"gem color is %@ and human color is %@", color, human.color);
+        if (color == human.color) {
             NSLog(@"GEM COLORS ARE EQUAL");
             humanTotal++;
         }
     }
-    NSLog(@"human total is %@", humanTotal);
     if (humanTotal >= 5) {
         //create victory label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 150, 180, 180)];
@@ -520,7 +532,7 @@
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[3] = sender.owner.color;
+                board.boardColors[3] = sender.owner.color;
                 [self boardColorUpdate:3];
             }
         }
@@ -529,21 +541,21 @@
         if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[0] = sender.owner.color;
+                board.boardColors[0] = sender.owner.color;
                 [self boardColorUpdate:0];
             }
         }
         if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[2] = sender.owner.color;
+                board.boardColors[2] = sender.owner.color;
                 [self boardColorUpdate:2];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[4] = sender.owner.color;
+                board.boardColors[4] = sender.owner.color;
                 [self boardColorUpdate:4];
             }
         }
@@ -553,14 +565,14 @@
         if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[1] = sender.owner.color;
+                board.boardColors[1] = sender.owner.color;
                 [self boardColorUpdate:1];
             }
         }
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[5] = sender.owner.color;
+                board.boardColors[5] = sender.owner.color;
                 [self boardColorUpdate:5];
             }
         }
@@ -570,21 +582,21 @@
         if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[0] = sender.owner.color;
+                board.boardColors[0] = sender.owner.color;
                 [self boardColorUpdate:0];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[4] = sender.owner.color;
+                board.boardColors[4] = sender.owner.color;
                 [self boardColorUpdate:4];
             }
         }
         if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[6] = sender.owner.color;
+                board.boardColors[6] = sender.owner.color;
                 [self boardColorUpdate:6];
             }
         }
@@ -594,25 +606,29 @@
         if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[1] = sender.owner.color;
+                board.boardColors[1] = sender.owner.color;
+                [self boardColorUpdate:1];
             }
         }
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[3] = sender.owner.color;
+                board.boardColors[3] = sender.owner.color;
+                [self boardColorUpdate:3];
             }
         }
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[5] = sender.owner.color;
+                board.boardColors[5] = sender.owner.color;
+                [self boardColorUpdate:5];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[7] = sender.owner.color;
+                board.boardColors[7] = sender.owner.color;
+                [self boardColorUpdate:7];
             }
         }
         
@@ -621,19 +637,22 @@
         if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[2] = sender.owner.color;
+                board.boardColors[2] = sender.owner.color;
+                [self boardColorUpdate:2];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[4] = sender.owner.color;
+                board.boardColors[4] = sender.owner.color;
+                [self boardColorUpdate:4];
             }
         }
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[8] = sender.owner.color;
+                board.boardColors[8] = sender.owner.color;
+                [self boardColorUpdate:8];
             }
         }
         
@@ -642,13 +661,15 @@
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[3] = sender.owner.color;
+                board.boardColors[3] = sender.owner.color;
+                [self boardColorUpdate:3];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[7] = sender.owner.color;
+                board.boardColors[7] = sender.owner.color;
+                [self boardColorUpdate:7];
             }
         }
     }  else if ([board.boardObjects indexOfObject:sender] == 7) {
@@ -656,19 +677,22 @@
         if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[6] = sender.owner.color;
+                board.boardColors[6] = sender.owner.color;
+                [self boardColorUpdate:6];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[4] = sender.owner.color;
+                board.boardColors[4] = sender.owner.color;
+                [self boardColorUpdate:4];
             }
         }
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[8] = sender.owner.color;
+                board.boardColors[8] = sender.owner.color;
+                [self boardColorUpdate:8];
             }
         }
     } else if ([board.boardObjects indexOfObject:sender] == 8) {
@@ -676,13 +700,15 @@
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[5] = sender.owner.color;
+                board.boardColors[5] = sender.owner.color;
+                [self boardColorUpdate:5];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
-                board.boardObjects[7] = sender.owner.color;
+                board.boardColors[7] = sender.owner.color;
+                [self boardColorUpdate:7];
             }
         }
     }
