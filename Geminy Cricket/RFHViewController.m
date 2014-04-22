@@ -119,12 +119,12 @@
     self.gemSix.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(260, y, width, height)];
     
     // adding color to gem backgrounds to see frame size
-    self.gemOne.imageView.backgroundColor = [UIColor orangeColor];
-    self.gemTwo.imageView.backgroundColor = [UIColor orangeColor];
-    self.gemThree.imageView.backgroundColor = [UIColor orangeColor];
-    self.gemFour.imageView.backgroundColor = [UIColor orangeColor];
-    self.gemFive.imageView.backgroundColor = [UIColor orangeColor];
-    self.gemSix.imageView.backgroundColor = [UIColor orangeColor];
+    self.gemOne.imageView.backgroundColor = [UIColor clearColor];
+    self.gemTwo.imageView.backgroundColor = [UIColor clearColor];
+    self.gemThree.imageView.backgroundColor = [UIColor clearColor];
+    self.gemFour.imageView.backgroundColor = [UIColor clearColor];
+    self.gemFive.imageView.backgroundColor = [UIColor clearColor];
+    self.gemSix.imageView.backgroundColor = [UIColor clearColor];
     
     //add starting gem images to view objects
     RFHGemObject *gem = gemHand[0];
@@ -242,6 +242,8 @@
     
     CGPoint location = [touch locationInView:touch.view];
     
+    BOOL humanMoveMade = NO;
+    
     NSLog(@"THE LOCATION OF THE LAST TOUCH IS: %f, %f", location.x, location.y);
     // if my gem is not on the grid when I let go, send it back to it's original location
     CGRect collectionViewRect;
@@ -259,6 +261,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[0] = touchedGem;
                 board.boardColors[0] = touchedGem.owner.color;
                 board.boardBools[0] = [NSNumber numberWithBool:YES];
@@ -271,6 +274,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[1] = touchedGem;
                 board.boardColors[1] = touchedGem.owner.color;
                 board.boardBools[1] = [NSNumber numberWithBool:YES];
@@ -283,6 +287,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[2] = touchedGem;
                 board.boardColors[2] = touchedGem.owner.color;
                 board.boardBools[2] = [NSNumber numberWithBool:YES];
@@ -295,6 +300,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[3] = touchedGem;
                 board.boardColors[3] = touchedGem.owner.color;
                 board.boardBools[3] = [NSNumber numberWithBool:YES];
@@ -307,6 +313,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[4] = touchedGem;
                 board.boardColors[4] = touchedGem.owner.color;
                 board.boardBools[4] = [NSNumber numberWithBool:YES];
@@ -319,6 +326,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[5] = touchedGem;
                 board.boardColors[5] = touchedGem.owner.color;
                 board.boardBools[5] = [NSNumber numberWithBool:YES];
@@ -331,6 +339,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[6] = touchedGem;
                 board.boardColors[6] = touchedGem.owner.color;
                 board.boardBools[6] = [NSNumber numberWithBool:YES];
@@ -343,6 +352,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[7] = touchedGem;
                 board.boardColors[7] = touchedGem.owner.color;
                 board.boardBools[7] = [NSNumber numberWithBool:YES];
@@ -355,6 +365,7 @@
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
+                humanMoveMade = YES;
                 board.boardObjects[8] = touchedGem;
                 board.boardColors[8] = touchedGem.owner.color;
                 board.boardBools[8] = [NSNumber numberWithBool:YES];
@@ -363,13 +374,12 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         }
-
-        [self changeTurnOrder];
         
         if ([self isGameOver]) {
             [self declareWinner];
-        } else {
-            [self robotMakeTurn];
+        } else if (humanMoveMade) {
+            [self changeTurnOrder];
+            [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
         }
     }
 }
@@ -494,7 +504,7 @@
         [self.view addSubview:label];
     } else {
         //create defeat label, place on screen
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(150, 240, 200, 200)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 150, 180, 180)];
         label.text = @"DEFEAT";
         label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
         label.font = [label.font fontWithSize:25];
@@ -789,7 +799,11 @@
     NSArray *visibleCellIndex = self.collectionView.indexPathsForVisibleItems;
     NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
     NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
-    [self.collectionView cellForItemAtIndexPath:sortedVisibleCells[index]].backgroundColor = board.boardColors[index];
+    NSLog(@"BOUT TO ANIMATE");
+    [UIView animateWithDuration:.8 animations:^{
+        NSLog(@"ANIMATING");
+        [self.collectionView cellForItemAtIndexPath:sortedVisibleCells[index]].backgroundColor = board.boardColors[index];
+    }];
 }
 
 -(void)updateBoardColorV2:(CGPoint)loc
