@@ -15,12 +15,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    RFHViewController *rvc = [[RFHViewController alloc] init];
-    self.window.rootViewController = rvc;
+    [self startGame];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)startGame {
+    RFHViewController *rvc = [[RFHViewController alloc] init];
+    self.window.rootViewController = rvc;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

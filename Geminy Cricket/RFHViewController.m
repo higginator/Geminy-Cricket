@@ -13,8 +13,10 @@
 #import "RFHGameBoard.h"
 #import "RFHHumanPlayer.h"
 #import "RFHRobotPlayer.h"
+#import "RFHAppDelegate.h"
 
 @interface RFHViewController ()
+
 
 @end
 
@@ -39,6 +41,8 @@
     
     NSInteger boardOffsetX, boardOffsetY;
     
+    UIButton *resetButton;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,9 +54,13 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)doEverything
 {
-    [super viewDidLoad];
+    resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
+    [resetButton setTitle:@"RESET" forState:UIControlStateNormal];
+    resetButton.frame = CGRectMake(120, 30, 75, 50);
+    [self.view addSubview:resetButton];
 	// Do any additional setup after loading the view, typically from a nib.
     board = [[RFHGameBoard alloc] init];
     board.boardObjects = [[NSMutableArray alloc] init];
@@ -164,7 +172,7 @@
     self.gemFour.gem = gemHand[3];
     self.gemFive.gem = gemHand[4];
     self.gemSix.gem = gemHand[5];
-
+    
     
     
     // add gems to screen
@@ -177,14 +185,25 @@
     
     // number mappings
     numberMappings = [[NSMutableDictionary alloc] initWithDictionary:@{@"1": @"One",
-                                                    @"2": @"Two",
-                                                    @"3": @"Three",
-                                                    @"4": @"Four",
-                                                    @"5": @"Five",
-                                                    @"6": @"Six",
-                                                    @"7": @"Seven",
-                                                    @"8": @"Eight",
-                                                    @"9": @"Nine"}];
+                                                                       @"2": @"Two",
+                                                                       @"3": @"Three",
+                                                                       @"4": @"Four",
+                                                                       @"5": @"Five",
+                                                                       @"6": @"Six",
+                                                                       @"7": @"Seven",
+                                                                       @"8": @"Eight",
+                                                                       @"9": @"Nine"}];
+}
+
+-(void)loadView
+{
+    [super loadView];
+    [self doEverything];
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
     
 }
 
@@ -799,7 +818,6 @@
     NSArray *visibleCellIndex = self.collectionView.indexPathsForVisibleItems;
     NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
     NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
-    NSLog(@"BOUT TO ANIMATE");
     [UIView animateWithDuration:.8 animations:^{
         NSLog(@"ANIMATING");
         [self.collectionView cellForItemAtIndexPath:sortedVisibleCells[index]].backgroundColor = board.boardColors[index];
@@ -827,6 +845,12 @@
             cell.backgroundColor = board.boardColors[i];
         }
     }
+}
+
+-(void)resetGame
+{
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate performSelector:@selector(startGame)];
 }
 
 @end
