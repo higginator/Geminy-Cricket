@@ -14,6 +14,7 @@
 #import "RFHHumanPlayer.h"
 #import "RFHRobotPlayer.h"
 #import "RFHAppDelegate.h"
+#import "QuartzCore/CALayer.h"
 
 @interface RFHViewController ()
 
@@ -56,6 +57,7 @@
 
 -(void)doEverything
 {
+    
     resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
     [resetButton setTitle:@"RESET" forState:UIControlStateNormal];
@@ -93,24 +95,38 @@
     }
     NSLog(@"My View Did Load");
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 86, 300, 375)
                                              collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    [self.collectionView.layer setCornerRadius:10.0f];
+    [self.collectionView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.collectionView.layer setBorderWidth:1.0f];
+
+    
     [self.collectionView registerClass:[UICollectionViewCell class]
             forCellWithReuseIdentifier:@"boardCell"];
     self.collectionView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.collectionView];
     
-    
+
+    // Make background gem rect holder to signify player color
+    CGRect humanGemHolderSize = CGRectMake(10, 498, 300, 50);
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:humanGemHolderSize];
+    [imageView.layer setCornerRadius:10.0f];
+    [imageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [imageView.layer setBorderWidth:1.0f];
+    imageView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:imageView];
+
     //initialize view objects
     int y = 498;
     int width = 50;
     int height = 50;
     self.gemOne = [[RFHGemImageContainer alloc] init];
     self.gemOne.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, y, width, height)];
-    
+
     self.gemTwo = [[RFHGemImageContainer alloc] init];
     self.gemTwo.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, y, width, height)];
     
@@ -193,6 +209,8 @@
                                                                        @"7": @"Seven",
                                                                        @"8": @"Eight",
                                                                        @"9": @"Nine"}];
+    
+
 }
 
 -(void)loadView
