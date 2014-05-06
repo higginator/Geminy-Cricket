@@ -29,6 +29,20 @@
 		33B40DE418FA587400936260 /* RFHGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DE318FA587400936260 /* RFHGameView.m */; };
 		33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */; };
 		33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */; };
+		33B40DF6190A403500936260 /* purple_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DF5190A403500936260 /* purple_gem.png */; };
+		33B40DF8190AE40000936260 /* gem4_textured.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DF7190AE40000936260 /* gem4_textured.png */; };
+		33B40DFA190AE53B00936260 /* gemuntextured.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DF9190AE53A00936260 /* gemuntextured.png */; };
+		33B40DFC190AE63400936260 /* gemuntextured2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40DFB190AE63400936260 /* gemuntextured2.png */; };
+		33B40E1A1918A59400936260 /* GemLevel1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E151918A59400936260 /* GemLevel1@2x.png */; };
+		33B40E1B1918A59400936260 /* GemLevel2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E161918A59400936260 /* GemLevel2@2x.png */; };
+		33B40E1C1918A59400936260 /* GemLevel3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E171918A59400936260 /* GemLevel3@2x.png */; };
+		33B40E1D1918A59400936260 /* GemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E181918A59400936260 /* GemLevel4@2x.png */; };
+		33B40E1E1918A59400936260 /* GemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E191918A59400936260 /* GemLevel5@2x.png */; };
+		33B40E241918A5A700936260 /* GemLevel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E1F1918A5A700936260 /* GemLevel1.png */; };
+		33B40E251918A5A700936260 /* GemLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E201918A5A700936260 /* GemLevel2.png */; };
+		33B40E261918A5A700936260 /* GemLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E211918A5A700936260 /* GemLevel3.png */; };
+		33B40E271918A5A700936260 /* GemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E221918A5A700936260 /* GemLevel4.png */; };
+		33B40E281918A5A700936260 /* GemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E231918A5A700936260 /* GemLevel5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +90,20 @@
 		33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGemImageContainer.m; sourceTree = "<group>"; };
 		33B40DE918FAAB7F00936260 /* RFHGameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGameBoard.h; sourceTree = "<group>"; };
 		33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGameBoard.m; sourceTree = "<group>"; };
+		33B40DF5190A403500936260 /* purple_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_gem.png; sourceTree = "<group>"; };
+		33B40DF7190AE40000936260 /* gem4_textured.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gem4_textured.png; sourceTree = "<group>"; };
+		33B40DF9190AE53A00936260 /* gemuntextured.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gemuntextured.png; sourceTree = "<group>"; };
+		33B40DFB190AE63400936260 /* gemuntextured2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gemuntextured2.png; sourceTree = "<group>"; };
+		33B40E151918A59400936260 /* GemLevel1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel1@2x.png"; sourceTree = "<group>"; };
+		33B40E161918A59400936260 /* GemLevel2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel2@2x.png"; sourceTree = "<group>"; };
+		33B40E171918A59400936260 /* GemLevel3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel3@2x.png"; sourceTree = "<group>"; };
+		33B40E181918A59400936260 /* GemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel4@2x.png"; sourceTree = "<group>"; };
+		33B40E191918A59400936260 /* GemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel5@2x.png"; sourceTree = "<group>"; };
+		33B40E1F1918A5A700936260 /* GemLevel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel1.png; sourceTree = "<group>"; };
+		33B40E201918A5A700936260 /* GemLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel2.png; sourceTree = "<group>"; };
+		33B40E211918A5A700936260 /* GemLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel3.png; sourceTree = "<group>"; };
+		33B40E221918A5A700936260 /* GemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel4.png; sourceTree = "<group>"; };
+		33B40E231918A5A700936260 /* GemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +178,21 @@
 				33B40DE318FA587400936260 /* RFHGameView.m */,
 				33B40DDD18FA55F500936260 /* RFHViewController.xib */,
 				33B40DB218FA55BF00936260 /* Images.xcassets */,
+				33B40E151918A59400936260 /* GemLevel1@2x.png */,
+				33B40E161918A59400936260 /* GemLevel2@2x.png */,
+				33B40E171918A59400936260 /* GemLevel3@2x.png */,
+				33B40E181918A59400936260 /* GemLevel4@2x.png */,
+				33B40E191918A59400936260 /* GemLevel5@2x.png */,
+				33B40E1F1918A5A700936260 /* GemLevel1.png */,
+				33B40E201918A5A700936260 /* GemLevel2.png */,
+				33B40E211918A5A700936260 /* GemLevel3.png */,
+				33B40E221918A5A700936260 /* GemLevel4.png */,
+				33B40E231918A5A700936260 /* GemLevel5.png */,
 				33B40DE018FA569E00936260 /* Chipped_Ruby.png */,
+				33B40DF5190A403500936260 /* purple_gem.png */,
+				33B40DF9190AE53A00936260 /* gemuntextured.png */,
+				33B40DFB190AE63400936260 /* gemuntextured2.png */,
+				33B40DF7190AE40000936260 /* gem4_textured.png */,
 				33B40DA718FA55BF00936260 /* Supporting Files */,
 			);
 			path = "Geminy Cricket";
@@ -274,10 +316,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B40E1A1918A59400936260 /* GemLevel1@2x.png in Resources */,
 				33B40DDF18FA55F500936260 /* RFHViewController.xib in Resources */,
+				33B40DF8190AE40000936260 /* gem4_textured.png in Resources */,
+				33B40DFC190AE63400936260 /* gemuntextured2.png in Resources */,
+				33B40E261918A5A700936260 /* GemLevel3.png in Resources */,
 				33B40DE118FA569E00936260 /* Chipped_Ruby.png in Resources */,
+				33B40E271918A5A700936260 /* GemLevel4.png in Resources */,
+				33B40DF6190A403500936260 /* purple_gem.png in Resources */,
+				33B40E1D1918A59400936260 /* GemLevel4@2x.png in Resources */,
+				33B40E1E1918A59400936260 /* GemLevel5@2x.png in Resources */,
+				33B40E241918A5A700936260 /* GemLevel1.png in Resources */,
+				33B40E1C1918A59400936260 /* GemLevel3@2x.png in Resources */,
+				33B40E1B1918A59400936260 /* GemLevel2@2x.png in Resources */,
+				33B40DFA190AE53B00936260 /* gemuntextured.png in Resources */,
+				33B40E281918A5A700936260 /* GemLevel5.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
 				33B40DB318FA55BF00936260 /* Images.xcassets in Resources */,
+				33B40E251918A5A700936260 /* GemLevel2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

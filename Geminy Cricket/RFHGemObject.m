@@ -19,10 +19,13 @@
     if (self = [super init]) {
         _value = n;
         _color = color;
-        _gemImage = [UIImage imageNamed:@"Chipped_Ruby.png"];
+        NSString *imageName = [NSString stringWithFormat:@"GemLevel%ld.png", n];
+        NSLog(@"image name is %@", imageName);
+        _gemImage = [UIImage imageNamed:imageName];
     }
     return self;
 }
+
 
 -(instancetype)init {
     return [self initWithColor:[UIColor grayColor] Value:0];
@@ -35,11 +38,11 @@
     int colorsIndex = arc4random() % [colors count];
     int val = 0;
     while (val == 0) {
-        val = arc4random() % 10;
+        val = arc4random() % 6;
     }
     
     UIColor *color = colors[colorsIndex];
-    
+    NSLog(@"the val is %d", val);
     return [[self alloc] initWithColor:color Value:val];
 }
 @end
