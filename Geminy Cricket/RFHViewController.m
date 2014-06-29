@@ -57,12 +57,6 @@
 
 -(void)doEverything
 {
-    
-    resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
-    [resetButton setTitle:@"RESET" forState:UIControlStateNormal];
-    resetButton.frame = CGRectMake(120, 30, 75, 50);
-    [self.view addSubview:resetButton];
 	// Do any additional setup after loading the view, typically from a nib.
     board = [[RFHGameBoard alloc] init];
     board.boardObjects = [[NSMutableArray alloc] init];
@@ -532,19 +526,34 @@
             humanTotal++;
         }
     }
+    UIImageView *scrollView = [[UIImageView alloc] initWithFrame:CGRectMake(70, 100, 180, 250)];
+    UIImage *scrollImage = [UIImage imageNamed:@"scroll_90opacity.png"];
+    scrollView.image = scrollImage;
+    
+    
+    resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    resetButton.layer.cornerRadius = 5.0f;
+    [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
+    [resetButton setTitle:@"REPLAY" forState:UIControlStateNormal];
+    resetButton.frame = CGRectMake(120, 250, 65, 30);
+    resetButton.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:scrollView];
+    [self.view addSubview:resetButton];
+    
     if (humanTotal >= 5) {
         //create victory label, place on screen
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 150, 180, 180)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         label.text = @"VICTORY";
         label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
-        label.font = [label.font fontWithSize:25];
+        //label.font = [label.font fontWithSize:25];
+        label.font = [UIFont fontWithName:@"Zapfino" size:15];
         [self.view addSubview:label];
     } else {
         //create defeat label, place on screen
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(110, 150, 180, 180)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         label.text = @"DEFEAT";
         label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
-        label.font = [label.font fontWithSize:25];
+        label.font = [UIFont fontWithName:@"Zapfino" size:15];
         [self.view addSubview:label];
     }
 

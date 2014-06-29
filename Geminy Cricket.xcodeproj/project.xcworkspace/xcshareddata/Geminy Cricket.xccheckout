@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3DCBA39F-F4A6-40A5-9F4E-4E5A0868E305</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Geminy Cricket</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>357026B9-3ACC-4F0D-9E96-222F351C41BF</key>
+		<string>https://github.com/ghear/Geminy-Cricket</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Geminy Cricket.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>357026B9-3ACC-4F0D-9E96-222F351C41BF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ghear/Geminy-Cricket</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>357026B9-3ACC-4F0D-9E96-222F351C41BF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>357026B9-3ACC-4F0D-9E96-222F351C41BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Geminy Cricket</string>
+		</dict>
+	</array>
+</dict>
+</plist>
