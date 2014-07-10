@@ -19,7 +19,7 @@
     if (self = [super init]) {
         _value = n;
         _color = color;
-        NSString *imageName = [NSString stringWithFormat:@"GemLevel%ld.png", n];
+        NSString *imageName = [NSString stringWithFormat:@"GemLevel%ld.png", (long) n];
         NSLog(@"image name is %@", imageName);
         _gemImage = [UIImage imageNamed:imageName];
     }

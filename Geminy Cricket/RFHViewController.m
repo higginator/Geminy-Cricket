@@ -876,7 +876,7 @@
 -(void)resetGame
 {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate performSelector:@selector(startGame)];
+    [appDelegate performSelector:@selector(resetGame)];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "RFHAppDelegate.h"
 #import "RFHViewController.h"
+#import "RFHHomeScreenViewController.h"
 
 @implementation RFHAppDelegate
 
@@ -15,14 +16,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [self startGame];
+    RFHHomeScreenViewController *homeScreen = [[RFHHomeScreenViewController alloc] init];
+    self.window.rootViewController = homeScreen;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
--(void)startGame {
+-(void)resetGame {
     RFHViewController *rvc = [[RFHViewController alloc] init];
     self.window.rootViewController = rvc;
 }

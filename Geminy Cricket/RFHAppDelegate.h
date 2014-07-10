@@ -13,6 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
--(void)startGame;
+-(void)resetGame;
 
 @end
