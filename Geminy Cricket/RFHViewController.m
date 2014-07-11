@@ -68,8 +68,20 @@
     robotOpponent = [[RFHRobotPlayer alloc] initWithName:@"Robopponent" Color:[UIColor cyanColor]];
     [self initializeRobotGemHand];
     
+    int y;
+    if ([[UIScreen mainScreen] bounds].size.height == 568) {
+        //iPhone 5 screen
+        boardOffsetY = 86;
+        y = 498;
+    } else {
+        NSLog(@"I am iphone 4");
+        //iPhone 4/4s screen
+        boardOffsetY = 26;
+        y = 418;
+    }
+    
     boardOffsetX = 10;
-    boardOffsetY = 86;
+    //boardOffsetY = 86;
     moveCount = 0;
     
     //for (int i = 0; i < 9; i++) {
@@ -89,7 +101,7 @@
     }
     NSLog(@"My View Did Load");
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 86, 300, 375)
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 375)
                                              collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -105,8 +117,10 @@
     [self.view addSubview:self.collectionView];
     
 
+    //int y = 498;
+    
     // Make background gem rect holder to signify player color
-    CGRect humanGemHolderSize = CGRectMake(10, 498, 300, 50);
+    CGRect humanGemHolderSize = CGRectMake(10, y, 300, 50);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:humanGemHolderSize];
     [imageView.layer setCornerRadius:10.0f];
     [imageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
@@ -115,7 +129,6 @@
     [self.view addSubview:imageView];
 
     //initialize view objects
-    int y = 498;
     int width = 50;
     int height = 50;
     self.gemOne = [[RFHGemImageContainer alloc] init];
@@ -160,12 +173,19 @@
     self.gemSix.imageView.image = gem.gemImage;
     
     // set GemImageContainer's gemOriginalCenter
-    self.gemOne.gemOriginalCenter = CGPointMake(35, 523);
-    self.gemTwo.gemOriginalCenter = CGPointMake(85, 523);
-    self.gemThree.gemOriginalCenter = CGPointMake(135, 523);
-    self.gemFour.gemOriginalCenter = CGPointMake(185, 523);
-    self.gemFive.gemOriginalCenter = CGPointMake(235, 523);
-    self.gemSix.gemOriginalCenter = CGPointMake(285, 523);
+    self.gemOne.gemOriginalCenter = self.gemOne.imageView.center;
+    self.gemTwo.gemOriginalCenter = self.gemTwo.imageView.center;
+    self.gemThree.gemOriginalCenter = self.gemThree.imageView.center;
+    self.gemFour.gemOriginalCenter = self.gemFour.imageView.center;
+    self.gemFive.gemOriginalCenter = self.gemFive.imageView.center;
+    self.gemSix.gemOriginalCenter = self.gemSix.imageView.center;
+    //int x = 50;
+    //self.gemOne.gemOriginalCenter = CGPointMake(35, 523);
+    //self.gemTwo.gemOriginalCenter = CGPointMake(35 + x, 523);
+    //self.gemThree.gemOriginalCenter = CGPointMake(35 + 2 * x, 523);
+    //self.gemFour.gemOriginalCenter = CGPointMake(35 + 3 * x, 523);
+    //self.gemFive.gemOriginalCenter = CGPointMake(35 + 4 * x, 523);
+    //self.gemSix.gemOriginalCenter = CGPointMake(35 + 5 * x, 523);
     
     // set gem's owner
     self.gemOne.owner = human;
