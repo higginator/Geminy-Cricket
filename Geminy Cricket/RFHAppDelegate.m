@@ -28,7 +28,6 @@
     
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    NSLog(@"%@ and %@", soundFilePath, soundFileURL);
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     

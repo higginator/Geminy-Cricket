@@ -40,6 +40,7 @@
 		33D63C77196F1523003B2DE8 /* RFHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */; };
 		33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */; };
 		33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C79197387C6003B2DE8 /* canes.mp3 */; };
+		33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */; };
 		33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D90889195E0B4300F25B8F /* scroll_90opacity.png */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHHomeScreenViewController.m; sourceTree = "<group>"; };
 		33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHHomeScreenViewController.xib; sourceTree = "<group>"; };
 		33D63C79197387C6003B2DE8 /* canes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canes.mp3; sourceTree = "<group>"; };
+		33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeminyCricketHomeScreenBackGem.png; sourceTree = "<group>"; };
 		33D90889195E0B4300F25B8F /* scroll_90opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_90opacity.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				33B40E211918A5A700936260 /* GemLevel3.png */,
 				33B40E221918A5A700936260 /* GemLevel4.png */,
 				33B40E231918A5A700936260 /* GemLevel5.png */,
+				33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */,
 				33B40DA718FA55BF00936260 /* Supporting Files */,
 			);
 			path = "Geminy Cricket";
@@ -326,6 +329,7 @@
 				33B40E281918A5A700936260 /* GemLevel5.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
 				33B40DB318FA55BF00936260 /* Images.xcassets in Resources */,
+				33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */,
 				33B40E251918A5A700936260 /* GemLevel2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
