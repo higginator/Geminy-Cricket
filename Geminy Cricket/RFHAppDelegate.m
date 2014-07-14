@@ -9,6 +9,13 @@
 #import "RFHAppDelegate.h"
 #import "RFHViewController.h"
 #import "RFHHomeScreenViewController.h"
+#import <AVFoundation/AVFoundation.h>
+
+@interface RFHAppDelegate ()
+
+@property (strong) AVAudioPlayer *audioPlayer;
+
+@end
 
 @implementation RFHAppDelegate
 
@@ -18,6 +25,17 @@
     // Override point for customization after application launch.
     RFHHomeScreenViewController *homeScreen = [[RFHHomeScreenViewController alloc] init];
     self.window.rootViewController = homeScreen;
+    
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    NSLog(@"%@ and %@", soundFilePath, soundFileURL);
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    
+    self.audioPlayer.numberOfLoops = -1;
+    
+    [self.audioPlayer play];
+
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

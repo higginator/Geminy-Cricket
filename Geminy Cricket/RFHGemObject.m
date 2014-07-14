@@ -20,7 +20,6 @@
         _value = n;
         _color = color;
         NSString *imageName = [NSString stringWithFormat:@"GemLevel%ld.png", (long) n];
-        NSLog(@"image name is %@", imageName);
         _gemImage = [UIImage imageNamed:imageName];
     }
     return self;
@@ -42,7 +41,6 @@
     }
     
     UIColor *color = colors[colorsIndex];
-    NSLog(@"the val is %d", val);
     return [[self alloc] initWithColor:color Value:val];
 }
 @end
