@@ -24,6 +24,12 @@
     return YES;
 }
 
+-(void)returnHome
+{
+    RFHHomeScreenViewController *homeScreen = [[RFHHomeScreenViewController alloc] init];
+    self.window.rootViewController = homeScreen;
+}
+
 -(void)resetGame {
     RFHViewController *rvc = [[RFHViewController alloc] init];
     self.window.rootViewController = rvc;

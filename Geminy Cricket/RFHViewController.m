@@ -43,6 +43,7 @@
     NSInteger boardOffsetX, boardOffsetY;
     
     UIButton *resetButton;
+    UIButton *homeScreenButton;
     
 }
 
@@ -74,14 +75,12 @@
         boardOffsetY = 86;
         y = 498;
     } else {
-        NSLog(@"I am iphone 4");
         //iPhone 4/4s screen
         boardOffsetY = 26;
         y = 418;
     }
     
     boardOffsetX = 10;
-    //boardOffsetY = 86;
     moveCount = 0;
     
     //for (int i = 0; i < 9; i++) {
@@ -99,7 +98,6 @@
     for (int i = 0; i < 6; i++) {
         [gemHand addObject:[RFHGemObject randomGem]];
     }
-    NSLog(@"My View Did Load");
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 375)
                                              collectionViewLayout:layout];
@@ -117,7 +115,6 @@
     [self.view addSubview:self.collectionView];
     
 
-    //int y = 498;
     
     // Make background gem rect holder to signify player color
     CGRect humanGemHolderSize = CGRectMake(10, y, 300, 50);
@@ -289,13 +286,12 @@
     UITouch *touch = [touches anyObject];
     
     CGPoint collectionLocation = [touch locationInView:self.collectionView];
-    NSLog(@"The location in the collection view is %f, %f", collectionLocation.x, collectionLocation.y);
+    //NSLog(@"The location in the collection view is %f, %f", collectionLocation.x, collectionLocation.y);
     
     CGPoint location = [touch locationInView:touch.view];
     
     BOOL humanMoveMade = NO;
     
-    NSLog(@"THE LOCATION OF THE LAST TOUCH IS: %f, %f", location.x, location.y);
     // if my gem is not on the grid when I let go, send it back to it's original location
     CGRect collectionViewRect;
     collectionViewRect.origin = self.collectionView.frame.origin;
@@ -554,11 +550,20 @@
     resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     resetButton.layer.cornerRadius = 5.0f;
     [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
-    [resetButton setTitle:@"REPLAY" forState:UIControlStateNormal];
+    [resetButton setTitle:@"Replay" forState:UIControlStateNormal];
     resetButton.frame = CGRectMake(120, 250, 65, 30);
-    resetButton.backgroundColor = [UIColor whiteColor];
+    resetButton.backgroundColor = [UIColor clearColor];
     [self.view addSubview:scrollView];
     [self.view addSubview:resetButton];
+    
+    homeScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    homeScreenButton.layer.cornerRadius = 5.0f;
+    [homeScreenButton addTarget:self action:@selector(returnHome) forControlEvents:UIControlEventTouchUpInside];
+    [homeScreenButton setTitle:@"Home" forState:UIControlStateNormal];
+    homeScreenButton.frame = CGRectMake(120, 210, 65, 30);
+    homeScreenButton.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:homeScreenButton];
+
     
     if (humanTotal >= 5) {
         //create victory label, place on screen
@@ -893,6 +898,11 @@
     }
 }
 
+-(void)returnHome
+{
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate performSelector:@selector(returnHome)];
+}
 -(void)resetGame
 {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
