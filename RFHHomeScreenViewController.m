@@ -8,6 +8,8 @@
 
 #import "RFHHomeScreenViewController.h"
 #import "RFHViewController.h"
+#import "RFHStatsViewController.h"
+#import "RFHAppDelegate.h"
 
 @interface RFHHomeScreenViewController ()
 
@@ -20,8 +22,16 @@
     UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
     RFHViewController *rvc = [[RFHViewController alloc] init];
     topWindow.rootViewController = rvc;
+    
+    self.gameViewController = rvc;
 }
 
+- (IBAction)showStats:(id)sender {
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = appDelegate.statsViewController;
+    //UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+    //topWindow.rootViewController = appDelegate.statsViewController;
+}
 
 - (void)viewDidLoad
 {

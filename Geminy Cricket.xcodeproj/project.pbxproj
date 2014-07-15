@@ -41,6 +41,8 @@
 		33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */; };
 		33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C79197387C6003B2DE8 /* canes.mp3 */; };
 		33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */; };
+		33D63C8119749679003B2DE8 /* RFHStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */; };
+		33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */; };
 		33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D90889195E0B4300F25B8F /* scroll_90opacity.png */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,9 @@
 		33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHHomeScreenViewController.xib; sourceTree = "<group>"; };
 		33D63C79197387C6003B2DE8 /* canes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canes.mp3; sourceTree = "<group>"; };
 		33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeminyCricketHomeScreenBackGem.png; sourceTree = "<group>"; };
+		33D63C7E19749679003B2DE8 /* RFHStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHStatsViewController.h; sourceTree = "<group>"; };
+		33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHStatsViewController.m; sourceTree = "<group>"; };
+		33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHStatsViewController.xib; sourceTree = "<group>"; };
 		33D90889195E0B4300F25B8F /* scroll_90opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_90opacity.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +140,9 @@
 				33D63C74196F1523003B2DE8 /* RFHHomeScreenViewController.h */,
 				33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */,
 				33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */,
+				33D63C7E19749679003B2DE8 /* RFHStatsViewController.h */,
+				33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */,
+				33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */,
 				33B40DA618FA55BF00936260 /* Geminy Cricket */,
 				33B40DBF18FA55BF00936260 /* Geminy CricketTests */,
 				33B40D9F18FA55BF00936260 /* Frameworks */,
@@ -315,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */,
 				33B40E1A1918A59400936260 /* GemLevel1@2x.png in Resources */,
 				33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */,
 				33B40E261918A5A700936260 /* GemLevel3.png in Resources */,
@@ -350,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B40DD718FA55D400936260 /* RFHGemObject.m in Sources */,
+				33D63C8119749679003B2DE8 /* RFHStatsViewController.m in Sources */,
 				33D63C77196F1523003B2DE8 /* RFHHomeScreenViewController.m in Sources */,
 				33B40DD818FA55D400936260 /* RFHHumanPlayer.m in Sources */,
 				33B40DDA18FA55D400936260 /* RFHRobotPlayer.m in Sources */,

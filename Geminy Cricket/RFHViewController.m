@@ -45,6 +45,8 @@
     UIButton *resetButton;
     UIButton *homeScreenButton;
     
+    NSUInteger humanTotal;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,7 +60,9 @@
 
 -(void)doEverything
 {
+    NSLog(@"doEverything has been called!");
 	// Do any additional setup after loading the view, typically from a nib.
+    humanTotal = 0;
     board = [[RFHGameBoard alloc] init];
     board.boardObjects = [[NSMutableArray alloc] init];
     board.boardColors = [[NSMutableArray alloc] init];
@@ -221,11 +225,12 @@
                                                                        @"8": @"Eight",
                                                                        @"9": @"Nine"}];
     
-
+    
 }
 
 -(void)loadView
 {
+    NSLog(@"loadView has been called!");
     [super loadView];
     [self doEverything];
 }
@@ -238,6 +243,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"viewDidAppear has been called!");
     [super viewDidAppear:animated];
     [self assignCellRectangleValues];
 }
@@ -425,6 +431,7 @@
         if ([self isGameOver]) {
             [self declareWinner];
         } else if (humanMoveMade) {
+            NSLog(@"A Human made a move!");
             [self changeTurnOrder];
             [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
         }
@@ -536,7 +543,6 @@
 
 -(void)declareWinner
 {
-    int humanTotal = 0;
     for (UIColor *color in board.boardColors) {
         if (color == human.color) {
             humanTotal++;
@@ -566,6 +572,11 @@
 
     
     if (humanTotal >= 5) {
+        RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.wins++;
+        if (humanTotal > appDelegate.bestWin) {
+            appDelegate.bestWin = humanTotal;
+        }
         //create victory label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         label.text = @"VICTORY";
@@ -574,6 +585,11 @@
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
         [self.view addSubview:label];
     } else {
+        RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.losses++;
+        if ((9 - humanTotal) > appDelegate.worstLoss) {
+            appDelegate.worstLoss = (9 - humanTotal);
+        }
         //create defeat label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         label.text = @"DEFEAT";

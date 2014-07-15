@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RFHViewController.h"
 
 @interface RFHHomeScreenViewController : UIViewController
+
+@property (nonatomic) RFHViewController *gameViewController;
 
 @end

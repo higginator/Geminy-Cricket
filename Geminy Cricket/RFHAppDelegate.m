@@ -26,6 +26,16 @@
     RFHHomeScreenViewController *homeScreen = [[RFHHomeScreenViewController alloc] init];
     self.window.rootViewController = homeScreen;
     
+    self.homeScreenViewController = homeScreen;
+    self.statsViewController = [[RFHStatsViewController alloc] init];
+    
+    self.wins = 0;
+    self.losses = 0;
+    self.bestWin = 0;
+    self.worstLoss = 0;
+    
+    //initialize sound
+
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
@@ -50,6 +60,7 @@
 -(void)resetGame {
     RFHViewController *rvc = [[RFHViewController alloc] init];
     self.window.rootViewController = rvc;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
