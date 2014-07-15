@@ -20,7 +20,6 @@
 @property (nonatomic) RFHGemImageContainer *gemFive;
 @property (nonatomic) RFHGemImageContainer *gemSix;
 
-
-
+@property (nonatomic) NSMutableArray *moveOrder;
 
 @end

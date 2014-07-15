@@ -67,6 +67,7 @@
     board.boardObjects = [[NSMutableArray alloc] init];
     board.boardColors = [[NSMutableArray alloc] init];
     board.boardBools = [[NSMutableArray alloc] init];
+    self.moveOrder = [[NSMutableArray alloc] init];
     gemHand = [[NSMutableArray alloc] init];
     human = [[RFHHumanPlayer alloc] initWithName:@"RYGUY" Color:[UIColor orangeColor]];
     human.turn = YES;
@@ -318,6 +319,7 @@
                 board.boardObjects[0] = touchedGem;
                 board.boardColors[0] = touchedGem.owner.color;
                 board.boardBools[0] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[0] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellOneRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -331,6 +333,7 @@
                 board.boardObjects[1] = touchedGem;
                 board.boardColors[1] = touchedGem.owner.color;
                 board.boardBools[1] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[1] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellTwoRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -344,6 +347,7 @@
                 board.boardObjects[2] = touchedGem;
                 board.boardColors[2] = touchedGem.owner.color;
                 board.boardBools[2] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[2] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellThreeRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -357,6 +361,7 @@
                 board.boardObjects[3] = touchedGem;
                 board.boardColors[3] = touchedGem.owner.color;
                 board.boardBools[3] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[3] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellFourRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -370,6 +375,7 @@
                 board.boardObjects[4] = touchedGem;
                 board.boardColors[4] = touchedGem.owner.color;
                 board.boardBools[4] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[4] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellFiveRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -383,6 +389,7 @@
                 board.boardObjects[5] = touchedGem;
                 board.boardColors[5] = touchedGem.owner.color;
                 board.boardBools[5] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[5] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellSixRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -396,6 +403,7 @@
                 board.boardObjects[6] = touchedGem;
                 board.boardColors[6] = touchedGem.owner.color;
                 board.boardBools[6] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[6] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellSevenRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -409,6 +417,7 @@
                 board.boardObjects[7] = touchedGem;
                 board.boardColors[7] = touchedGem.owner.color;
                 board.boardBools[7] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[7] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellEightRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -422,6 +431,7 @@
                 board.boardObjects[8] = touchedGem;
                 board.boardColors[8] = touchedGem.owner.color;
                 board.boardBools[8] = [NSNumber numberWithBool:YES];
+                [self.moveOrder addObject:touchedGem];
                 vacantCells[8] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellNineRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
@@ -515,6 +525,7 @@
     NSString *cellName = [NSString stringWithFormat:@"cell%@Rectangle", [numberMappings objectForKey:[NSString stringWithFormat:@"%d", cellIndex + 1]]];
     CGRect cellRect = [[myItems objectForKey:cellName] CGRectValue];
     robotGemImage.imageView.center = CGPointMake(CGRectGetMidX(cellRect) + boardOffsetX, CGRectGetMidY(cellRect) + boardOffsetY);
+    [self.moveOrder addObject:robotGemImage];
     [self.view addSubview:robotGemImage.imageView];
     [self boardCheck:robotGemImage collectionLocation:cell.center];
     [self changeTurnOrder];
