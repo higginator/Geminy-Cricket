@@ -30,12 +30,12 @@
 		33B40E1A1918A59400936260 /* GemLevel1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E151918A59400936260 /* GemLevel1@2x.png */; };
 		33B40E1B1918A59400936260 /* GemLevel2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E161918A59400936260 /* GemLevel2@2x.png */; };
 		33B40E1C1918A59400936260 /* GemLevel3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E171918A59400936260 /* GemLevel3@2x.png */; };
-		33B40E1D1918A59400936260 /* GemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E181918A59400936260 /* GemLevel4@2x.png */; };
+		33B40E1D1918A59400936260 /* oldGemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E181918A59400936260 /* oldGemLevel4@2x.png */; };
 		33B40E1E1918A59400936260 /* oldGemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E191918A59400936260 /* oldGemLevel5@2x.png */; };
 		33B40E241918A5A700936260 /* GemLevel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E1F1918A5A700936260 /* GemLevel1.png */; };
 		33B40E251918A5A700936260 /* GemLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E201918A5A700936260 /* GemLevel2.png */; };
 		33B40E261918A5A700936260 /* GemLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E211918A5A700936260 /* GemLevel3.png */; };
-		33B40E271918A5A700936260 /* GemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E221918A5A700936260 /* GemLevel4.png */; };
+		33B40E271918A5A700936260 /* oldGemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E221918A5A700936260 /* oldGemLevel4.png */; };
 		33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E231918A5A700936260 /* oldGemLevel5.png */; };
 		33D63C77196F1523003B2DE8 /* RFHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */; };
 		33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */; };
@@ -47,12 +47,14 @@
 		33D63C8B1975963F003B2DE8 /* RFHCompletedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C8A1975963F003B2DE8 /* RFHCompletedGame.m */; };
 		33D63C92197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C90197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m */; };
 		33D63C93197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C91197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib */; };
-		33D63C9619759B0D003B2DE8 /* GemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9419759B0D003B2DE8 /* GemLevel5.png */; };
-		33D63C9719759B0D003B2DE8 /* GemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9519759B0D003B2DE8 /* GemLevel5@2x.png */; };
+		33D63C9619759B0D003B2DE8 /* GemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9419759B0D003B2DE8 /* GemLevel4.png */; };
+		33D63C9719759B0D003B2DE8 /* GemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9519759B0D003B2DE8 /* GemLevel4@2x.png */; };
 		33D63C9C1975AD98003B2DE8 /* App_icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C981975AD98003B2DE8 /* App_icon58.png */; };
 		33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C991975AD98003B2DE8 /* App_icon80.png */; };
 		33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9A1975AD98003B2DE8 /* App_icon120.png */; };
 		33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9B1975AD98003B2DE8 /* App_icon1024.png */; };
+		33D63CA21975C32B003B2DE8 /* gemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CA01975C32B003B2DE8 /* gemLevel5.png */; };
+		33D63CA31975C32B003B2DE8 /* gemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CA11975C32B003B2DE8 /* gemLevel5@2x.png */; };
 		33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D90889195E0B4300F25B8F /* scroll_90opacity.png */; };
 /* End PBXBuildFile section */
 
@@ -102,12 +104,12 @@
 		33B40E151918A59400936260 /* GemLevel1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel1@2x.png"; sourceTree = "<group>"; };
 		33B40E161918A59400936260 /* GemLevel2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel2@2x.png"; sourceTree = "<group>"; };
 		33B40E171918A59400936260 /* GemLevel3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel3@2x.png"; sourceTree = "<group>"; };
-		33B40E181918A59400936260 /* GemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel4@2x.png"; sourceTree = "<group>"; };
+		33B40E181918A59400936260 /* oldGemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel4@2x.png"; sourceTree = "<group>"; };
 		33B40E191918A59400936260 /* oldGemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel5@2x.png"; sourceTree = "<group>"; };
 		33B40E1F1918A5A700936260 /* GemLevel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel1.png; sourceTree = "<group>"; };
 		33B40E201918A5A700936260 /* GemLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel2.png; sourceTree = "<group>"; };
 		33B40E211918A5A700936260 /* GemLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel3.png; sourceTree = "<group>"; };
-		33B40E221918A5A700936260 /* GemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel4.png; sourceTree = "<group>"; };
+		33B40E221918A5A700936260 /* oldGemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel4.png; sourceTree = "<group>"; };
 		33B40E231918A5A700936260 /* oldGemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel5.png; sourceTree = "<group>"; };
 		33D63C74196F1523003B2DE8 /* RFHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHHomeScreenViewController.h; sourceTree = "<group>"; };
 		33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHHomeScreenViewController.m; sourceTree = "<group>"; };
@@ -124,12 +126,14 @@
 		33D63C8F197597B6003B2DE8 /* RFHDetailCompletedGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHDetailCompletedGameViewController.h; sourceTree = "<group>"; };
 		33D63C90197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHDetailCompletedGameViewController.m; sourceTree = "<group>"; };
 		33D63C91197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHDetailCompletedGameViewController.xib; sourceTree = "<group>"; };
-		33D63C9419759B0D003B2DE8 /* GemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel5.png; sourceTree = "<group>"; };
-		33D63C9519759B0D003B2DE8 /* GemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel5@2x.png"; sourceTree = "<group>"; };
+		33D63C9419759B0D003B2DE8 /* GemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel4.png; sourceTree = "<group>"; };
+		33D63C9519759B0D003B2DE8 /* GemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel4@2x.png"; sourceTree = "<group>"; };
 		33D63C981975AD98003B2DE8 /* App_icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon58.png; sourceTree = "<group>"; };
 		33D63C991975AD98003B2DE8 /* App_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon80.png; sourceTree = "<group>"; };
 		33D63C9A1975AD98003B2DE8 /* App_icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon120.png; sourceTree = "<group>"; };
 		33D63C9B1975AD98003B2DE8 /* App_icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon1024.png; sourceTree = "<group>"; };
+		33D63CA01975C32B003B2DE8 /* gemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gemLevel5.png; sourceTree = "<group>"; };
+		33D63CA11975C32B003B2DE8 /* gemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemLevel5@2x.png"; sourceTree = "<group>"; };
 		33D90889195E0B4300F25B8F /* scroll_90opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_90opacity.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,15 +226,17 @@
 				33B40E151918A59400936260 /* GemLevel1@2x.png */,
 				33B40E161918A59400936260 /* GemLevel2@2x.png */,
 				33B40E171918A59400936260 /* GemLevel3@2x.png */,
-				33B40E181918A59400936260 /* GemLevel4@2x.png */,
+				33B40E181918A59400936260 /* oldGemLevel4@2x.png */,
 				33B40E191918A59400936260 /* oldGemLevel5@2x.png */,
 				33B40E1F1918A5A700936260 /* GemLevel1.png */,
 				33B40E201918A5A700936260 /* GemLevel2.png */,
 				33B40E211918A5A700936260 /* GemLevel3.png */,
-				33B40E221918A5A700936260 /* GemLevel4.png */,
+				33B40E221918A5A700936260 /* oldGemLevel4.png */,
 				33B40E231918A5A700936260 /* oldGemLevel5.png */,
-				33D63C9419759B0D003B2DE8 /* GemLevel5.png */,
-				33D63C9519759B0D003B2DE8 /* GemLevel5@2x.png */,
+				33D63CA01975C32B003B2DE8 /* gemLevel5.png */,
+				33D63CA11975C32B003B2DE8 /* gemLevel5@2x.png */,
+				33D63C9419759B0D003B2DE8 /* GemLevel4.png */,
+				33D63C9519759B0D003B2DE8 /* GemLevel4@2x.png */,
 				33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
@@ -365,24 +371,26 @@
 				33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */,
 				33B40E1A1918A59400936260 /* GemLevel1@2x.png in Resources */,
 				33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */,
+				33D63CA31975C32B003B2DE8 /* gemLevel5@2x.png in Resources */,
 				33B40E261918A5A700936260 /* GemLevel3.png in Resources */,
 				33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */,
-				33B40E271918A5A700936260 /* GemLevel4.png in Resources */,
+				33B40E271918A5A700936260 /* oldGemLevel4.png in Resources */,
 				33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */,
 				33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */,
 				33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */,
-				33B40E1D1918A59400936260 /* GemLevel4@2x.png in Resources */,
+				33B40E1D1918A59400936260 /* oldGemLevel4@2x.png in Resources */,
 				33B40E1E1918A59400936260 /* oldGemLevel5@2x.png in Resources */,
 				33B40E241918A5A700936260 /* GemLevel1.png in Resources */,
+				33D63CA21975C32B003B2DE8 /* gemLevel5.png in Resources */,
 				33B40E1C1918A59400936260 /* GemLevel3@2x.png in Resources */,
 				33B40E1B1918A59400936260 /* GemLevel2@2x.png in Resources */,
 				33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
 				33D63C9C1975AD98003B2DE8 /* App_icon58.png in Resources */,
-				33D63C9719759B0D003B2DE8 /* GemLevel5@2x.png in Resources */,
+				33D63C9719759B0D003B2DE8 /* GemLevel4@2x.png in Resources */,
 				33B40DB318FA55BF00936260 /* Images.xcassets in Resources */,
 				33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */,
-				33D63C9619759B0D003B2DE8 /* GemLevel5.png in Resources */,
+				33D63C9619759B0D003B2DE8 /* GemLevel4.png in Resources */,
 				33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */,
 				33D63C93197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib in Resources */,
 				33B40E251918A5A700936260 /* GemLevel2.png in Resources */,
