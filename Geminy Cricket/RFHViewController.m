@@ -14,6 +14,7 @@
 #import "RFHHumanPlayer.h"
 #import "RFHRobotPlayer.h"
 #import "RFHAppDelegate.h"
+#import "RFHCompletedGame.h"
 #import "QuartzCore/CALayer.h"
 
 @interface RFHViewController ()
@@ -441,7 +442,6 @@
         if ([self isGameOver]) {
             [self declareWinner];
         } else if (humanMoveMade) {
-            NSLog(@"A Human made a move!");
             [self changeTurnOrder];
             [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
         }
@@ -582,6 +582,10 @@
     [self.view addSubview:homeScreenButton];
 
     
+    RFHCompletedGame *completedGame = [[RFHCompletedGame alloc] init];
+    completedGame.moveOrder = self.moveOrder;
+    
+    NSString *labelText;
     if (humanTotal >= 5) {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.wins++;
@@ -590,10 +594,12 @@
         }
         //create victory label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
-        label.text = @"VICTORY";
+        labelText = @"VICTORY";
+        label.text = labelText;
         label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
         //label.font = [label.font fontWithSize:25];
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        completedGame.outcome = labelText;
         [self.view addSubview:label];
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -603,11 +609,16 @@
         }
         //create defeat label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
-        label.text = @"DEFEAT";
+        labelText = @"DEFEAT";
+        label.text = labelText;
         label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        completedGame.outcome = labelText;
         [self.view addSubview:label];
     }
+    
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.gameHistoryController.completedGames addObject:completedGame];
 
 }
 /*

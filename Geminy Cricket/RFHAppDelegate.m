@@ -28,6 +28,7 @@
     
     self.homeScreenViewController = homeScreen;
     self.statsViewController = [[RFHStatsViewController alloc] init];
+    self.gameHistoryController = [[RFHGameHistoryController alloc] init];
     
     self.wins = 0;
     self.losses = 0;

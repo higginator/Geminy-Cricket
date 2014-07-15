@@ -29,8 +29,12 @@
 - (IBAction)showStats:(id)sender {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.window.rootViewController = appDelegate.statsViewController;
-    //UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
-    //topWindow.rootViewController = appDelegate.statsViewController;
+}
+
+- (IBAction)showHistory:(id)sender {
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = appDelegate.gameHistoryController;
+
 }
 
 - (void)viewDidLoad

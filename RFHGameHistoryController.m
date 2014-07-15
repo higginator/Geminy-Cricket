@@ -7,6 +7,7 @@
 //
 
 #import "RFHGameHistoryController.h"
+#import "RFHCompletedGame.h"
 
 @interface RFHGameHistoryController ()
 
@@ -14,32 +15,58 @@
 
 @implementation RFHGameHistoryController
 
+-(instancetype)init
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        _completedGames = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    NSLog(@"%@", self.completedGames);
+    [self.tableView reloadData];
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+}
 
 #pragma mark - Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
     return 1;
 }
-
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [self.completedGames count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    NSMutableArray *games = self.completedGames;
+    NSLog(@"%@", games);
+    RFHCompletedGame *game = games[indexPath.row];
+    NSUInteger gameNumber = [self.completedGames indexOfObject:game] + 1;
+    cell.textLabel.text = [NSString stringWithFormat:@"Game %lu: %@",gameNumber, game.outcome];
+    NSLog(@"%@", cell.textLabel.text);
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
