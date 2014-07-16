@@ -29,10 +29,11 @@
     return self;
 }
 
-- (void)viewDidLoad
+
+
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
+    [super viewWillAppear:animated];
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", appDelegate.wins];
@@ -40,7 +41,14 @@
     self.marginOfVictoryLabel.text = [NSString stringWithFormat:@"Greatest Victory: %lu", appDelegate.bestWin];
     self.marginOfDefeatLabel.text = [NSString stringWithFormat:@"Greatest Defeat: %lu", appDelegate.worstLoss];
     self.flawlessVictoriesLabel.text = [NSString stringWithFormat:@"Flawless Victories: %lu", appDelegate.flawlessVictories];
+    
 }
+
+- (IBAction)returnHome:(id)sender {
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate performSelector:@selector(returnHome)];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
