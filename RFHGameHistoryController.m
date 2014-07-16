@@ -57,13 +57,21 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
-    // Configure the cell...
     NSMutableArray *games = self.completedGames;
-    NSLog(@"%@", games);
-    RFHCompletedGame *game = games[indexPath.row];
+    RFHCompletedGame *game = games[[games count] - 1 - indexPath.row];
     NSUInteger gameNumber = [self.completedGames indexOfObject:game] + 1;
-    cell.textLabel.text = [NSString stringWithFormat:@"Game %lu: %@",gameNumber, game.outcome];
-    NSLog(@"%@", cell.textLabel.text);
+    NSString *numberToString = [NSString stringWithFormat:@"%lu", gameNumber];
+    NSUInteger lengthOfGameNumber = [numberToString length];
+    NSUInteger lengthOfStartOfText = 6;
+    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Game %lu: %@",gameNumber, game.outcome]];
+    [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, lengthOfStartOfText + lengthOfGameNumber)];
+    NSUInteger length = [mutableString length] - lengthOfStartOfText - lengthOfGameNumber;
+    if ([game.outcome isEqualToString:@"VICTORY"]) {
+        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+    } else {
+        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+    }
+    cell.textLabel.attributedText = mutableString;
     return cell;
 }
 
