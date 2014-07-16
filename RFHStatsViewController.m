@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lossesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *marginOfVictoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *marginOfDefeatLabel;
+@property (weak, nonatomic) IBOutlet UILabel *flawlessVictoriesLabel;
 
 @end
 
@@ -38,6 +39,7 @@
     self.lossesLabel.text = [NSString stringWithFormat:@"Losses: %lu", appDelegate.losses];
     self.marginOfVictoryLabel.text = [NSString stringWithFormat:@"Greatest Victory: %lu", appDelegate.bestWin];
     self.marginOfDefeatLabel.text = [NSString stringWithFormat:@"Greatest Defeat: %lu", appDelegate.worstLoss];
+    self.flawlessVictoriesLabel.text = [NSString stringWithFormat:@"Flawless Victories: %lu", appDelegate.flawlessVictories];
 }
 
 - (void)didReceiveMemoryWarning

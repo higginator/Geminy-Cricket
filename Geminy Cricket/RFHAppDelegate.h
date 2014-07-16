@@ -22,6 +22,7 @@
 @property (nonatomic) NSUInteger losses;
 @property (nonatomic) NSUInteger bestWin;
 @property (nonatomic) NSUInteger worstLoss;
+@property (nonatomic) NSUInteger flawlessVictories;
 
 
 -(void)resetGame;

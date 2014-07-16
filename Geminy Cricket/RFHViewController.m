@@ -592,6 +592,9 @@
         if (humanTotal > appDelegate.bestWin) {
             appDelegate.bestWin = humanTotal;
         }
+        if (humanTotal == 9) {
+            appDelegate.flawlessVictories++;
+        }
         //create victory label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         labelText = @"VICTORY";
