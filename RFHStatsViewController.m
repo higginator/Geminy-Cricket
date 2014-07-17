@@ -36,11 +36,11 @@
     [super viewWillAppear:animated];
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", appDelegate.wins];
-    self.lossesLabel.text = [NSString stringWithFormat:@"Losses: %lu", appDelegate.losses];
-    self.marginOfVictoryLabel.text = [NSString stringWithFormat:@"Greatest Victory: %lu", appDelegate.bestWin];
-    self.marginOfDefeatLabel.text = [NSString stringWithFormat:@"Greatest Defeat: %lu", appDelegate.worstLoss];
-    self.flawlessVictoriesLabel.text = [NSString stringWithFormat:@"Flawless Victories: %lu", appDelegate.flawlessVictories];
+    self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", (unsigned long)appDelegate.wins];
+    self.lossesLabel.text = [NSString stringWithFormat:@"Losses: %lu", (unsigned long)appDelegate.losses];
+    self.marginOfVictoryLabel.text = [NSString stringWithFormat:@"Greatest Victory: %lu", (unsigned long)appDelegate.bestWin];
+    self.marginOfDefeatLabel.text = [NSString stringWithFormat:@"Greatest Defeat: %lu", (unsigned long)appDelegate.worstLoss];
+    self.flawlessVictoriesLabel.text = [NSString stringWithFormat:@"Flawless Victories: %lu", (unsigned long)appDelegate.flawlessVictories];
     
 }
 

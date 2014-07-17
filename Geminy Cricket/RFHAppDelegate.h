@@ -17,6 +17,7 @@
 @property (strong, nonatomic) RFHStatsViewController *statsViewController;
 @property (strong, nonatomic) RFHHomeScreenViewController *homeScreenViewController;
 @property (strong, nonatomic) RFHGameHistoryController *gameHistoryController;
+@property (strong, nonatomic) UINavigationController *navigationGameHistoryController;
 
 @property (nonatomic) NSUInteger wins;
 @property (nonatomic) NSUInteger losses;
@@ -26,5 +27,6 @@
 
 
 -(void)resetGame;
+-(void)returnHome;
 
 @end

@@ -33,7 +33,7 @@
 
 - (IBAction)showHistory:(id)sender {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.window.rootViewController = appDelegate.gameHistoryController;
+    appDelegate.window.rootViewController = appDelegate.navigationGameHistoryController;
 
 }
 

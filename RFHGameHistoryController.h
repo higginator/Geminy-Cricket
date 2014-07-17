@@ -11,5 +11,6 @@
 @interface RFHGameHistoryController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *completedGames;
+//@property (nonatomic, strong) NSMutableAttributedString *viewedMutableAttString;
 
 @end
