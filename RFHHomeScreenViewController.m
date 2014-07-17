@@ -28,7 +28,7 @@
 
 - (IBAction)showStats:(id)sender {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.window.rootViewController = appDelegate.statsViewController;
+    appDelegate.window.rootViewController = appDelegate.navigationStatsController;
 }
 
 - (IBAction)showHistory:(id)sender {

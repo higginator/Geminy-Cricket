@@ -30,6 +30,7 @@
     self.statsViewController = [[RFHStatsViewController alloc] init];
     self.gameHistoryController = [[RFHGameHistoryController alloc] init];
     self.navigationGameHistoryController = [[UINavigationController alloc] initWithRootViewController:self.gameHistoryController];
+    self.navigationStatsController = [[UINavigationController alloc] initWithRootViewController:self.statsViewController];
 
     self.wins = 0;
     self.losses = 0;
