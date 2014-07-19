@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RFHCompletedGame.h"
 
 @interface RFHDetailCompletedGameViewController : UIViewController
+
+
+//designated initializer
+-(instancetype)initWithGame:(RFHCompletedGame *)game;
 
 @end

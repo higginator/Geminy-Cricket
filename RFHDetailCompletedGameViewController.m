@@ -10,9 +10,24 @@
 
 @interface RFHDetailCompletedGameViewController ()
 
+@property (nonatomic, weak) RFHCompletedGame *game;
+
 @end
 
 @implementation RFHDetailCompletedGameViewController
+
+-(instancetype)initWithGame:(RFHCompletedGame *)game
+{
+    if (self = [super init]) {
+        _game = game;
+    }
+    return self;
+}
+
+-(instancetype)init
+{
+    return [self initWithGame:nil];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

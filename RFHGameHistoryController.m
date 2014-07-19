@@ -24,7 +24,7 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         _completedGames = [[NSMutableArray alloc] init];
-        //_viewedMutableAttString = [[NSMutableAttributedString alloc] init];
+        
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"HISTORY";
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleDone target:self action:@selector(dismissNC)];
@@ -55,13 +55,7 @@
 }
 
 #pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-*/
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -94,7 +88,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RFHDetailCompletedGameViewController *dvc = [[RFHDetailCompletedGameViewController alloc] init];
+    NSMutableArray *games = self.completedGames;
+    RFHCompletedGame *game = games[[games count] - 1 - indexPath.row];
+    RFHDetailCompletedGameViewController *dvc = [[RFHDetailCompletedGameViewController alloc] initWithGame:game];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
