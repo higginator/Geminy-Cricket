@@ -45,8 +45,6 @@
 		33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */; };
 		33D63C88197595BF003B2DE8 /* RFHGameHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C87197595BF003B2DE8 /* RFHGameHistoryController.m */; };
 		33D63C8B1975963F003B2DE8 /* RFHCompletedGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C8A1975963F003B2DE8 /* RFHCompletedGame.m */; };
-		33D63C92197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C90197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m */; };
-		33D63C93197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C91197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib */; };
 		33D63C9C1975AD98003B2DE8 /* App_icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C981975AD98003B2DE8 /* App_icon58.png */; };
 		33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C991975AD98003B2DE8 /* App_icon80.png */; };
 		33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9A1975AD98003B2DE8 /* App_icon120.png */; };
@@ -57,10 +55,13 @@
 		33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */; };
 		33D63CB819786DF9003B2DE8 /* GemLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CB619786DF9003B2DE8 /* GemLevel3.png */; };
 		33D63CB919786DF9003B2DE8 /* GemLevel3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CB719786DF9003B2DE8 /* GemLevel3@2x.png */; };
-		33D63CBC19799271003B2DE8 /* gemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBA19799271003B2DE8 /* gemLevel5.png */; };
-		33D63CBD19799271003B2DE8 /* gemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBB19799271003B2DE8 /* gemLevel5@2x.png */; };
+		33D63CBC19799271003B2DE8 /* gemLevel5Purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBA19799271003B2DE8 /* gemLevel5Purple.png */; };
+		33D63CBD19799271003B2DE8 /* gemLevel5@2xPurple.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBB19799271003B2DE8 /* gemLevel5@2xPurple.png */; };
 		33D63CC0197A477A003B2DE8 /* GemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBE197A477A003B2DE8 /* GemLevel4@2x.png */; };
 		33D63CC1197A477A003B2DE8 /* GemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CBF197A477A003B2DE8 /* GemLevel4.png */; };
+		33D63CC4197DA6CB003B2DE8 /* GemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CC2197DA6CB003B2DE8 /* GemLevel5.png */; };
+		33D63CC5197DA6CB003B2DE8 /* GemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CC3197DA6CB003B2DE8 /* GemLevel5@2x.png */; };
+		33D63CCB197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63CCA197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m */; };
 		33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D90889195E0B4300F25B8F /* scroll_90opacity.png */; };
 /* End PBXBuildFile section */
 
@@ -129,9 +130,6 @@
 		33D63C87197595BF003B2DE8 /* RFHGameHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGameHistoryController.m; sourceTree = "<group>"; };
 		33D63C891975963F003B2DE8 /* RFHCompletedGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHCompletedGame.h; sourceTree = "<group>"; };
 		33D63C8A1975963F003B2DE8 /* RFHCompletedGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHCompletedGame.m; sourceTree = "<group>"; };
-		33D63C8F197597B6003B2DE8 /* RFHDetailCompletedGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHDetailCompletedGameViewController.h; sourceTree = "<group>"; };
-		33D63C90197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHDetailCompletedGameViewController.m; sourceTree = "<group>"; };
-		33D63C91197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHDetailCompletedGameViewController.xib; sourceTree = "<group>"; };
 		33D63C981975AD98003B2DE8 /* App_icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon58.png; sourceTree = "<group>"; };
 		33D63C991975AD98003B2DE8 /* App_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon80.png; sourceTree = "<group>"; };
 		33D63C9A1975AD98003B2DE8 /* App_icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon120.png; sourceTree = "<group>"; };
@@ -142,10 +140,14 @@
 		33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel1@2x.png"; sourceTree = "<group>"; };
 		33D63CB619786DF9003B2DE8 /* GemLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel3.png; sourceTree = "<group>"; };
 		33D63CB719786DF9003B2DE8 /* GemLevel3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel3@2x.png"; sourceTree = "<group>"; };
-		33D63CBA19799271003B2DE8 /* gemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gemLevel5.png; sourceTree = "<group>"; };
-		33D63CBB19799271003B2DE8 /* gemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemLevel5@2x.png"; sourceTree = "<group>"; };
+		33D63CBA19799271003B2DE8 /* gemLevel5Purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gemLevel5Purple.png; sourceTree = "<group>"; };
+		33D63CBB19799271003B2DE8 /* gemLevel5@2xPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemLevel5@2xPurple.png"; sourceTree = "<group>"; };
 		33D63CBE197A477A003B2DE8 /* GemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel4@2x.png"; sourceTree = "<group>"; };
 		33D63CBF197A477A003B2DE8 /* GemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel4.png; sourceTree = "<group>"; };
+		33D63CC2197DA6CB003B2DE8 /* GemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel5.png; sourceTree = "<group>"; };
+		33D63CC3197DA6CB003B2DE8 /* GemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel5@2x.png"; sourceTree = "<group>"; };
+		33D63CC9197DA963003B2DE8 /* RFHDetailGameCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHDetailGameCompletedViewController.h; sourceTree = "<group>"; };
+		33D63CCA197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHDetailGameCompletedViewController.m; sourceTree = "<group>"; };
 		33D90889195E0B4300F25B8F /* scroll_90opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_90opacity.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,9 +184,8 @@
 				33D63C7E19749679003B2DE8 /* RFHStatsViewController.h */,
 				33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */,
 				33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */,
-				33D63C8F197597B6003B2DE8 /* RFHDetailCompletedGameViewController.h */,
-				33D63C90197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m */,
-				33D63C91197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib */,
+				33D63CC9197DA963003B2DE8 /* RFHDetailGameCompletedViewController.h */,
+				33D63CCA197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m */,
 				33D63C891975963F003B2DE8 /* RFHCompletedGame.h */,
 				33D63C8A1975963F003B2DE8 /* RFHCompletedGame.m */,
 				33D63C86197595BF003B2DE8 /* RFHGameHistoryController.h */,
@@ -253,8 +254,10 @@
 				33D63CBE197A477A003B2DE8 /* GemLevel4@2x.png */,
 				33D63CBF197A477A003B2DE8 /* GemLevel4.png */,
 				33D63CB719786DF9003B2DE8 /* GemLevel3@2x.png */,
-				33D63CBA19799271003B2DE8 /* gemLevel5.png */,
-				33D63CBB19799271003B2DE8 /* gemLevel5@2x.png */,
+				33D63CC2197DA6CB003B2DE8 /* GemLevel5.png */,
+				33D63CC3197DA6CB003B2DE8 /* GemLevel5@2x.png */,
+				33D63CBA19799271003B2DE8 /* gemLevel5Purple.png */,
+				33D63CBB19799271003B2DE8 /* gemLevel5@2xPurple.png */,
 				33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
@@ -392,6 +395,7 @@
 				33B40E261918A5A700936260 /* oldGemLevel3.png in Resources */,
 				33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */,
 				33D63CC1197A477A003B2DE8 /* GemLevel4.png in Resources */,
+				33D63CC4197DA6CB003B2DE8 /* GemLevel5.png in Resources */,
 				33B40E271918A5A700936260 /* oldGemLevel4.png in Resources */,
 				33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */,
 				33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */,
@@ -402,11 +406,12 @@
 				33B40E241918A5A700936260 /* oldGemLevel1.png in Resources */,
 				33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */,
 				33B40E1C1918A59400936260 /* oldGemLevel3@2x.png in Resources */,
-				33D63CBC19799271003B2DE8 /* gemLevel5.png in Resources */,
+				33D63CC5197DA6CB003B2DE8 /* GemLevel5@2x.png in Resources */,
+				33D63CBC19799271003B2DE8 /* gemLevel5Purple.png in Resources */,
 				33D63CB919786DF9003B2DE8 /* GemLevel3@2x.png in Resources */,
 				33B40E1B1918A59400936260 /* oldGemLevel2@2x.png in Resources */,
 				33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */,
-				33D63CBD19799271003B2DE8 /* gemLevel5@2x.png in Resources */,
+				33D63CBD19799271003B2DE8 /* gemLevel5@2xPurple.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
 				33D63C9C1975AD98003B2DE8 /* App_icon58.png in Resources */,
 				33B40DB318FA55BF00936260 /* Images.xcassets in Resources */,
@@ -416,7 +421,6 @@
 				33D63CC0197A477A003B2DE8 /* GemLevel4@2x.png in Resources */,
 				33D63CA919771DB8003B2DE8 /* GemLevel2@2x.png in Resources */,
 				33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */,
-				33D63C93197597B6003B2DE8 /* RFHDetailCompletedGameViewController.xib in Resources */,
 				33B40E251918A5A700936260 /* oldGemLevel2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,12 +444,12 @@
 				33B40DD718FA55D400936260 /* RFHGemObject.m in Sources */,
 				33D63C8119749679003B2DE8 /* RFHStatsViewController.m in Sources */,
 				33D63C77196F1523003B2DE8 /* RFHHomeScreenViewController.m in Sources */,
-				33D63C92197597B6003B2DE8 /* RFHDetailCompletedGameViewController.m in Sources */,
 				33B40DD818FA55D400936260 /* RFHHumanPlayer.m in Sources */,
 				33B40DDA18FA55D400936260 /* RFHRobotPlayer.m in Sources */,
 				33B40DAD18FA55BF00936260 /* main.m in Sources */,
 				33B40DB118FA55BF00936260 /* RFHAppDelegate.m in Sources */,
 				33B40DE418FA587400936260 /* RFHGameView.m in Sources */,
+				33D63CCB197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m in Sources */,
 				33B40DD918FA55D400936260 /* RFHPlayer.m in Sources */,
 				33D63C8B1975963F003B2DE8 /* RFHCompletedGame.m in Sources */,
 				33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "RFHGameHistoryController.h"
 #import "RFHCompletedGame.h"
-#import "RFHDetailCompletedGameViewController.h"
+#import "RFHDetailGameCompletedViewController.h"
 #import "RFHAppDelegate.h"
 
 @interface RFHGameHistoryController ()
@@ -90,7 +90,7 @@
 {
     NSMutableArray *games = self.completedGames;
     RFHCompletedGame *game = games[[games count] - 1 - indexPath.row];
-    RFHDetailCompletedGameViewController *dvc = [[RFHDetailCompletedGameViewController alloc] initWithGame:game];
+    RFHDetailGameCompletedViewController *dvc = [[RFHDetailGameCompletedViewController alloc] initWithGame:game];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

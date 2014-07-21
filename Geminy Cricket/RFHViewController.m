@@ -61,7 +61,6 @@
 
 -(void)doEverything
 {
-    NSLog(@"doEverything has been called!");
 	// Do any additional setup after loading the view, typically from a nib.
     humanTotal = 0;
     board = [[RFHGameBoard alloc] init];
@@ -245,7 +244,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear has been called!");
     [super viewDidAppear:animated];
     [self assignCellRectangleValues];
 }
