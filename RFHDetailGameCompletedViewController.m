@@ -17,7 +17,8 @@
 @property (nonatomic) NSInteger boardOffsetY, boardOffsetX, y, boardWidth, boardHeight;
 @property (nonatomic, strong) RFHGemImageContainer *gemOne, *gemTwo, *gemThree, *gemFour, *gemFive, *gemSix;
 @property (nonatomic, strong) RFHGemImageContainer *robotGemOne, *robotGemTwo, *robotGemThree, *robotGemFour, *robotGemFive, *robotGemSix;
-@property (nonatomic) BOOL iPhone4Inch;
+@property (nonatomic, strong) UIButton *buttonNextMove, *buttonPreviousMove;
+@property (nonatomic) BOOL iPhone3Point5Inch;
 
 @end
 
@@ -34,7 +35,7 @@
             //iPhone 5 screen
             self.boardOffsetY = 86 + 50;
             self.y = 498 - 52;
-            self.iPhone4Inch = NO;
+            self.iPhone3Point5Inch = NO;
             self.boardWidth = 300;
             self.boardHeight = 270;
         } else {
@@ -43,11 +44,16 @@
             self.y = 418;
             self.boardWidth = 300;
             self.boardHeight = 210;
-            self.iPhone4Inch = YES;
+            self.iPhone3Point5Inch = YES;
         }
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         _completedGameCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(self.boardOffsetX, self.boardOffsetY, self.boardWidth, self.boardHeight)
                                                  collectionViewLayout:layout];
+        
+        _buttonNextMove = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_buttonNextMove addTarget:self action:@selector(showNextMove) forControlEvents:UIControlEventTouchUpInside];
+        _buttonPreviousMove = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_buttonPreviousMove addTarget:self action:@selector(showPreviousMove) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -66,6 +72,23 @@
     [self drawBoard];
     [self drawHumanHand];
     [self drawRobotHand];
+    [self drawControls];
+}
+
+#pragma mark - Control Selectors
+
+-(void)showNextMove
+{
+    NSLog(@"Showing next move!");
+    //game.moveOrder is an array with 9 RFHGemImageContainers
+    //RFHGemImageContainer has a gem
+    //RFHGemImageContainer has an UIImageView and the UIImageView has a UIImage property
+    //RFHGemImageContainer has an owner and the owner has a color property
+}
+
+-(void)showPreviousMove
+{
+    NSLog(@"Showing Previous move!");
 }
 
 #pragma mark - View Drawing Methods
@@ -87,7 +110,7 @@
 -(void)drawHumanHand
 {
     NSInteger yStart;
-    if (self.iPhone4Inch) {
+    if (self.iPhone3Point5Inch) {
         yStart = self.y - 70;
     } else {
         yStart = self.y - 30;
@@ -276,6 +299,30 @@
 
 }
 
+-(void)drawControls
+{
+    CGRect buttonNextMoveFrame, buttonPreviousMoveFrame;
+    
+    if (self.iPhone3Point5Inch) {
+        buttonNextMoveFrame = CGRectMake(170, self.y - 20, 50, 50);
+        buttonPreviousMoveFrame = CGRectMake(50, self.y - 20, 50, 50);
+    } else {
+        buttonNextMoveFrame = CGRectMake(170, self.y + 20, 100, 100);
+        buttonPreviousMoveFrame = CGRectMake(50, self.y + 20, 100, 100);
+    }
+    self.buttonNextMove.frame = buttonNextMoveFrame;
+    UIImage *backgroundImage = [UIImage imageNamed:@"NextMoveButton.png"];
+    [self.buttonNextMove setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    
+    self.buttonPreviousMove.frame = buttonPreviousMoveFrame;
+    backgroundImage = [UIImage imageNamed:@"PreviousMoveButton.png"];
+    [self.buttonPreviousMove setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+
+    
+    [self.view addSubview:self.buttonNextMove];
+    [self.view addSubview:self.buttonPreviousMove];
+}
+
 #pragma mark - Collection View Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -304,7 +351,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.iPhone4Inch) {
+    if (self.iPhone3Point5Inch) {
         return CGSizeMake(100, 70);
     } else {
         return CGSizeMake(100, 90);
