@@ -17,6 +17,8 @@
         _outcome = [NSString stringWithFormat:@"Undetermined"];
         _humanGemHand = [[NSMutableArray alloc] init];
         _human = [[RFHHumanPlayer alloc] init];
+        _robotGemHand = [[NSMutableArray alloc] init];
+        _robot = [[RFHRobotPlayer alloc] init];
     }
     return self;
 }

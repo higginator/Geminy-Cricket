@@ -584,6 +584,8 @@
     completedGame.moveOrder = self.moveOrder;
     completedGame.humanGemHand = gemHand;
     completedGame.human = human;
+    completedGame.robotGemHand = robotGemHand;
+    completedGame.robot = robotOpponent;
     
     NSString *labelText;
     if (humanTotal >= 5) {

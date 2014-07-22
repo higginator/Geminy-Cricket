@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RFHHumanPlayer.h"
+#import "RFHRobotPlayer.h"
 
 @interface RFHCompletedGame : NSObject
 
@@ -15,5 +16,7 @@
 @property (nonatomic, strong) NSString *outcome;
 @property (nonatomic, strong) NSMutableArray *humanGemHand;
 @property (nonatomic, strong) RFHHumanPlayer *human;
+@property (nonatomic, strong) NSMutableArray *robotGemHand;
+@property (nonatomic, strong) RFHRobotPlayer *robot;
 
 @end
