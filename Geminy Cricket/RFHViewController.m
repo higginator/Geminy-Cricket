@@ -582,6 +582,8 @@
     
     RFHCompletedGame *completedGame = [[RFHCompletedGame alloc] init];
     completedGame.moveOrder = self.moveOrder;
+    completedGame.humanGemHand = gemHand;
+    completedGame.human = human;
     
     NSString *labelText;
     if (humanTotal >= 5) {

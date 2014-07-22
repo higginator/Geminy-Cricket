@@ -15,6 +15,8 @@
     if (self = [super init]) {
         _moveOrder = [[NSMutableArray alloc] init];
         _outcome = [NSString stringWithFormat:@"Undetermined"];
+        _humanGemHand = [[NSMutableArray alloc] init];
+        _human = [[RFHHumanPlayer alloc] init];
     }
     return self;
 }

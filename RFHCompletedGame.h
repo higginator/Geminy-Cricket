@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RFHHumanPlayer.h"
 
 @interface RFHCompletedGame : NSObject
 
 @property (nonatomic, strong) NSMutableArray *moveOrder;
 @property (nonatomic, strong) NSString *outcome;
+@property (nonatomic, strong) NSMutableArray *humanGemHand;
+@property (nonatomic, strong) RFHHumanPlayer *human;
 
 @end
