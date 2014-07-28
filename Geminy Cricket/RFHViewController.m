@@ -587,6 +587,7 @@
     completedGame.robotGemHand = robotGemHand;
     completedGame.robot = robotOpponent;
     
+    NSInteger robotTotal = 9 - humanTotal;
     NSString *labelText;
     if (humanTotal >= 5) {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -604,7 +605,8 @@
         label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
         //label.font = [label.font fontWithSize:25];
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
-        completedGame.outcome = labelText;
+        completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, humanTotal, robotTotal];
+        completedGame.humanVictory = YES;
         [self.view addSubview:label];
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -618,7 +620,7 @@
         label.text = labelText;
         label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
-        completedGame.outcome = labelText;
+        completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, humanTotal, robotTotal];
         [self.view addSubview:label];
     }
     

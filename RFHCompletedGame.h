@@ -18,5 +18,6 @@
 @property (nonatomic, strong) RFHHumanPlayer *human;
 @property (nonatomic, strong) NSMutableArray *robotGemHand;
 @property (nonatomic, strong) RFHRobotPlayer *robot;
+@property (nonatomic) BOOL humanVictory;
 
 @end

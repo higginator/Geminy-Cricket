@@ -19,6 +19,7 @@
         _human = [[RFHHumanPlayer alloc] init];
         _robotGemHand = [[NSMutableArray alloc] init];
         _robot = [[RFHRobotPlayer alloc] init];
+        _humanVictory = NO;
     }
     return self;
 }

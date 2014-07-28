@@ -76,7 +76,7 @@
     NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Game %lu: %@",(unsigned long)gameNumber, game.outcome]];
     [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, lengthOfStartOfText + lengthOfGameNumber)];
     NSUInteger length = [mutableString length] - lengthOfStartOfText - lengthOfGameNumber;
-    if ([game.outcome isEqualToString:@"VICTORY"]) {
+    if (game.humanVictory) {
         [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
     } else {
         [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
