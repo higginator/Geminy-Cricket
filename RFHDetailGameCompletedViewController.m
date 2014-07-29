@@ -88,7 +88,6 @@
 
 -(void)showNextMove
 {
-    NSLog(@"Showing next move!");
     //game.moveOrder is an array with 9 RFHGemImageContainers
     //RFHGemImageContainer has a gem
     //RFHGemImageContainer has an UIImageView and the UIImageView has a UIImage property
@@ -142,7 +141,23 @@
 
 -(NSUInteger)whichGem:(RFHGemImageContainer *)gemImageContainer
 {
-    if (gemImageContainer.gemOriginalCenter.x == 35 && gemImageContainer.gemOriginalCenter.y == 523) {
+    if (self.iPhone3Point5Inch) {
+        if (gemImageContainer.gemOriginalCenter.x == 35 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 1;
+        } else if (gemImageContainer.gemOriginalCenter.x == 85 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 2;
+        } else if (gemImageContainer.gemOriginalCenter.x == 135 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 3;
+        } else if (gemImageContainer.gemOriginalCenter.x == 185 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 4;
+        } else if (gemImageContainer.gemOriginalCenter.x == 235 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 5;
+        } else if (gemImageContainer.gemOriginalCenter.x == 285 && gemImageContainer.gemOriginalCenter.y == 443) {
+            return 6;
+        }
+    } else {
+        
+    } if (gemImageContainer.gemOriginalCenter.x == 35 && gemImageContainer.gemOriginalCenter.y == 523) {
         return 1;
     } else if (gemImageContainer.gemOriginalCenter.x == 85 && gemImageContainer.gemOriginalCenter.y == 523) {
         return 2;

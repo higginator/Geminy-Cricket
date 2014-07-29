@@ -48,6 +48,8 @@
     
     NSUInteger humanTotal;
     
+    NSMutableArray *usedRobotIndices;
+    
     
 }
 
@@ -63,6 +65,7 @@
 -(void)doEverything
 {
 	// Do any additional setup after loading the view, typically from a nib.
+    usedRobotIndices = [[NSMutableArray alloc] init];
     humanTotal = 0;
     board = [[RFHGameBoard alloc] init];
     board.boardObjects = [[NSMutableArray alloc] init];
@@ -506,7 +509,8 @@
     UICollectionViewCell *cell;
     RFHGemObject *gem;
     int cellIndex = 0;
-    int outerIndex = 0;
+    //int outerIndex = 0;
+    int index = 0;
     while (!cell) {
         cellIndex = arc4random_uniform((uint32_t)[vacantCells count]);
         if (vacantCells[cellIndex] != [NSNull null]) {
@@ -516,19 +520,21 @@
         }
     }
     while (!gem) {
-        int index = arc4random() % [robotGemHand count];
-        if (robotGemHand[index]) {
+        index = arc4random() % [robotGemHand count];
+        if (![usedRobotIndices containsObject:[NSNumber numberWithInt:index]]) {
             gem = robotGemHand[index];
-            outerIndex = index;
+            [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
+            //outerIndex = index;
         }
     }
+    NSLog(@"The index is %d", index);
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
     NSString *cellName = [NSString stringWithFormat:@"cell%@Rectangle", [numberMappings objectForKey:[NSString stringWithFormat:@"%d", cellIndex + 1]]];
     CGRect cellRect = [[myItems objectForKey:cellName] CGRectValue];
     robotGemImage.imageView.center = CGPointMake(CGRectGetMidX(cellRect) + boardOffsetX, CGRectGetMidY(cellRect) + boardOffsetY);
-    [self setRobotGemOriginalCenter:robotGemImage gemPosition:outerIndex+1];
+    [self setRobotGemOriginalCenter:robotGemImage gemPosition:index+1];
     [self addRobotMoveToMoveOrder:robotGemImage withCellIndex:cellIndex];
     [self.view addSubview:robotGemImage.imageView];
     [self boardCheck:robotGemImage collectionLocation:cell.center];
