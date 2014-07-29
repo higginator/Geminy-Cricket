@@ -39,7 +39,7 @@
     self.flawlessVictories = 0;
     
     //initialize sound
-
+/*
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
@@ -49,7 +49,7 @@
     
     [self.audioPlayer play];
 
-    
+*/
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

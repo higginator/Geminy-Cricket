@@ -19,6 +19,8 @@
 @property (nonatomic, strong) RFHGemImageContainer *robotGemOne, *robotGemTwo, *robotGemThree, *robotGemFour, *robotGemFive, *robotGemSix;
 @property (nonatomic, strong) UIButton *buttonNextMove, *buttonPreviousMove;
 @property (nonatomic) BOOL iPhone3Point5Inch;
+@property (nonatomic) NSUInteger nextMoveCount;
+@property (nonatomic) NSMutableArray *cellRects;
 
 @end
 
@@ -29,7 +31,8 @@
 {
     if (self = [super init]) {
         _game = game;
-        
+        _cellRects = [[NSMutableArray alloc] init];
+        self.nextMoveCount = 0;
         self.boardOffsetX = 10;
         if ([[UIScreen mainScreen] bounds].size.height == 568) {
             //iPhone 5 screen
@@ -54,6 +57,7 @@
         [_buttonNextMove addTarget:self action:@selector(showNextMove) forControlEvents:UIControlEventTouchUpInside];
         _buttonPreviousMove = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_buttonPreviousMove addTarget:self action:@selector(showPreviousMove) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return self;
 }
@@ -75,6 +79,11 @@
     [self drawControls];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self createRects];
+}
+
 #pragma mark - Control Selectors
 
 -(void)showNextMove
@@ -84,11 +93,156 @@
     //RFHGemImageContainer has a gem
     //RFHGemImageContainer has an UIImageView and the UIImageView has a UIImage property
     //RFHGemImageContainer has an owner and the owner has a color property
+    if (self.nextMoveCount < 9) {
+        NSMutableArray *objectsOfInterest = [self.game.moveOrder objectAtIndex:self.nextMoveCount];
+        RFHGemImageContainer *nextMove = objectsOfInterest[0];
+        NSUInteger rectNumber = [objectsOfInterest[1] integerValue];
+        CGRect cellRectOfInterest;
+        cellRectOfInterest = [self.cellRects[rectNumber - 1] CGRectValue];
+        NSUInteger gemNumber = [self whichGem:nextMove];
+        if (gemNumber == 1) {
+            [self centerImage:self.gemOne Rect:cellRectOfInterest];
+        } else if (gemNumber == 2) {
+            [self centerImage:self.gemTwo Rect:cellRectOfInterest];
+        } else if (gemNumber == 3) {
+            [self centerImage:self.gemThree Rect:cellRectOfInterest];
+        } else if (gemNumber == 4) {
+            [self centerImage:self.gemFour Rect:cellRectOfInterest];
+        } else if (gemNumber == 5) {
+            [self centerImage:self.gemFive Rect:cellRectOfInterest];
+        } else if (gemNumber == 6) {
+            [self centerImage:self.gemSix Rect:cellRectOfInterest];
+            //
+        } else if (gemNumber == 7) {
+            [self centerImage:self.robotGemOne Rect:cellRectOfInterest];
+        } else if (gemNumber == 8) {
+            [self centerImage:self.robotGemTwo Rect:cellRectOfInterest];
+        } else if (gemNumber == 9) {
+            [self centerImage:self.robotGemThree Rect:cellRectOfInterest];
+        } else if (gemNumber == 10) {
+            [self centerImage:self.robotGemFour Rect:cellRectOfInterest];
+        } else if (gemNumber == 11) {
+            [self centerImage:self.robotGemFive Rect:cellRectOfInterest];
+        } else if (gemNumber == 12) {
+            [self centerImage:self.robotGemSix Rect:cellRectOfInterest];
+        }
+
+    }
+    self.nextMoveCount++;
+    [self.view setNeedsDisplay];
 }
 
 -(void)showPreviousMove
 {
     NSLog(@"Showing Previous move!");
+}
+
+
+# pragma mark - Custom Game Functions
+
+-(NSUInteger)whichGem:(RFHGemImageContainer *)gemImageContainer
+{
+    if (gemImageContainer.gemOriginalCenter.x == 35 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 1;
+    } else if (gemImageContainer.gemOriginalCenter.x == 85 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 2;
+    } else if (gemImageContainer.gemOriginalCenter.x == 135 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 3;
+    } else if (gemImageContainer.gemOriginalCenter.x == 185 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 4;
+    } else if (gemImageContainer.gemOriginalCenter.x == 235 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 5;
+    } else if (gemImageContainer.gemOriginalCenter.x == 285 && gemImageContainer.gemOriginalCenter.y == 523) {
+        return 6;
+        //
+    } else if (gemImageContainer.gemOriginalCenter.x == 35 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 7;
+    } else if (gemImageContainer.gemOriginalCenter.x == 85 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 8;
+    } else if (gemImageContainer.gemOriginalCenter.x == 135 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 9;
+    } else if (gemImageContainer.gemOriginalCenter.x == 185 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 10;
+    } else if (gemImageContainer.gemOriginalCenter.x == 235 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 11;
+    } else if (gemImageContainer.gemOriginalCenter.x == 285 && gemImageContainer.gemOriginalCenter.y == 101) {
+        return 12;
+    }
+
+    return 0;
+}
+
+-(void)createRects
+{
+    NSArray *visibleCellIndex = self.completedGameCollectionView.indexPathsForVisibleItems;
+    NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
+    NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
+
+    UICollectionViewCell *cell;
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[0]];
+    CGRect rect;
+    rect.origin = cell.frame.origin;
+    rect.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[1]];
+    CGRect rect2;
+    rect2.origin = cell.frame.origin;
+    rect2.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect2]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[2]];
+    CGRect rect3;
+    rect3.origin = cell.frame.origin;
+    rect3.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect3]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[3]];
+    CGRect rect4;
+    rect4.origin = cell.frame.origin;
+    rect4.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect4]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[4]];
+    CGRect rect5;
+    rect5.origin = cell.frame.origin;
+    rect5.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect5]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[5]];
+    CGRect rect6;
+    rect6.origin = cell.frame.origin;
+    rect6.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect6]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[6]];
+    CGRect rect7;
+    rect7.origin = cell.frame.origin;
+    rect7.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect7]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[7]];
+    CGRect rect8;
+    rect8.origin = cell.frame.origin;
+    rect8.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect8]];
+    
+    cell = [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[8]];
+    CGRect rect9;
+    rect9.origin = cell.frame.origin;
+    rect9.size = cell.frame.size;
+    [self.cellRects addObject:[NSValue valueWithCGRect:rect9]];
+    
+    
+    
+}
+
+-(void)centerImage:(RFHGemImageContainer *)imageContainer Rect:(CGRect)rect
+{
+
+    float x = CGRectGetMidX(rect) + self.boardOffsetX;
+    float y = CGRectGetMidY(rect) + self.boardOffsetY;
+    imageContainer.imageView.center = CGPointMake(x,y);
 }
 
 #pragma mark - View Drawing Methods
