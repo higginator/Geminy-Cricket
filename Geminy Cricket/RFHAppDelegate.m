@@ -48,8 +48,8 @@
     self.audioPlayer.numberOfLoops = -1;
     
     [self.audioPlayer play];
-
 */
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

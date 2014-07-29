@@ -21,10 +21,14 @@
 @property (nonatomic) BOOL iPhone3Point5Inch;
 @property (nonatomic) NSUInteger nextMoveCount;
 @property (nonatomic) NSMutableArray *cellRects;
+@property (nonatomic) NSMutableArray *movedGems;
+
 
 @end
 
-@implementation RFHDetailGameCompletedViewController
+@implementation RFHDetailGameCompletedViewController {
+    NSInteger yStart;
+}
 
 
 -(instancetype)initWithGame:(RFHCompletedGame *)game
@@ -32,6 +36,7 @@
     if (self = [super init]) {
         _game = game;
         _cellRects = [[NSMutableArray alloc] init];
+        _movedGems = [[NSMutableArray alloc] init];
         self.nextMoveCount = 0;
         self.boardOffsetX = 10;
         if ([[UIScreen mainScreen] bounds].size.height == 568) {
@@ -101,39 +106,55 @@
         NSUInteger gemNumber = [self whichGem:nextMove];
         if (gemNumber == 1) {
             [self centerImage:self.gemOne Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.gemOne];
         } else if (gemNumber == 2) {
             [self centerImage:self.gemTwo Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.gemTwo];
         } else if (gemNumber == 3) {
             [self centerImage:self.gemThree Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.gemThree];
         } else if (gemNumber == 4) {
             [self centerImage:self.gemFour Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.gemFour];
         } else if (gemNumber == 5) {
             [self centerImage:self.gemFive Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.gemFive];
         } else if (gemNumber == 6) {
             [self centerImage:self.gemSix Rect:cellRectOfInterest];
-            //
+            [self.movedGems addObject:self.gemSix];
+        //Robot Gems
         } else if (gemNumber == 7) {
             [self centerImage:self.robotGemOne Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemOne];
         } else if (gemNumber == 8) {
             [self centerImage:self.robotGemTwo Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemTwo];
         } else if (gemNumber == 9) {
             [self centerImage:self.robotGemThree Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemThree];
         } else if (gemNumber == 10) {
             [self centerImage:self.robotGemFour Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemFour];
         } else if (gemNumber == 11) {
             [self centerImage:self.robotGemFive Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemFive];
         } else if (gemNumber == 12) {
             [self centerImage:self.robotGemSix Rect:cellRectOfInterest];
+            [self.movedGems addObject:self.robotGemSix];
         }
-
+        self.nextMoveCount++;
     }
-    self.nextMoveCount++;
-    [self.view setNeedsDisplay];
 }
 
 -(void)showPreviousMove
 {
-    NSLog(@"Showing Previous move!");
+    if (self.nextMoveCount > 0) {
+        RFHGemImageContainer *lastMovedGem = self.movedGems[self.nextMoveCount - 1];
+        CGRect newFrame = CGRectMake(lastMovedGem.gemOriginalCenter.x - 25, lastMovedGem.gemOriginalCenter.y - 25, 50, 50);
+        lastMovedGem.imageView.frame = newFrame;
+        [self.movedGems removeObject:lastMovedGem];
+        self.nextMoveCount--;
+    }
 }
 
 
@@ -278,7 +299,6 @@
 
 -(void)drawHumanHand
 {
-    NSInteger yStart;
     if (self.iPhone3Point5Inch) {
         yStart = self.y - 70;
     } else {
@@ -309,6 +329,7 @@
     
     self.gemFive = [[RFHGemImageContainer alloc] init];
     self.gemFive.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(210, yStart, width, height)];
+    NSLog(@"%f, %f", self.gemFive.imageView.frame.origin.x, self.gemFive.imageView.frame.origin.x);
     
     self.gemSix = [[RFHGemImageContainer alloc] init];
     self.gemSix.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(260, yStart, width, height)];
