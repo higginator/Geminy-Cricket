@@ -8,7 +8,6 @@
 
 #import "RFHViewController.h"
 #import "RFHGemObject.h"
-#import "RFHGameView.h"
 #import "RFHGemImageContainer.h"
 #import "RFHGameBoard.h"
 #import "RFHHumanPlayer.h"
@@ -237,7 +236,6 @@
 
 -(void)loadView
 {
-    NSLog(@"loadView has been called!");
     [super loadView];
     [self doEverything];
 }
@@ -509,7 +507,6 @@
     UICollectionViewCell *cell;
     RFHGemObject *gem;
     int cellIndex = 0;
-    //int outerIndex = 0;
     int index = 0;
     while (!cell) {
         cellIndex = arc4random_uniform((uint32_t)[vacantCells count]);
@@ -524,10 +521,8 @@
         if (![usedRobotIndices containsObject:[NSNumber numberWithInt:index]]) {
             gem = robotGemHand[index];
             [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
-            //outerIndex = index;
         }
     }
-    NSLog(@"The index is %d", index);
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
