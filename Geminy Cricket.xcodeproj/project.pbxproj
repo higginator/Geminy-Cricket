@@ -48,8 +48,6 @@
 		33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C991975AD98003B2DE8 /* App_icon80.png */; };
 		33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9A1975AD98003B2DE8 /* App_icon120.png */; };
 		33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C9B1975AD98003B2DE8 /* App_icon1024.png */; };
-		33D63CA819771DB8003B2DE8 /* GemLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CA419771DB8003B2DE8 /* GemLevel2.png */; };
-		33D63CA919771DB8003B2DE8 /* GemLevel2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CA519771DB8003B2DE8 /* GemLevel2@2x.png */; };
 		33D63CAE19771E9D003B2DE8 /* GemLevel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CAC19771E9D003B2DE8 /* GemLevel1.png */; };
 		33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */; };
 		33D63CB819786DF9003B2DE8 /* GemLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CB619786DF9003B2DE8 /* GemLevel3.png */; };
@@ -65,6 +63,8 @@
 		33D63CED197EDB79003B2DE8 /* NextMoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CE9197EDB79003B2DE8 /* NextMoveButton@2x.png */; };
 		33D63CEE197EDB79003B2DE8 /* PreviosMoveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CEA197EDB79003B2DE8 /* PreviosMoveButton.png */; };
 		33D63CEF197EDB79003B2DE8 /* PreviousMoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CEB197EDB79003B2DE8 /* PreviousMoveButton@2x.png */; };
+		33D63CF2198964C3003B2DE8 /* GemLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CF0198964C3003B2DE8 /* GemLevel2.png */; };
+		33D63CF3198964C3003B2DE8 /* GemLevel2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63CF1198964C3003B2DE8 /* GemLevel2@2x.png */; };
 		33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D90889195E0B4300F25B8F /* scroll_90opacity.png */; };
 /* End PBXBuildFile section */
 
@@ -135,8 +135,6 @@
 		33D63C991975AD98003B2DE8 /* App_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon80.png; sourceTree = "<group>"; };
 		33D63C9A1975AD98003B2DE8 /* App_icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon120.png; sourceTree = "<group>"; };
 		33D63C9B1975AD98003B2DE8 /* App_icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_icon1024.png; sourceTree = "<group>"; };
-		33D63CA419771DB8003B2DE8 /* GemLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel2.png; sourceTree = "<group>"; };
-		33D63CA519771DB8003B2DE8 /* GemLevel2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel2@2x.png"; sourceTree = "<group>"; };
 		33D63CAC19771E9D003B2DE8 /* GemLevel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel1.png; sourceTree = "<group>"; };
 		33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel1@2x.png"; sourceTree = "<group>"; };
 		33D63CB619786DF9003B2DE8 /* GemLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel3.png; sourceTree = "<group>"; };
@@ -153,6 +151,8 @@
 		33D63CE9197EDB79003B2DE8 /* NextMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextMoveButton@2x.png"; sourceTree = "<group>"; };
 		33D63CEA197EDB79003B2DE8 /* PreviosMoveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PreviosMoveButton.png; sourceTree = "<group>"; };
 		33D63CEB197EDB79003B2DE8 /* PreviousMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PreviousMoveButton@2x.png"; sourceTree = "<group>"; };
+		33D63CF0198964C3003B2DE8 /* GemLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GemLevel2.png; sourceTree = "<group>"; };
+		33D63CF1198964C3003B2DE8 /* GemLevel2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel2@2x.png"; sourceTree = "<group>"; };
 		33D90889195E0B4300F25B8F /* scroll_90opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_90opacity.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,8 +251,8 @@
 				33B40E231918A5A700936260 /* oldGemLevel5.png */,
 				33D63CAC19771E9D003B2DE8 /* GemLevel1.png */,
 				33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */,
-				33D63CA419771DB8003B2DE8 /* GemLevel2.png */,
-				33D63CA519771DB8003B2DE8 /* GemLevel2@2x.png */,
+				33D63CF0198964C3003B2DE8 /* GemLevel2.png */,
+				33D63CF1198964C3003B2DE8 /* GemLevel2@2x.png */,
 				33D63CB619786DF9003B2DE8 /* GemLevel3.png */,
 				33D63CBE197A477A003B2DE8 /* GemLevel4@2x.png */,
 				33D63CBF197A477A003B2DE8 /* GemLevel4.png */,
@@ -414,11 +414,13 @@
 				33D63CEE197EDB79003B2DE8 /* PreviosMoveButton.png in Resources */,
 				33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */,
 				33B40E1C1918A59400936260 /* oldGemLevel3@2x.png in Resources */,
+				33D63CF3198964C3003B2DE8 /* GemLevel2@2x.png in Resources */,
 				33D63CEF197EDB79003B2DE8 /* PreviousMoveButton@2x.png in Resources */,
 				33D63CC5197DA6CB003B2DE8 /* GemLevel5@2x.png in Resources */,
 				33D63CBC19799271003B2DE8 /* gemLevel5Purple.png in Resources */,
 				33D63CB919786DF9003B2DE8 /* GemLevel3@2x.png in Resources */,
 				33B40E1B1918A59400936260 /* oldGemLevel2@2x.png in Resources */,
+				33D63CF2198964C3003B2DE8 /* GemLevel2.png in Resources */,
 				33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */,
 				33D63CBD19799271003B2DE8 /* gemLevel5@2xPurple.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
@@ -428,9 +430,7 @@
 				33D63CAE19771E9D003B2DE8 /* GemLevel1.png in Resources */,
 				33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */,
 				33D63CED197EDB79003B2DE8 /* NextMoveButton@2x.png in Resources */,
-				33D63CA819771DB8003B2DE8 /* GemLevel2.png in Resources */,
 				33D63CC0197A477A003B2DE8 /* GemLevel4@2x.png in Resources */,
-				33D63CA919771DB8003B2DE8 /* GemLevel2@2x.png in Resources */,
 				33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */,
 				33B40E251918A5A700936260 /* oldGemLevel2.png in Resources */,
 			);
