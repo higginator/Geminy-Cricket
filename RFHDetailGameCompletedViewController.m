@@ -70,15 +70,6 @@
         _buttonPreviousMove = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_buttonPreviousMove addTarget:self action:@selector(showPreviousMove) forControlEvents:UIControlEventTouchUpInside];
         
-        numberMappings = [[NSMutableDictionary alloc] initWithDictionary:@{@"1": @"One",
-                                                                           @"2": @"Two",
-                                                                           @"3": @"Three",
-                                                                           @"4": @"Four",
-                                                                           @"5": @"Five",
-                                                                           @"6": @"Six",
-                                                                           @"7": @"Seven",
-                                                                           @"8": @"Eight",
-                                                                           @"9": @"Nine"}];
         
         for (int i = 0; i < 9; i++) {
             [board.boardObjects addObject:[NSNull null]];
@@ -132,88 +123,100 @@
         if (gemNumber == 1) {
             [self centerImage:self.gemOne Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemOne];
+            self.gemOne.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemOne;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemOne withIndex:rectIndex];
             [self boardCheck:self.gemOne];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 2) {
             [self centerImage:self.gemTwo Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemTwo];
+            self.gemTwo.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemTwo;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemTwo withIndex:rectIndex];
             [self boardCheck:self.gemTwo];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 3) {
             [self centerImage:self.gemThree Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemThree];
+            self.gemThree.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemThree;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemThree withIndex:rectIndex];
             [self boardCheck:self.gemThree];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 4) {
             [self centerImage:self.gemFour Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemFour];
+            self.gemFour.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemFour;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemFour withIndex:rectIndex];
             [self boardCheck:self.gemFour];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 5) {
             [self centerImage:self.gemFive Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemFive];
+            self.gemFive.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemFive;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemFive withIndex:rectIndex];
             [self boardCheck:self.gemFive];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 6) {
             [self centerImage:self.gemSix Rect:cellRectOfInterest];
             [self.movedGems addObject:self.gemSix];
+            self.gemSix.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.gemSix;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.gemSix withIndex:rectIndex];
             [self boardCheck:self.gemSix];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         //Robot Gems
         } else if (gemNumber == 7) {
             [self centerImage:self.robotGemOne Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemOne];
+            self.robotGemOne.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemOne;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemOne withIndex:rectIndex];
             [self boardCheck:self.robotGemOne];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 8) {
             [self centerImage:self.robotGemTwo Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemTwo];
+            self.robotGemTwo.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemTwo;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemTwo withIndex:rectIndex];
             [self boardCheck:self.robotGemTwo];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 9) {
             [self centerImage:self.robotGemThree Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemThree];
+            self.robotGemThree.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemThree;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemThree withIndex:rectIndex];
             [self boardCheck:self.robotGemThree];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 10) {
             [self centerImage:self.robotGemFour Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemFour];
+            self.robotGemFour.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemFour;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemFour withIndex:rectIndex];
             [self boardCheck:self.robotGemFour];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 11) {
             [self centerImage:self.robotGemFive Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemFive];
+            self.robotGemFive.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemFive;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemFive withIndex:rectIndex];
             [self boardCheck:self.robotGemFive];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         } else if (gemNumber == 12) {
             [self centerImage:self.robotGemSix Rect:cellRectOfInterest];
             [self.movedGems addObject:self.robotGemSix];
+            self.robotGemSix.cellRectPosition = rectIndex;
             board.boardObjects[rectIndex] = self.robotGemSix;
-            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
             [self boardColorUpdate:self.robotGemSix withIndex:rectIndex];
             [self boardCheck:self.robotGemSix];
+            board.boardBools[rectIndex] = [NSNumber numberWithBool:YES];
         }
         self.nextMoveCount++;
     }
@@ -227,11 +230,31 @@
         lastMovedGem.imageView.frame = newFrame;
         [self.movedGems removeObject:lastMovedGem];
         self.nextMoveCount--;
+        
+        NSArray *visibleCellIndex = self.completedGameCollectionView.indexPathsForVisibleItems;
+        NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
+        NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
+        [UIView animateWithDuration:.6 animations:^{
+            [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[lastMovedGem.cellRectPosition]].backgroundColor = [UIColor colorWithRed:.917647 green:.831372 blue:.341176 alpha:1.0];
+        }];
+        board.boardBools[lastMovedGem.cellRectPosition] = [NSNumber numberWithBool:NO];
+        board.boardObjects[lastMovedGem.cellRectPosition] = [NSNumber numberWithBool:NO];
+        [self revertAlteredGemsColors:(RFHGemImageContainer *)lastMovedGem forSortedVisibleCells:sortedVisibleCells];
     }
 }
 
 
 # pragma mark - Custom Game Functions
+
+-(void)revertAlteredGemsColors:(RFHGemImageContainer *)removedGem forSortedVisibleCells:(NSArray *)sortedVisibleCells
+{
+    for (RFHGemImageContainer *gem in removedGem.alteredGems) {
+        [UIView animateWithDuration:.6 animations:^{
+            [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[gem.cellRectPosition]].backgroundColor = gem.owner.color;
+        }];
+    }
+    [removedGem.alteredGems removeAllObjects];
+}
 
 -(void)boardCheck:(RFHGemImageContainer *)sender {
     //check adajacencies
@@ -241,12 +264,14 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:1];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:3];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
     } else if ([board.boardObjects indexOfObject:sender] == 1) {
@@ -255,18 +280,21 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:0];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:2];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:4];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         
@@ -276,12 +304,14 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:1];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:5];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         
@@ -291,18 +321,21 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:0];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:4];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:6];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         
@@ -312,24 +345,28 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:1];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:3];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:5];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:7];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         
@@ -339,18 +376,21 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:2];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:4];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:8];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         
@@ -360,12 +400,14 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:3];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:7];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
     }  else if ([board.boardObjects indexOfObject:sender] == 7) {
@@ -374,18 +416,21 @@
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:6];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:4];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:8];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
     } else if ([board.boardObjects indexOfObject:sender] == 8) {
@@ -393,13 +438,15 @@
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
-                [self boardColorUpdate:sender withIndex:8];
+                [self boardColorUpdate:sender withIndex:5];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
                 [self boardColorUpdate:sender withIndex:7];
+                [sender.alteredGems addObject:comparisonGem];
             }
         }
     }
@@ -644,6 +691,14 @@
     self.gemFive.gem = self.game.humanGemHand[4];
     self.gemSix.gem = self.game.humanGemHand[5];
     
+    // set gemContainers alteredGems
+    self.gemOne.alteredGems = [[NSMutableArray alloc] init];
+    self.gemTwo.alteredGems = [[NSMutableArray alloc] init];
+    self.gemThree.alteredGems = [[NSMutableArray alloc] init];
+    self.gemFour.alteredGems = [[NSMutableArray alloc] init];
+    self.gemFive.alteredGems = [[NSMutableArray alloc] init];
+    self.gemSix.alteredGems = [[NSMutableArray alloc] init];
+    
     
     
     // add gems to screen
@@ -732,6 +787,14 @@
     self.robotGemFour.gem = self.game.robotGemHand[3];
     self.robotGemFive.gem = self.game.robotGemHand[4];
     self.robotGemSix.gem = self.game.robotGemHand[5];
+    
+    // set gemContainers alteredGems
+    self.robotGemOne.alteredGems = [[NSMutableArray alloc] init];
+    self.robotGemTwo.alteredGems = [[NSMutableArray alloc] init];
+    self.robotGemThree.alteredGems = [[NSMutableArray alloc] init];
+    self.robotGemFour.alteredGems = [[NSMutableArray alloc] init];
+    self.robotGemFive.alteredGems = [[NSMutableArray alloc] init];
+    self.robotGemSix.alteredGems = [[NSMutableArray alloc] init];
     
     
     

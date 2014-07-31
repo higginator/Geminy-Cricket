@@ -22,6 +22,7 @@
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
         //_imageView.backgroundColor = [UIColor purpleColor];
         _imageView.image = gem.gemImage;
+        _alteredGems = [[NSMutableArray alloc] init];
     }
     return self;
 }

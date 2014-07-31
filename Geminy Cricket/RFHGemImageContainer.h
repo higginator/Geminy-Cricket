@@ -17,6 +17,8 @@
 @property (nonatomic) RFHGemObject *gem;
 @property (nonatomic) RFHPlayer *owner;
 @property (nonatomic) BOOL onBoard;
+@property (nonatomic) NSUInteger cellRectPosition;
+@property (nonatomic) NSMutableArray *alteredGems;
 
 -(instancetype)initRobotGemContainer:(RFHGemObject *)gem Player:(RFHPlayer *)robot onBoard:(BOOL)onBoard;
 
