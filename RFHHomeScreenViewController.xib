@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RFHHomeScreenViewController">
             <connections>
+                <outlet property="historyButton" destination="Rsh-J8-hi9" id="LLr-Vw-beE"/>
+                <outlet property="playButton" destination="GLT-bJ-F8E" id="RhT-fP-4Tc"/>
+                <outlet property="statsButton" destination="Nos-AF-Iws" id="m1y-8H-4w7"/>
+                <outlet property="titleLabel" destination="3Iv-Mv-JQ1" id="irQ-wh-OHX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,14 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GeminyCricketHomeScreenBackGem.png" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-2f-lB8">
-                    <rect key="frame" x="100" y="111" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLT-bJ-F8E">
-                    <rect key="frame" x="127" y="292" width="66" height="69"/>
+                    <rect key="frame" x="90" y="196" width="140" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="58"/>
+                    <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="PLAY">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -30,15 +31,17 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Geminy Cricket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iv-Mv-JQ1">
-                    <rect key="frame" x="60" y="165" width="200" height="35"/>
+                    <rect key="frame" x="60" y="85" width="200" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                     <color key="textColor" red="0.0" green="0.91808832908163263" blue="0.031735266635209279" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nos-AF-Iws">
-                    <rect key="frame" x="60" y="445" width="36" height="30"/>
+                    <rect key="frame" x="208" y="399" width="48" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="Stats">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -47,8 +50,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsh-J8-hi9">
-                    <rect key="frame" x="214" y="445" width="49" height="30"/>
+                    <rect key="frame" x="201" y="445" width="62" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="History">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -62,7 +67,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="GeminyCricketHomeScreenBackGem.png" width="120" height="120"/>
-    </resources>
 </document>

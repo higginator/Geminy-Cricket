@@ -250,7 +250,7 @@
 {
     for (RFHGemImageContainer *gem in removedGem.alteredGems) {
         [UIView animateWithDuration:.6 animations:^{
-            [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[gem.cellRectPosition]].backgroundColor = gem.owner.color;
+            [self.completedGameCollectionView cellForItemAtIndexPath:sortedVisibleCells[gem.cellRectPosition]].backgroundColor = gem.priorColor;
         }];
     }
     [removedGem.alteredGems removeAllObjects];
@@ -263,13 +263,16 @@
         if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:1];
+                //do check to see if alteredGem is already owned by sender.gem
                 [sender.alteredGems addObject:comparisonGem];
             }
         }
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:3];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -279,6 +282,7 @@
         if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:0];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -286,6 +290,7 @@
         if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:2];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -293,6 +298,7 @@
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:4];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -303,6 +309,7 @@
         if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:1];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -310,6 +317,7 @@
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:5];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -320,6 +328,7 @@
         if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[0];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:0];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -327,6 +336,7 @@
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:4];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -334,6 +344,7 @@
         if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:6];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -344,6 +355,7 @@
         if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[1];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:1];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -351,6 +363,7 @@
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:3];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -358,6 +371,7 @@
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:5];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -365,6 +379,7 @@
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:7];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -375,6 +390,7 @@
         if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[2];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:2];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -382,6 +398,7 @@
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:4];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -389,6 +406,7 @@
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:8];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -399,6 +417,7 @@
         if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[3];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:3];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -406,6 +425,7 @@
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:7];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -415,6 +435,7 @@
         if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[6];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:6];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -422,6 +443,7 @@
         if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[4];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:4];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -429,6 +451,7 @@
         if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[8];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:8];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -438,6 +461,7 @@
         if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[5];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:5];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -445,6 +469,7 @@
         if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
             RFHGemImageContainer *comparisonGem = board.boardObjects[7];
             if (sender.gem.value > comparisonGem.gem.value) {
+                comparisonGem.priorColor = comparisonGem.owner.color;
                 [self boardColorUpdate:sender withIndex:7];
                 [sender.alteredGems addObject:comparisonGem];
             }
@@ -699,6 +724,12 @@
     self.gemFive.alteredGems = [[NSMutableArray alloc] init];
     self.gemSix.alteredGems = [[NSMutableArray alloc] init];
     
+    self.gemOne.priorColor = [[UIColor alloc] init];
+    self.gemTwo.priorColor = [[UIColor alloc] init];
+    self.gemThree.priorColor = [[UIColor alloc] init];
+    self.gemFour.priorColor = [[UIColor alloc] init];
+    self.gemFive.priorColor = [[UIColor alloc] init];
+    self.gemSix.priorColor = [[UIColor alloc] init];
     
     
     // add gems to screen
@@ -796,6 +827,13 @@
     self.robotGemFive.alteredGems = [[NSMutableArray alloc] init];
     self.robotGemSix.alteredGems = [[NSMutableArray alloc] init];
     
+    
+    self.robotGemOne.priorColor = [[UIColor alloc] init];
+    self.robotGemTwo.priorColor = [[UIColor alloc] init];
+    self.robotGemThree.priorColor = [[UIColor alloc] init];
+    self.robotGemFour.priorColor = [[UIColor alloc] init];
+    self.robotGemFive.priorColor = [[UIColor alloc] init];
+    self.robotGemSix.priorColor = [[UIColor alloc] init];
     
     
     // add gems to screen

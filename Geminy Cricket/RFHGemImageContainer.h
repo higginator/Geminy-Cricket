@@ -19,6 +19,7 @@
 @property (nonatomic) BOOL onBoard;
 @property (nonatomic) NSUInteger cellRectPosition;
 @property (nonatomic) NSMutableArray *alteredGems;
+@property (nonatomic) UIColor *priorColor;
 
 -(instancetype)initRobotGemContainer:(RFHGemObject *)gem Player:(RFHPlayer *)robot onBoard:(BOOL)onBoard;
 
