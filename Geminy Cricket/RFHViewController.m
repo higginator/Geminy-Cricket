@@ -72,9 +72,9 @@
     board.boardBools = [[NSMutableArray alloc] init];
     self.moveOrder = [[NSMutableArray alloc] init];
     gemHand = [[NSMutableArray alloc] init];
-    human = [[RFHHumanPlayer alloc] initWithName:@"RYGUY" Color:[UIColor orangeColor]];
+    human = [[RFHHumanPlayer alloc] initWithName:@"RYGUY" Color:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0]];
     human.turn = YES;
-    robotOpponent = [[RFHRobotPlayer alloc] initWithName:@"Robopponent" Color:[UIColor cyanColor]];
+    robotOpponent = [[RFHRobotPlayer alloc] initWithName:@"Robopponent" Color:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0]];
     [self initializeRobotGemHand];
     
     int y;
@@ -103,9 +103,9 @@
     for (int i = 0; i < 9; i++) {
         [board.boardColors addObject:[NSNull null]];
     }
-    for (int i = 0; i < 6; i++) {
-        [gemHand addObject:[RFHGemObject randomGem]];
-    }
+    
+    [self populateFirstPlayerGemHand:gemHand];
+
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 375)
                                              collectionViewLayout:layout];
@@ -130,7 +130,7 @@
     [imageView.layer setCornerRadius:10.0f];
     [imageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [imageView.layer setBorderWidth:1.0f];
-    imageView.backgroundColor = [UIColor orangeColor];
+    imageView.backgroundColor = [UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0];
     [self.view addSubview:imageView];
 
     //initialize view objects
@@ -494,6 +494,16 @@
 
 
 #pragma mark - Custom Game Functions
+
+-(void)populateFirstPlayerGemHand:(NSMutableArray *)hand
+{
+    [hand addObject:[RFHGemObject weakGem]];
+    [hand addObject:[RFHGemObject strongGem]];
+    [hand addObject:[RFHGemObject middleGem]];
+    [hand addObject:[RFHGemObject randomGem]];
+    [hand addObject:[RFHGemObject middleGem]];
+    [hand addObject:[RFHGemObject lowRangeGem]];
+}
 
 -(void)centerImage:(RFHGemImageContainer *)imageContainer Rect:(CGRect)rect
 {
@@ -887,9 +897,12 @@
 -(void)initializeRobotGemHand
 {
     robotGemHand = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 6; i++) {
-        [robotGemHand addObject:[RFHGemObject randomGem]];
-    }
+    [robotGemHand addObject:[RFHGemObject weakGem]];
+    [robotGemHand addObject:[RFHGemObject strongGem]];
+    [robotGemHand addObject:[RFHGemObject middleGem]];
+    [robotGemHand addObject:[RFHGemObject strongGem]];
+    [robotGemHand addObject:[RFHGemObject randomGem]];
+    [robotGemHand addObject:[RFHGemObject highRangeGem]];
 }
 
 -(void)assignCellRectangleValues

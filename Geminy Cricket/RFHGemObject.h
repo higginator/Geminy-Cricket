@@ -18,5 +18,10 @@
 // The designated initializer
 -(instancetype)initWithColor:(UIColor *)color Value:(NSInteger)n;
 +(instancetype)randomGem;
++(instancetype)weakGem;
++(instancetype)strongGem;
++(instancetype)middleGem;
++(instancetype)lowRangeGem;
++(instancetype)highRangeGem;
 
 @end

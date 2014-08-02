@@ -43,4 +43,64 @@
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
 }
+
++(instancetype)weakGem {
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
+    int colorsIndex = arc4random() % [colors count];
+    int val = 0;
+    while (val == 0) {
+        val = arc4random() % 3;
+        NSLog(@"stuck in weakGem");
+    }
+    UIColor *color = colors[colorsIndex];
+    return [[self alloc] initWithColor:color Value:val];
+}
+
++(instancetype)strongGem {
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
+    int colorsIndex = arc4random() % [colors count];
+    int val = 0;
+    while ((val == 0) || (val == 1) || (val == 2) || (val == 3)) {
+        val = arc4random() % 6;
+        NSLog(@"stuck in strongGem");
+    }
+    UIColor *color = colors[colorsIndex];
+    return [[self alloc] initWithColor:color Value:val];
+}
+
++(instancetype)middleGem {
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
+    int colorsIndex = arc4random() % [colors count];
+    int val = 0;
+    while ((val == 0) || (val == 1) || (val == 5)) {
+        val = arc4random() % 6;
+        NSLog(@"stuck in middleGem");
+    }
+    UIColor *color = colors[colorsIndex];
+    return [[self alloc] initWithColor:color Value:val];
+}
+
++(instancetype)lowRangeGem {
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
+    int colorsIndex = arc4random() % [colors count];
+    int val = 0;
+    while (val == 0) {
+        val = arc4random() % 5;
+        NSLog(@"stuck in lowRangeGem");
+    }
+    UIColor *color = colors[colorsIndex];
+    return [[self alloc] initWithColor:color Value:val];
+}
+
++(instancetype)highRangeGem {
+    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor yellowColor], [UIColor purpleColor]];
+    int colorsIndex = arc4random() % [colors count];
+    int val = 0;
+    while ((val == 0) || (val != 1)) {
+        val = arc4random() % 6;
+        NSLog(@"stuck in highRangeGem");
+    }
+    UIColor *color = colors[colorsIndex];
+    return [[self alloc] initWithColor:color Value:val];
+}
 @end
