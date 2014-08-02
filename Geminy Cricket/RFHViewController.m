@@ -72,8 +72,8 @@
     board.boardBools = [[NSMutableArray alloc] init];
     self.moveOrder = [[NSMutableArray alloc] init];
     gemHand = [[NSMutableArray alloc] init];
+    robotGemHand = [[NSMutableArray alloc] init];
     human = [[RFHHumanPlayer alloc] initWithName:@"RYGUY" Color:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0]];
-    human.turn = YES;
     robotOpponent = [[RFHRobotPlayer alloc] initWithName:@"Robopponent" Color:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0]];
     [self initializeRobotGemHand];
     
@@ -104,7 +104,20 @@
         [board.boardColors addObject:[NSNull null]];
     }
     
-    [self populateFirstPlayerGemHand:gemHand];
+    if ([self turnMoveOrder] == 1) {
+        [self populateFirstPlayerGemHand:gemHand];
+        [self populateFirstPlayerGemHand:robotGemHand];
+        human.turn = YES;
+        robotOpponent.turn = NO;
+        NSLog(@"human moves first");
+    } else {
+        [self populateFirstPlayerGemHand:robotGemHand];
+        [self populateSecondPlayerGemHand:gemHand];
+        human.turn = NO;
+        robotOpponent.turn = YES;
+        NSLog(@"robot moves first");
+        [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
+    }
 
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 375)
@@ -495,6 +508,15 @@
 
 #pragma mark - Custom Game Functions
 
+-(NSUInteger)turnMoveOrder
+{
+    NSUInteger val = 0;
+    while (val == 0) {
+        val = arc4random() % 3;
+    }
+    return val;
+}
+
 -(void)populateFirstPlayerGemHand:(NSMutableArray *)hand
 {
     [hand addObject:[RFHGemObject weakGem]];
@@ -503,6 +525,16 @@
     [hand addObject:[RFHGemObject randomGem]];
     [hand addObject:[RFHGemObject middleGem]];
     [hand addObject:[RFHGemObject lowRangeGem]];
+}
+
+-(void)populateSecondPlayerGemHand:(NSMutableArray *)hand
+{
+    [hand addObject:[RFHGemObject weakGem]];
+    [hand addObject:[RFHGemObject strongGem]];
+    [hand addObject:[RFHGemObject middleGem]];
+    [hand addObject:[RFHGemObject strongGem]];
+    [hand addObject:[RFHGemObject randomGem]];
+    [hand addObject:[RFHGemObject highRangeGem]];
 }
 
 -(void)centerImage:(RFHGemImageContainer *)imageContainer Rect:(CGRect)rect
@@ -545,6 +577,9 @@
     [self boardCheck:robotGemImage collectionLocation:cell.center];
     [self changeTurnOrder];
     
+    if ([self isGameOver]) {
+        [self declareWinner];
+    }
 }
 
 -(void)setRobotGemOriginalCenter:(RFHGemImageContainer *)robotGemImage gemPosition:(int)gemPosition
@@ -891,18 +926,13 @@
         }
     }
     moveCount++;
+    NSLog(@"move count is %ld", (long) moveCount);
     [self updateBoardColorV2:loc];
 }
 
 -(void)initializeRobotGemHand
 {
-    robotGemHand = [[NSMutableArray alloc] init];
-    [robotGemHand addObject:[RFHGemObject weakGem]];
-    [robotGemHand addObject:[RFHGemObject strongGem]];
-    [robotGemHand addObject:[RFHGemObject middleGem]];
-    [robotGemHand addObject:[RFHGemObject strongGem]];
-    [robotGemHand addObject:[RFHGemObject randomGem]];
-    [robotGemHand addObject:[RFHGemObject highRangeGem]];
+
 }
 
 -(void)assignCellRectangleValues
