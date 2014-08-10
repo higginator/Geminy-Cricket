@@ -39,6 +39,13 @@
     appDelegate.window.rootViewController = appDelegate.navigationGameHistoryController;
 
 }
+- (IBAction)additioninfo:(id)sender {
+    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo.png"]]) {
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated.png"] forState:UIControlStateNormal];
+    } else {
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfo.png"]forState:UIControlStateNormal];
+    }
+}
 
 - (void)viewDidLoad
 {
