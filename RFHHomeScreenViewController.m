@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIButton *statsButton;
 @property (strong, nonatomic) IBOutlet UIButton *historyButton;
+@property (strong, nonatomic) IBOutlet UIButton *creatorInfoButton;
 
 @end
 
@@ -39,12 +40,20 @@
     appDelegate.window.rootViewController = appDelegate.navigationGameHistoryController;
 
 }
-- (IBAction)additioninfo:(id)sender {
-    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo.png"]]) {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated.png"] forState:UIControlStateNormal];
+- (IBAction)moreControls:(id)sender {
+    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo@2x-01.png"]]) {
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated@2x-01.png"] forState:UIControlStateNormal];
+        self.creatorInfoButton.hidden = NO;
     } else {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfo.png"]forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfo@2x-01.png"]forState:UIControlStateNormal];
+        self.creatorInfoButton.hidden = YES;
     }
+}
+
+
+- (IBAction)showCreatorInfo:(id)sender {
+    RFHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = appDelegate.navigationCreatorInfoController;
 }
 
 - (void)viewDidLoad
@@ -62,6 +71,8 @@
     self.statsButton.titleLabel.shadowColor = [UIColor whiteColor];
     self.historyButton.titleLabel.textColor = [UIColor blackColor];
     self.historyButton.titleLabel.shadowColor = [UIColor whiteColor];
+    
+    self.creatorInfoButton.hidden = YES;
 }
 
 

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RFHHomeScreenViewController">
             <connections>
+                <outlet property="creatorInfoButton" destination="EHC-pW-c2e" id="INZ-M4-T7o"/>
                 <outlet property="historyButton" destination="Rsh-J8-hi9" id="LLr-Vw-beE"/>
                 <outlet property="playButton" destination="GLT-bJ-F8E" id="RhT-fP-4Tc"/>
                 <outlet property="statsButton" destination="Nos-AF-Iws" id="m1y-8H-4w7"/>
@@ -62,13 +63,23 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Q6-qxS">
-                    <rect key="frame" x="207" y="483" width="50" height="50"/>
+                    <rect key="frame" x="207" y="483" width="52" height="52"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="AdditionalInfo.png">
+                    <state key="normal" image="AdditionalInfo@2x-01.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="additioninfo:" destination="-1" eventType="touchUpInside" id="cgY-jO-Ga6"/>
+                        <action selector="moreControls:" destination="-1" eventType="touchUpInside" id="I1l-nN-o1y"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-pW-c2e">
+                    <rect key="frame" x="149" y="485" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="Createa@2x-01.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showCreatorInfo:" destination="-1" eventType="touchUpInside" id="Esx-Mc-qRs"/>
                     </connections>
                 </button>
             </subviews>
@@ -78,6 +89,7 @@
         </view>
     </objects>
     <resources>
-        <image name="AdditionalInfo.png" width="26" height="26"/>
+        <image name="AdditionalInfo@2x-01.png" width="50" height="50"/>
+        <image name="Createa@2x-01.png" width="50" height="50"/>
     </resources>
 </document>

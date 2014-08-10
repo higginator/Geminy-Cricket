@@ -29,8 +29,11 @@
     self.homeScreenViewController = homeScreen;
     self.statsViewController = [[RFHStatsViewController alloc] init];
     self.gameHistoryController = [[RFHGameHistoryController alloc] init];
+    self.creatorInfoController = [[RFHCreatorInfoViewController alloc] init];
     self.navigationGameHistoryController = [[UINavigationController alloc] initWithRootViewController:self.gameHistoryController];
     self.navigationStatsController = [[UINavigationController alloc] initWithRootViewController:self.statsViewController];
+    
+    self.navigationCreatorInfoController = [[UINavigationController alloc] initWithRootViewController:self.creatorInfoController];
 
     self.wins = 0;
     self.losses = 0;
@@ -39,7 +42,7 @@
     self.flawlessVictories = 0;
     
     //initialize sound
-
+/*
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
@@ -48,7 +51,7 @@
     self.audioPlayer.numberOfLoops = -1;
     
     [self.audioPlayer play];
-
+*/
 
     self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
     [self.window makeKeyAndVisible];

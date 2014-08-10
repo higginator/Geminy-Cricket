@@ -50,7 +50,6 @@
     int val = 0;
     while (val == 0) {
         val = arc4random() % 3;
-        NSLog(@"stuck in weakGem");
     }
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
@@ -62,7 +61,6 @@
     int val = 0;
     while ((val == 0) || (val == 1) || (val == 2) || (val == 3)) {
         val = arc4random() % 6;
-        NSLog(@"stuck in strongGem");
     }
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
@@ -74,7 +72,6 @@
     int val = 0;
     while ((val == 0) || (val == 1) || (val == 5)) {
         val = arc4random() % 6;
-        NSLog(@"stuck in middleGem");
     }
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
@@ -86,7 +83,6 @@
     int val = 0;
     while (val == 0) {
         val = arc4random() % 5;
-        NSLog(@"stuck in lowRangeGem");
     }
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
@@ -98,7 +94,6 @@
     int val = 0;
     while ((val == 0) || (val != 1)) {
         val = arc4random() % 6;
-        NSLog(@"stuck in highRangeGem");
     }
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];

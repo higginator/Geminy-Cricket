@@ -10,6 +10,7 @@
 #import "RFHStatsViewController.h"
 #import "RFHHomeScreenViewController.h"
 #import "RFHGameHistoryController.h"
+#import "RFHCreatorInfoViewController.h"
 
 @interface RFHAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,8 +18,10 @@
 @property (strong, nonatomic) RFHStatsViewController *statsViewController;
 @property (strong, nonatomic) RFHHomeScreenViewController *homeScreenViewController;
 @property (strong, nonatomic) RFHGameHistoryController *gameHistoryController;
+@property (nonatomic, strong) RFHCreatorInfoViewController *creatorInfoController;
 @property (strong, nonatomic) UINavigationController *navigationGameHistoryController;
 @property (strong, nonatomic) UINavigationController *navigationStatsController;
+@property (strong, nonatomic) UINavigationController *navigationCreatorInfoController;
 
 @property (nonatomic) NSUInteger wins;
 @property (nonatomic) NSUInteger losses;

@@ -109,13 +109,11 @@
         [self populateFirstPlayerGemHand:robotGemHand];
         human.turn = YES;
         robotOpponent.turn = NO;
-        NSLog(@"human moves first");
     } else {
         [self populateFirstPlayerGemHand:robotGemHand];
         [self populateSecondPlayerGemHand:gemHand];
         human.turn = NO;
         robotOpponent.turn = YES;
-        NSLog(@"robot moves first");
         [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
     }
 
@@ -579,6 +577,7 @@
     
     if ([self isGameOver]) {
         [self declareWinner];
+        [self changeTurnOrder];
     }
 }
 
@@ -926,7 +925,6 @@
         }
     }
     moveCount++;
-    NSLog(@"move count is %ld", (long) moveCount);
     [self updateBoardColorV2:loc];
 }
 
