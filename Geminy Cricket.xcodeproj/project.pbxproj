@@ -11,15 +11,13 @@
 		33797479198DC88F00120D2D /* nextMoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33797477198DC88F00120D2D /* nextMoveButton@2x.png */; };
 		3379747C198DF24200120D2D /* previousMoveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379747A198DF24200120D2D /* previousMoveButton.png */; };
 		3379747D198DF24200120D2D /* previousMoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379747B198DF24200120D2D /* previousMoveButton@2x.png */; };
-		337974871996F79C00120D2D /* AdditionalInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974861996F79C00120D2D /* AdditionalInfo@2x.png */; };
-		337974891996F7A100120D2D /* AdditionalInfoActivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974881996F7A100120D2D /* AdditionalInfoActivated@2x.png */; };
-		3379748B1997DAC600120D2D /* CreatorInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379748A1997DAC600120D2D /* CreatorInfo@2x.png */; };
-		337974931997DFCF00120D2D /* Createa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974921997DFCF00120D2D /* Createa@2x.png */; };
-		337974951997E02C00120D2D /* Createa@2x-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974941997E02C00120D2D /* Createa@2x-01.png */; };
-		337974971997E08100120D2D /* AdditionalInfoActivated@2x-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974961997E08100120D2D /* AdditionalInfoActivated@2x-01.png */; };
-		337974991997E08700120D2D /* AdditionalInfo@2x-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974981997E08700120D2D /* AdditionalInfo@2x-01.png */; };
 		3379749D1997E13000120D2D /* RFHCreatorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */; };
 		3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */; };
+		337974A21997EB1D00120D2D /* AdditionalInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379749F1997EB1D00120D2D /* AdditionalInfo.png */; };
+		337974A31997EB1D00120D2D /* AdditionalInfoActivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A01997EB1D00120D2D /* AdditionalInfoActivated.png */; };
+		337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A11997EB1D00120D2D /* CreatorInfo.png */; };
+		337974A7199811E000120D2D /* MusicIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A5199811E000120D2D /* MusicIcon.png */; };
+		337974AA1998157400120D2D /* MusicIconCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A91998157400120D2D /* MusicIconCancel.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -39,20 +37,9 @@
 		33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DDC18FA55F500936260 /* RFHViewController.m */; };
 		33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */; };
 		33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */; };
-		33B40E1A1918A59400936260 /* oldGemLevel1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E151918A59400936260 /* oldGemLevel1@2x.png */; };
-		33B40E1B1918A59400936260 /* oldGemLevel2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E161918A59400936260 /* oldGemLevel2@2x.png */; };
-		33B40E1C1918A59400936260 /* oldGemLevel3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E171918A59400936260 /* oldGemLevel3@2x.png */; };
-		33B40E1D1918A59400936260 /* oldGemLevel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E181918A59400936260 /* oldGemLevel4@2x.png */; };
-		33B40E1E1918A59400936260 /* oldGemLevel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E191918A59400936260 /* oldGemLevel5@2x.png */; };
-		33B40E241918A5A700936260 /* oldGemLevel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E1F1918A5A700936260 /* oldGemLevel1.png */; };
-		33B40E251918A5A700936260 /* oldGemLevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E201918A5A700936260 /* oldGemLevel2.png */; };
-		33B40E261918A5A700936260 /* oldGemLevel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E211918A5A700936260 /* oldGemLevel3.png */; };
-		33B40E271918A5A700936260 /* oldGemLevel4.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E221918A5A700936260 /* oldGemLevel4.png */; };
-		33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B40E231918A5A700936260 /* oldGemLevel5.png */; };
 		33D63C77196F1523003B2DE8 /* RFHHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */; };
 		33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */; };
 		33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C79197387C6003B2DE8 /* canes.mp3 */; };
-		33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */; };
 		33D63C8119749679003B2DE8 /* RFHStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */; };
 		33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */; };
 		33D63C88197595BF003B2DE8 /* RFHGameHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D63C87197595BF003B2DE8 /* RFHGameHistoryController.m */; };
@@ -92,16 +79,14 @@
 		33797477198DC88F00120D2D /* nextMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextMoveButton@2x.png"; sourceTree = "<group>"; };
 		3379747A198DF24200120D2D /* previousMoveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousMoveButton.png; sourceTree = "<group>"; };
 		3379747B198DF24200120D2D /* previousMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previousMoveButton@2x.png"; sourceTree = "<group>"; };
-		337974861996F79C00120D2D /* AdditionalInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfo@2x.png"; sourceTree = "<group>"; };
-		337974881996F7A100120D2D /* AdditionalInfoActivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfoActivated@2x.png"; sourceTree = "<group>"; };
-		3379748A1997DAC600120D2D /* CreatorInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreatorInfo@2x.png"; sourceTree = "<group>"; };
-		337974921997DFCF00120D2D /* Createa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Createa@2x.png"; sourceTree = "<group>"; };
-		337974941997E02C00120D2D /* Createa@2x-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Createa@2x-01.png"; sourceTree = "<group>"; };
-		337974961997E08100120D2D /* AdditionalInfoActivated@2x-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfoActivated@2x-01.png"; sourceTree = "<group>"; };
-		337974981997E08700120D2D /* AdditionalInfo@2x-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfo@2x-01.png"; sourceTree = "<group>"; };
 		3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHCreatorInfoViewController.h; sourceTree = "<group>"; };
 		3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHCreatorInfoViewController.m; sourceTree = "<group>"; };
 		3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHCreatorInfoViewController.xib; sourceTree = "<group>"; };
+		3379749F1997EB1D00120D2D /* AdditionalInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdditionalInfo.png; sourceTree = "<group>"; };
+		337974A01997EB1D00120D2D /* AdditionalInfoActivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdditionalInfoActivated.png; sourceTree = "<group>"; };
+		337974A11997EB1D00120D2D /* CreatorInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreatorInfo.png; sourceTree = "<group>"; };
+		337974A5199811E000120D2D /* MusicIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIcon.png; sourceTree = "<group>"; };
+		337974A91998157400120D2D /* MusicIconCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIconCancel.png; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,21 +117,10 @@
 		33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGemImageContainer.m; sourceTree = "<group>"; };
 		33B40DE918FAAB7F00936260 /* RFHGameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHGameBoard.h; sourceTree = "<group>"; };
 		33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHGameBoard.m; sourceTree = "<group>"; };
-		33B40E151918A59400936260 /* oldGemLevel1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel1@2x.png"; sourceTree = "<group>"; };
-		33B40E161918A59400936260 /* oldGemLevel2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel2@2x.png"; sourceTree = "<group>"; };
-		33B40E171918A59400936260 /* oldGemLevel3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel3@2x.png"; sourceTree = "<group>"; };
-		33B40E181918A59400936260 /* oldGemLevel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel4@2x.png"; sourceTree = "<group>"; };
-		33B40E191918A59400936260 /* oldGemLevel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldGemLevel5@2x.png"; sourceTree = "<group>"; };
-		33B40E1F1918A5A700936260 /* oldGemLevel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel1.png; sourceTree = "<group>"; };
-		33B40E201918A5A700936260 /* oldGemLevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel2.png; sourceTree = "<group>"; };
-		33B40E211918A5A700936260 /* oldGemLevel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel3.png; sourceTree = "<group>"; };
-		33B40E221918A5A700936260 /* oldGemLevel4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel4.png; sourceTree = "<group>"; };
-		33B40E231918A5A700936260 /* oldGemLevel5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldGemLevel5.png; sourceTree = "<group>"; };
 		33D63C74196F1523003B2DE8 /* RFHHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHHomeScreenViewController.h; sourceTree = "<group>"; };
 		33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHHomeScreenViewController.m; sourceTree = "<group>"; };
 		33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHHomeScreenViewController.xib; sourceTree = "<group>"; };
 		33D63C79197387C6003B2DE8 /* canes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canes.mp3; sourceTree = "<group>"; };
-		33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GeminyCricketHomeScreenBackGem.png; sourceTree = "<group>"; };
 		33D63C7E19749679003B2DE8 /* RFHStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHStatsViewController.h; sourceTree = "<group>"; };
 		33D63C7F19749679003B2DE8 /* RFHStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHStatsViewController.m; sourceTree = "<group>"; };
 		33D63C8019749679003B2DE8 /* RFHStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHStatsViewController.xib; sourceTree = "<group>"; };
@@ -261,16 +235,6 @@
 				33D63C79197387C6003B2DE8 /* canes.mp3 */,
 				33B40DB218FA55BF00936260 /* Images.xcassets */,
 				33D90889195E0B4300F25B8F /* scroll_90opacity.png */,
-				33B40E151918A59400936260 /* oldGemLevel1@2x.png */,
-				33B40E161918A59400936260 /* oldGemLevel2@2x.png */,
-				33B40E171918A59400936260 /* oldGemLevel3@2x.png */,
-				33B40E181918A59400936260 /* oldGemLevel4@2x.png */,
-				33B40E191918A59400936260 /* oldGemLevel5@2x.png */,
-				33B40E1F1918A5A700936260 /* oldGemLevel1.png */,
-				33B40E201918A5A700936260 /* oldGemLevel2.png */,
-				33B40E211918A5A700936260 /* oldGemLevel3.png */,
-				33B40E221918A5A700936260 /* oldGemLevel4.png */,
-				33B40E231918A5A700936260 /* oldGemLevel5.png */,
 				33D63CAC19771E9D003B2DE8 /* GemLevel1.png */,
 				33D63CAD19771E9D003B2DE8 /* GemLevel1@2x.png */,
 				33D63CF0198964C3003B2DE8 /* GemLevel2.png */,
@@ -283,18 +247,15 @@
 				33D63CC3197DA6CB003B2DE8 /* GemLevel5@2x.png */,
 				33D63CBA19799271003B2DE8 /* gemLevel5Purple.png */,
 				33D63CBB19799271003B2DE8 /* gemLevel5@2xPurple.png */,
-				33D63C7C19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png */,
 				3379747A198DF24200120D2D /* previousMoveButton.png */,
 				3379747B198DF24200120D2D /* previousMoveButton@2x.png */,
 				33797476198DC88F00120D2D /* nextMoveButton.png */,
 				33797477198DC88F00120D2D /* nextMoveButton@2x.png */,
-				337974861996F79C00120D2D /* AdditionalInfo@2x.png */,
-				337974881996F7A100120D2D /* AdditionalInfoActivated@2x.png */,
-				3379748A1997DAC600120D2D /* CreatorInfo@2x.png */,
-				337974921997DFCF00120D2D /* Createa@2x.png */,
-				337974941997E02C00120D2D /* Createa@2x-01.png */,
-				337974961997E08100120D2D /* AdditionalInfoActivated@2x-01.png */,
-				337974981997E08700120D2D /* AdditionalInfo@2x-01.png */,
+				3379749F1997EB1D00120D2D /* AdditionalInfo.png */,
+				337974A01997EB1D00120D2D /* AdditionalInfoActivated.png */,
+				337974A11997EB1D00120D2D /* CreatorInfo.png */,
+				337974A5199811E000120D2D /* MusicIcon.png */,
+				337974A91998157400120D2D /* MusicIconCancel.png */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
 				33D63C9A1975AD98003B2DE8 /* App_icon120.png */,
@@ -426,40 +387,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */,
-				33B40E1A1918A59400936260 /* oldGemLevel1@2x.png in Resources */,
+				337974A7199811E000120D2D /* MusicIcon.png in Resources */,
 				33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */,
+				337974A31997EB1D00120D2D /* AdditionalInfoActivated.png in Resources */,
 				3379747C198DF24200120D2D /* previousMoveButton.png in Resources */,
-				337974931997DFCF00120D2D /* Createa@2x.png in Resources */,
-				33B40E261918A5A700936260 /* oldGemLevel3.png in Resources */,
 				33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */,
 				33D63CC1197A477A003B2DE8 /* GemLevel4.png in Resources */,
+				337974AA1998157400120D2D /* MusicIconCancel.png in Resources */,
 				33D63CC4197DA6CB003B2DE8 /* GemLevel5.png in Resources */,
-				33B40E271918A5A700936260 /* oldGemLevel4.png in Resources */,
+				337974A21997EB1D00120D2D /* AdditionalInfo.png in Resources */,
 				33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */,
 				33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */,
 				33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */,
-				33B40E1D1918A59400936260 /* oldGemLevel4@2x.png in Resources */,
 				33D63CB819786DF9003B2DE8 /* GemLevel3.png in Resources */,
-				33B40E1E1918A59400936260 /* oldGemLevel5@2x.png in Resources */,
-				33B40E241918A5A700936260 /* oldGemLevel1.png in Resources */,
 				33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */,
-				337974871996F79C00120D2D /* AdditionalInfo@2x.png in Resources */,
-				337974951997E02C00120D2D /* Createa@2x-01.png in Resources */,
-				33B40E1C1918A59400936260 /* oldGemLevel3@2x.png in Resources */,
-				3379748B1997DAC600120D2D /* CreatorInfo@2x.png in Resources */,
 				33D63CF3198964C3003B2DE8 /* GemLevel2@2x.png in Resources */,
-				337974971997E08100120D2D /* AdditionalInfoActivated@2x-01.png in Resources */,
-				337974991997E08700120D2D /* AdditionalInfo@2x-01.png in Resources */,
 				33D63CC5197DA6CB003B2DE8 /* GemLevel5@2x.png in Resources */,
 				33D63CBC19799271003B2DE8 /* gemLevel5Purple.png in Resources */,
 				33D63CB919786DF9003B2DE8 /* GemLevel3@2x.png in Resources */,
-				337974891996F7A100120D2D /* AdditionalInfoActivated@2x.png in Resources */,
 				33797478198DC88F00120D2D /* nextMoveButton.png in Resources */,
-				33B40E1B1918A59400936260 /* oldGemLevel2@2x.png in Resources */,
 				33D63CF2198964C3003B2DE8 /* GemLevel2.png in Resources */,
 				33797479198DC88F00120D2D /* nextMoveButton@2x.png in Resources */,
+				337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */,
 				3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */,
-				33B40E281918A5A700936260 /* oldGemLevel5.png in Resources */,
 				3379747D198DF24200120D2D /* previousMoveButton@2x.png in Resources */,
 				33D63CBD19799271003B2DE8 /* gemLevel5@2xPurple.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
@@ -468,8 +418,6 @@
 				33D63CAE19771E9D003B2DE8 /* GemLevel1.png in Resources */,
 				33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */,
 				33D63CC0197A477A003B2DE8 /* GemLevel4@2x.png in Resources */,
-				33D63C7D19738CDD003B2DE8 /* GeminyCricketHomeScreenBackGem.png in Resources */,
-				33B40E251918A5A700936260 /* oldGemLevel2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

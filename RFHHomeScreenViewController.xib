@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="creatorInfoButton" destination="EHC-pW-c2e" id="INZ-M4-T7o"/>
                 <outlet property="historyButton" destination="Rsh-J8-hi9" id="LLr-Vw-beE"/>
+                <outlet property="musicInfoButton" destination="OTv-rM-sOI" id="bKL-FI-Wub"/>
                 <outlet property="playButton" destination="GLT-bJ-F8E" id="RhT-fP-4Tc"/>
                 <outlet property="statsButton" destination="Nos-AF-Iws" id="m1y-8H-4w7"/>
                 <outlet property="titleLabel" destination="3Iv-Mv-JQ1" id="irQ-wh-OHX"/>
@@ -63,9 +64,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Q6-qxS">
-                    <rect key="frame" x="207" y="483" width="52" height="52"/>
+                    <rect key="frame" x="207" y="483" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="AdditionalInfo@2x-01.png">
+                    <state key="normal" image="AdditionalInfo.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -75,11 +76,21 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-pW-c2e">
                     <rect key="frame" x="149" y="485" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="Createa@2x-01.png">
+                    <state key="normal" image="CreatorInfo.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="showCreatorInfo:" destination="-1" eventType="touchUpInside" id="Esx-Mc-qRs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTv-rM-sOI">
+                    <rect key="frame" x="90" y="485" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="MusicIcon.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="toggleMusic:" destination="-1" eventType="touchUpInside" id="4oO-Y1-4mx"/>
                     </connections>
                 </button>
             </subviews>
@@ -89,7 +100,8 @@
         </view>
     </objects>
     <resources>
-        <image name="AdditionalInfo@2x-01.png" width="50" height="50"/>
-        <image name="Createa@2x-01.png" width="50" height="50"/>
+        <image name="AdditionalInfo.png" width="50" height="50"/>
+        <image name="CreatorInfo.png" width="50" height="50"/>
+        <image name="MusicIcon.png" width="50" height="50"/>
     </resources>
 </document>

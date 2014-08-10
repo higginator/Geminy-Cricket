@@ -11,6 +11,7 @@
 #import "RFHHomeScreenViewController.h"
 #import "RFHGameHistoryController.h"
 #import "RFHCreatorInfoViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface RFHAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -28,6 +29,9 @@
 @property (nonatomic) NSUInteger bestWin;
 @property (nonatomic) NSUInteger worstLoss;
 @property (nonatomic) NSUInteger flawlessVictories;
+
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic) BOOL audioIsPlaying;
 
 
 -(void)resetGame;

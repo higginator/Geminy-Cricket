@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *statsButton;
 @property (strong, nonatomic) IBOutlet UIButton *historyButton;
 @property (strong, nonatomic) IBOutlet UIButton *creatorInfoButton;
+@property (strong, nonatomic) IBOutlet UIButton *musicInfoButton;
 
 @end
 
@@ -41,15 +42,31 @@
 
 }
 - (IBAction)moreControls:(id)sender {
-    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo@2x-01.png"]]) {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated@2x-01.png"] forState:UIControlStateNormal];
+    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo.png"]]) {
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated.png"] forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = NO;
+        self.musicInfoButton.hidden = NO;
     } else {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfo@2x-01.png"]forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"AdditionalInfo.png"]forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = YES;
+        self.musicInfoButton.hidden = YES;
     }
 }
 
+- (IBAction)toggleMusic:(id)sender {
+    RFHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if (appDelegate.audioIsPlaying) {
+        [appDelegate.audioPlayer stop];
+        appDelegate.audioIsPlaying = NO;
+        [sender setImage:[UIImage imageNamed:@"MusicIconCancel.png"] forState:UIControlStateNormal];
+    } else {
+        appDelegate.audioPlayer.numberOfLoops = -1;
+        [appDelegate.audioPlayer play];
+        appDelegate.audioIsPlaying = YES;
+        [sender setImage:[UIImage imageNamed:@"MusicIcon.png"] forState:UIControlStateNormal];
+    }
+    
+}
 
 - (IBAction)showCreatorInfo:(id)sender {
     RFHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -73,6 +90,7 @@
     self.historyButton.titleLabel.shadowColor = [UIColor whiteColor];
     
     self.creatorInfoButton.hidden = YES;
+    self.musicInfoButton.hidden = YES;
 }
 
 
