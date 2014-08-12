@@ -78,6 +78,8 @@
             [board.boardBools addObject:[NSNumber numberWithBool:NO]];
         }
         
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
+        
     }
     return self;
 }

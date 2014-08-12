@@ -49,6 +49,8 @@
     
     NSMutableArray *usedRobotIndices;
     
+    BOOL iPhone3Point5Inch;
+    
     
 }
 
@@ -82,10 +84,12 @@
         //iPhone 5 screen
         boardOffsetY = 86;
         y = 498;
+        iPhone3Point5Inch = NO;
     } else {
         //iPhone 4/4s screen
-        boardOffsetY = 26;
+        boardOffsetY = 26 + 45;
         y = 418;
+        iPhone3Point5Inch = YES;
     }
     
     boardOffsetX = 10;
@@ -118,8 +122,13 @@
     }
 
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    if (iPhone3Point5Inch) {
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 330)
+                                                 collectionViewLayout:layout];
+    } else {
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(boardOffsetX, boardOffsetY, 300, 375)
                                              collectionViewLayout:layout];
+    }
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -242,7 +251,9 @@
                                                                        @"8": @"Eight",
                                                                        @"9": @"Nine"}];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
 }
 
 -(void)loadView
@@ -489,7 +500,12 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(100, 125);
+    if (iPhone3Point5Inch) {
+        return CGSizeMake(100, 110);
+    } else {
+        return CGSizeMake(100, 125);
+    }
+
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section

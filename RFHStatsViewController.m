@@ -54,10 +54,10 @@
 }
 
 
-- (void)didReceiveMemoryWarning
+-(void)viewDidLoad
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient7.jpg"]];
 }
 
 @end

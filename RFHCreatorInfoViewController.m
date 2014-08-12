@@ -23,6 +23,9 @@
         self.navigationItem.title = @"SQUAD";
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleDone target:self action:@selector(returnHome:)];
         self.navigationItem.leftBarButtonItem = bbi;
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
     }
     return self;
 }
@@ -36,7 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"creatorGradient.png"]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -77,7 +77,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
+    //self.view.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
     self.titleLabel.textColor = [UIColor colorWithRed:.760784 green:.1019607 blue:.2666667 alpha:1.0];
     self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.playButton.titleLabel.font = [UIFont fontWithName:@"AppleGothic" size:150];
@@ -85,9 +86,7 @@
     self.playButton.titleLabel.shadowColor = [UIColor blackColor];
     
     self.statsButton.titleLabel.textColor = [UIColor blackColor];
-    self.statsButton.titleLabel.shadowColor = [UIColor whiteColor];
     self.historyButton.titleLabel.textColor = [UIColor blackColor];
-    self.historyButton.titleLabel.shadowColor = [UIColor whiteColor];
     
     self.creatorInfoButton.hidden = YES;
     self.musicInfoButton.hidden = YES;
