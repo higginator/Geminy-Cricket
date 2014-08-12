@@ -45,7 +45,7 @@
     UIButton *resetButton;
     UIButton *homeScreenButton;
     
-    NSUInteger humanTotal;
+    NSUInteger humanTotal, robotScore;
     
     NSMutableArray *usedRobotIndices;
     
@@ -68,6 +68,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     usedRobotIndices = [[NSMutableArray alloc] init];
     humanTotal = 0;
+    robotScore = 0;
     board = [[RFHGameBoard alloc] init];
     board.boardObjects = [[NSMutableArray alloc] init];
     board.boardColors = [[NSMutableArray alloc] init];
@@ -141,6 +142,37 @@
             forCellWithReuseIdentifier:@"boardCell"];
     self.collectionView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.collectionView];
+    
+    //add score label
+    //CGRect scoreFrame;
+    CGRect humanNameFrame, humanScoreFrame, robotNameFrame, robotScoreFrame;
+    if (iPhone3Point5Inch) {
+        //scoreFrame = CGRectMake(50, 20, 250, 50);
+        humanNameFrame = CGRectMake(40, 20, 70, 50);
+        humanScoreFrame = CGRectMake(130, 20, 30, 50);
+        robotScoreFrame = CGRectMake(170, 20, 30, 50);
+        robotNameFrame = CGRectMake(220, 20, 70, 50);
+    } else {
+        //scoreFrame = CGRectMake(50, 30, 250, 50);
+        humanNameFrame = CGRectMake(40, 30, 70, 50);
+        humanScoreFrame = CGRectMake(130, 30, 30, 50);
+        robotScoreFrame = CGRectMake(170, 30, 30, 50);
+        robotNameFrame = CGRectMake(220, 30, 70, 50);
+    }
+    //self.scoreLabel = [[UILabel alloc] initWithFrame:scoreFrame];
+    //[self updateScoreBoard];
+    //[self.view addSubview:self.scoreLabel];
+    
+    self.humanNameLabel = [[UILabel alloc] initWithFrame:humanNameFrame];
+    self.humanScoreLabel = [[UILabel alloc] initWithFrame:humanScoreFrame];
+    self.robotNameLabel = [[UILabel alloc] initWithFrame:robotNameFrame];
+    self.robotScoreLabel = [[UILabel alloc] initWithFrame:robotScoreFrame];
+
+    [self.view addSubview:self.humanNameLabel];
+    [self.view addSubview:self.humanScoreLabel];
+    [self.view addSubview:self.robotNameLabel];
+    [self.view addSubview:self.robotScoreLabel];
+    [self updateScoreBoard];
     
 
     
@@ -463,6 +495,8 @@
             }
         }
         
+        [self updateScoreBoard];
+        
         if ([self isGameOver]) {
             [self declareWinner];
         } else if (humanMoveMade) {
@@ -521,6 +555,69 @@
 
 
 #pragma mark - Custom Game Functions
+
+-(void)updateScoreBoard
+{
+    humanTotal = 0;
+    robotScore = 0;
+    for (UIColor *color in board.boardColors) {
+        if (color == human.color) {
+            humanTotal++;
+        }
+    }
+    for (UIColor *color in board.boardColors) {
+        if (color == robotOpponent.color) {
+            robotScore++;
+        }
+    }
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    UIFont *scoreFont = [UIFont fontWithName:@"ChalkDuster" size:30];
+    NSMutableAttributedString *humanNameAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Human"]];
+    [humanNameAttString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, humanNameAttString.length)];
+    self.humanNameLabel.attributedText = humanNameAttString;
+    
+    NSMutableAttributedString *robotNameAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Robot"]];
+    [robotNameAttString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, robotNameAttString.length)];
+    self.robotNameLabel.attributedText = robotNameAttString;
+    
+    NSMutableAttributedString *humanScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", humanTotal]];
+    [humanScoreAttString addAttribute:NSFontAttributeName value:scoreFont range:NSMakeRange(0, humanScoreAttString.length)];
+    [humanScoreAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0] range:NSMakeRange(0, humanScoreAttString.length)];
+    self.humanScoreLabel.attributedText = humanScoreAttString;
+    
+    NSMutableAttributedString *robotScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", robotScore]];
+    [robotScoreAttString addAttribute:NSFontAttributeName value:scoreFont range:NSMakeRange(0, robotScoreAttString.length)];
+    [robotScoreAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0] range:NSMakeRange(0, robotScoreAttString.length)];
+    self.robotScoreLabel.attributedText = robotScoreAttString;
+    
+}
+
+-(void)updateScoreBoardv1
+{
+    humanTotal = 0;
+    robotScore = 0;
+    for (UIColor *color in board.boardColors) {
+        if (color == human.color) {
+            humanTotal++;
+        }
+    }
+    for (UIColor *color in board.boardColors) {
+        if (color == robotOpponent.color) {
+            robotScore++;
+        }
+    }
+
+    NSMutableAttributedString *mutAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Human  %lu   %lu  Robot", humanTotal, robotScore]];
+    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 6)];
+    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0] range:NSMakeRange(7, 1)];
+    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(9, 1)];
+    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0] range:NSMakeRange(11, 1)];
+    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(12, 6)];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [mutAttString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, mutAttString.length)];
+    self.scoreLabel.attributedText = mutAttString;
+    
+}
 
 -(NSUInteger)turnMoveOrder
 {
@@ -591,6 +688,7 @@
     [self boardCheck:robotGemImage collectionLocation:cell.center];
     [self changeTurnOrder];
     
+    [self updateScoreBoard];
     if ([self isGameOver]) {
         [self declareWinner];
         [self changeTurnOrder];
@@ -658,11 +756,7 @@
 
 -(void)declareWinner
 {
-    for (UIColor *color in board.boardColors) {
-        if (color == human.color) {
-            humanTotal++;
-        }
-    }
+
     UIImageView *scrollView = [[UIImageView alloc] initWithFrame:CGRectMake(70, 100, 180, 250)];
     UIImage *scrollImage = [UIImage imageNamed:@"scroll_90opacity.png"];
     scrollView.image = scrollImage;
