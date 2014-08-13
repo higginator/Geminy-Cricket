@@ -21,6 +21,7 @@
 		337974AC1998174D00120D2D /* gradient7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 337974AB1998174D00120D2D /* gradient7.jpg */; };
 		337974AE1998196A00120D2D /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974AD1998196A00120D2D /* gradient.png */; };
 		337974B019981ADE00120D2D /* creatorGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974AF19981ADE00120D2D /* creatorGradient.png */; };
+		337974BE199BD62200120D2D /* CircleWinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974BD199BD62200120D2D /* CircleWinner.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -93,6 +94,7 @@
 		337974AB1998174D00120D2D /* gradient7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient7.jpg; sourceTree = "<group>"; };
 		337974AD1998196A00120D2D /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		337974AF19981ADE00120D2D /* creatorGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creatorGradient.png; sourceTree = "<group>"; };
+		337974BD199BD62200120D2D /* CircleWinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleWinner.png; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -264,6 +266,7 @@
 				337974A91998157400120D2D /* MusicIconCancel.png */,
 				337974AD1998196A00120D2D /* gradient.png */,
 				337974AF19981ADE00120D2D /* creatorGradient.png */,
+				337974BD199BD62200120D2D /* CircleWinner.png */,
 				337974AB1998174D00120D2D /* gradient7.jpg */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
@@ -423,6 +426,7 @@
 				337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */,
 				3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */,
 				3379747D198DF24200120D2D /* previousMoveButton@2x.png in Resources */,
+				337974BE199BD62200120D2D /* CircleWinner.png in Resources */,
 				33D63CBD19799271003B2DE8 /* gemLevel5@2xPurple.png in Resources */,
 				33B40DAB18FA55BF00936260 /* InfoPlist.strings in Resources */,
 				33D63C9C1975AD98003B2DE8 /* App_icon58.png in Resources */,

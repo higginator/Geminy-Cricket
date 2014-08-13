@@ -51,6 +51,8 @@
     
     BOOL iPhone3Point5Inch;
     
+    UILabel *humanChalkCircle, *robotChalkCircle;
+    
     
 }
 
@@ -156,6 +158,7 @@
         robotScoreFrame = CGRectMake(170, 30, 30, 50);
         robotNameFrame = CGRectMake(220, 30, 70, 50);
     }
+    
     
     self.humanNameLabel = [[UILabel alloc] initWithFrame:humanNameFrame];
     self.humanScoreLabel = [[UILabel alloc] initWithFrame:humanScoreFrame];
@@ -496,7 +499,6 @@
             [self makeNameLabelsBlack];
             [self declareWinner];
         } else if (humanMoveMade) {
-            NSLog(@"human made a move!");
             [self changeTurnOrder];
             [self changeTurnVisualCue];
             [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
@@ -684,7 +686,6 @@
     
     [self updateScoreBoard];
     [self changeTurnVisualCue];
-    NSLog(@"robot made a move!");
     if ([self isGameOver]) {
         [self makeNameLabelsBlack];
         [self declareWinner];
@@ -805,6 +806,17 @@
         completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, (unsigned long)humanTotal, (unsigned long)robotTotal];
         completedGame.humanVictory = YES;
         [self.view addSubview:label];
+        
+        CGRect humanChalkCircleFrame;
+        if (iPhone3Point5Inch) {
+            humanChalkCircleFrame = CGRectMake(27, 12, 90, 60);
+        } else {
+            humanChalkCircleFrame = CGRectMake(27, 23, 90, 60);
+        }
+        humanChalkCircle = [[UILabel alloc] initWithFrame:humanChalkCircleFrame];
+        humanChalkCircle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CircleWinner.png"]];
+        [self.view addSubview:humanChalkCircle];
+        
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.losses++;
@@ -819,6 +831,16 @@
         label.font = [UIFont fontWithName:@"Zapfino" size:15];
         completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, (unsigned long)humanTotal, (unsigned long)robotTotal];
         [self.view addSubview:label];
+        
+        CGRect robotChalkCircleFrame;
+        if (iPhone3Point5Inch) {
+            robotChalkCircleFrame = CGRectMake(205, 12, 90, 60);
+        } else {
+            robotChalkCircleFrame = CGRectMake(205, 23, 90, 60);
+        }
+        robotChalkCircle = [[UILabel alloc] initWithFrame:robotChalkCircleFrame];
+        robotChalkCircle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CircleWinner.png"]];
+        [self.view addSubview:robotChalkCircle];
     }
     
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
