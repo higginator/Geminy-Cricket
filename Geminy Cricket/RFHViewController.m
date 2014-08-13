@@ -144,24 +144,18 @@
     [self.view addSubview:self.collectionView];
     
     //add score label
-    //CGRect scoreFrame;
     CGRect humanNameFrame, humanScoreFrame, robotNameFrame, robotScoreFrame;
     if (iPhone3Point5Inch) {
-        //scoreFrame = CGRectMake(50, 20, 250, 50);
         humanNameFrame = CGRectMake(40, 20, 70, 50);
         humanScoreFrame = CGRectMake(130, 20, 30, 50);
         robotScoreFrame = CGRectMake(170, 20, 30, 50);
         robotNameFrame = CGRectMake(220, 20, 70, 50);
     } else {
-        //scoreFrame = CGRectMake(50, 30, 250, 50);
         humanNameFrame = CGRectMake(40, 30, 70, 50);
         humanScoreFrame = CGRectMake(130, 30, 30, 50);
         robotScoreFrame = CGRectMake(170, 30, 30, 50);
         robotNameFrame = CGRectMake(220, 30, 70, 50);
     }
-    //self.scoreLabel = [[UILabel alloc] initWithFrame:scoreFrame];
-    //[self updateScoreBoard];
-    //[self.view addSubview:self.scoreLabel];
     
     self.humanNameLabel = [[UILabel alloc] initWithFrame:humanNameFrame];
     self.humanScoreLabel = [[UILabel alloc] initWithFrame:humanScoreFrame];
@@ -173,6 +167,7 @@
     [self.view addSubview:self.robotNameLabel];
     [self.view addSubview:self.robotScoreLabel];
     [self updateScoreBoard];
+    [self changeTurnVisualCue];
     
 
     
@@ -498,9 +493,12 @@
         [self updateScoreBoard];
         
         if ([self isGameOver]) {
+            [self makeNameLabelsBlack];
             [self declareWinner];
         } else if (humanMoveMade) {
+            NSLog(@"human made a move!");
             [self changeTurnOrder];
+            [self changeTurnVisualCue];
             [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
         }
     }
@@ -556,6 +554,28 @@
 
 #pragma mark - Custom Game Functions
 
+-(void)makeNameLabelsBlack
+{
+    NSMutableAttributedString *humanMutString = (NSMutableAttributedString *) self.humanNameLabel.attributedText;
+    NSMutableAttributedString *robotMutString = (NSMutableAttributedString *) self.robotNameLabel.attributedText;
+    [humanMutString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,humanMutString.length)];
+    [robotMutString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,robotMutString.length)];
+}
+
+-(void)changeTurnVisualCue
+{
+    NSMutableAttributedString *humanMutString = (NSMutableAttributedString *) self.humanNameLabel.attributedText;
+    NSMutableAttributedString *robotMutString = (NSMutableAttributedString *) self.robotNameLabel.attributedText;
+    if (human.turn) {
+        [humanMutString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,humanMutString.length)];
+        [robotMutString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,robotMutString.length)];
+    } else {
+        [humanMutString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,humanMutString.length)];
+        [robotMutString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,robotMutString.length)];
+    }
+    
+}
+
 -(void)updateScoreBoard
 {
     humanTotal = 0;
@@ -580,44 +600,18 @@
     [robotNameAttString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, robotNameAttString.length)];
     self.robotNameLabel.attributedText = robotNameAttString;
     
-    NSMutableAttributedString *humanScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", humanTotal]];
+    NSMutableAttributedString *humanScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", (unsigned long)humanTotal]];
     [humanScoreAttString addAttribute:NSFontAttributeName value:scoreFont range:NSMakeRange(0, humanScoreAttString.length)];
     [humanScoreAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0] range:NSMakeRange(0, humanScoreAttString.length)];
     self.humanScoreLabel.attributedText = humanScoreAttString;
     
-    NSMutableAttributedString *robotScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", robotScore]];
+    NSMutableAttributedString *robotScoreAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu", (unsigned long)robotScore]];
     [robotScoreAttString addAttribute:NSFontAttributeName value:scoreFont range:NSMakeRange(0, robotScoreAttString.length)];
     [robotScoreAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0] range:NSMakeRange(0, robotScoreAttString.length)];
     self.robotScoreLabel.attributedText = robotScoreAttString;
     
 }
 
--(void)updateScoreBoardv1
-{
-    humanTotal = 0;
-    robotScore = 0;
-    for (UIColor *color in board.boardColors) {
-        if (color == human.color) {
-            humanTotal++;
-        }
-    }
-    for (UIColor *color in board.boardColors) {
-        if (color == robotOpponent.color) {
-            robotScore++;
-        }
-    }
-
-    NSMutableAttributedString *mutAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Human  %lu   %lu  Robot", humanTotal, robotScore]];
-    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 6)];
-    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0] range:NSMakeRange(7, 1)];
-    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(9, 1)];
-    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0] range:NSMakeRange(11, 1)];
-    [mutAttString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(12, 6)];
-    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
-    [mutAttString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, mutAttString.length)];
-    self.scoreLabel.attributedText = mutAttString;
-    
-}
 
 -(NSUInteger)turnMoveOrder
 {
@@ -689,7 +683,10 @@
     [self changeTurnOrder];
     
     [self updateScoreBoard];
+    [self changeTurnVisualCue];
+    NSLog(@"robot made a move!");
     if ([self isGameOver]) {
+        [self makeNameLabelsBlack];
         [self declareWinner];
         [self changeTurnOrder];
     }
