@@ -26,9 +26,8 @@
 
 @property (nonatomic) NSUInteger wins;
 @property (nonatomic) NSUInteger losses;
-@property (nonatomic) NSUInteger bestWin;
-@property (nonatomic) NSUInteger worstLoss;
 @property (nonatomic) NSUInteger flawlessVictories;
+@property (nonatomic) NSUInteger winStreak;
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic) BOOL audioIsPlaying;

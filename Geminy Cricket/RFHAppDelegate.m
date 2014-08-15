@@ -35,9 +35,8 @@
 
     self.wins = 0;
     self.losses = 0;
-    self.bestWin = 0;
-    self.worstLoss = 0;
     self.flawlessVictories = 0;
+    self.winStreak = 0;
     
     //initialize sound
 

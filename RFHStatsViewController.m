@@ -11,10 +11,8 @@
 
 @interface RFHStatsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *winsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lossesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *marginOfVictoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *marginOfDefeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *flawlessVictoriesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *winStreakLabel;
 
 @end
 
@@ -40,11 +38,23 @@
     [super viewWillAppear:animated];
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", (unsigned long)appDelegate.wins];
-    self.lossesLabel.text = [NSString stringWithFormat:@"Losses: %lu", (unsigned long)appDelegate.losses];
-    self.marginOfVictoryLabel.text = [NSString stringWithFormat:@"Greatest Victory: %lu", (unsigned long)appDelegate.bestWin];
-    self.marginOfDefeatLabel.text = [NSString stringWithFormat:@"Greatest Defeat: %lu", (unsigned long)appDelegate.worstLoss];
-    self.flawlessVictoriesLabel.text = [NSString stringWithFormat:@"Flawless Victories: %lu", (unsigned long)appDelegate.flawlessVictories];
+    //self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", (unsigned long)appDelegate.wins];
+    NSMutableAttributedString *record = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu - %lu", appDelegate.wins, appDelegate.losses]];
+    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:45];
+    [record addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, record.length)];
+    [record addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, record.length)];
+    self.winsLabel.attributedText = record;
+    
+    NSMutableAttributedString *flawlessVictories = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Flawless Victories: %lu",appDelegate.flawlessVictories]];
+    UIFont *font2 = [UIFont fontWithName:@"Chalkduster" size:20];
+    [flawlessVictories addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, flawlessVictories.length)];
+    [flawlessVictories addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, flawlessVictories.length)];
+    self.flawlessVictoriesLabel.attributedText = flawlessVictories;
+    
+    NSMutableAttributedString *winStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Win Streak: %lu",appDelegate.winStreak]];
+    [winStreak addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, winStreak.length)];
+    [winStreak addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, winStreak.length)];
+    self.winStreakLabel.attributedText = winStreak;
     
 }
 
@@ -57,7 +67,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient7.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
 }
 
 @end

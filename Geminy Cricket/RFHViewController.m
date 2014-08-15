@@ -790,9 +790,7 @@
     if (humanTotal >= 5) {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.wins++;
-        if (humanTotal > appDelegate.bestWin) {
-            appDelegate.bestWin = humanTotal;
-        }
+        appDelegate.winStreak++;
         if (humanTotal == 9) {
             appDelegate.flawlessVictories++;
         }
@@ -820,9 +818,7 @@
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.losses++;
-        if ((9 - humanTotal) > appDelegate.worstLoss) {
-            appDelegate.worstLoss = (9 - humanTotal);
-        }
+        appDelegate.winStreak = 0;
         //create defeat label, place on screen
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
         labelText = @"DEFEAT";
