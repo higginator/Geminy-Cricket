@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *historyButton;
 @property (strong, nonatomic) IBOutlet UIButton *creatorInfoButton;
 @property (strong, nonatomic) IBOutlet UIButton *musicInfoButton;
+@property (strong, nonatomic) IBOutlet UIButton *additionalInfoButton;
 
 @end
 
@@ -73,11 +74,9 @@
     appDelegate.window.rootViewController = appDelegate.navigationCreatorInfoController;
 }
 
-- (void)viewDidLoad
+
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //self.view.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
     self.titleLabel.textColor = [UIColor colorWithRed:.760784 green:.1019607 blue:.2666667 alpha:1.0];
     self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -90,6 +89,7 @@
     self.historyButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
     self.historyButton.titleLabel.textColor = [UIColor blackColor];
     
+    [self.additionalInfoButton setImage:[UIImage imageNamed:@"MoreInfo.png"] forState:UIControlStateNormal];
     self.creatorInfoButton.hidden = YES;
     self.musicInfoButton.hidden = YES;
 }

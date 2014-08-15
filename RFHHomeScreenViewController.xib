@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RFHHomeScreenViewController">
             <connections>
+                <outlet property="additionalInfoButton" destination="Mun-Q6-qxS" id="Yg9-PB-cGQ"/>
                 <outlet property="creatorInfoButton" destination="EHC-pW-c2e" id="INZ-M4-T7o"/>
                 <outlet property="historyButton" destination="Rsh-J8-hi9" id="LLr-Vw-beE"/>
                 <outlet property="musicInfoButton" destination="OTv-rM-sOI" id="bKL-FI-Wub"/>
