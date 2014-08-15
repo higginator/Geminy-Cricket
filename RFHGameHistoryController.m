@@ -52,6 +52,7 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor colorWithRed:0 green:.745098 blue:.2745098 alpha:1.0];
 }
 
 #pragma mark - Table view data source
@@ -74,14 +75,19 @@
     NSUInteger lengthOfGameNumber = [numberToString length];
     NSUInteger lengthOfStartOfText = 6;
     NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Game %lu: %@",(unsigned long)gameNumber, game.outcome]];
-    [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, lengthOfStartOfText + lengthOfGameNumber)];
+    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:17];
+    [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, lengthOfStartOfText + lengthOfGameNumber)];
+    [mutableString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, mutableString.length)];
     NSUInteger length = [mutableString length] - lengthOfStartOfText - lengthOfGameNumber;
     if (game.humanVictory) {
-        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+        //[mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
     } else {
-        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+        //[mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
+        [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:.78431 green:.215686 blue:.0274509 alpha:1.0] range:NSMakeRange(lengthOfStartOfText + lengthOfGameNumber, length)];
     }
     cell.textLabel.attributedText = mutableString;
+    cell.backgroundColor = [UIColor colorWithRed:0 green:.745098 blue:.2745098 alpha:1.0];
     return cell;
 }
 

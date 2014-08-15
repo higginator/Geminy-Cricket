@@ -64,9 +64,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Q6-qxS">
-                    <rect key="frame" x="207" y="483" width="50" height="50"/>
+                    <rect key="frame" x="217" y="492" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="AdditionalInfo.png">
+                    <state key="normal" image="MoreInfo.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -74,7 +74,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-pW-c2e">
-                    <rect key="frame" x="149" y="485" width="50" height="50"/>
+                    <rect key="frame" x="170" y="497" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="CreatorInfo.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTv-rM-sOI">
-                    <rect key="frame" x="90" y="485" width="50" height="50"/>
+                    <rect key="frame" x="123" y="497" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="MusicIcon.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,8 +100,8 @@
         </view>
     </objects>
     <resources>
-        <image name="AdditionalInfo.png" width="50" height="50"/>
         <image name="CreatorInfo.png" width="50" height="50"/>
+        <image name="MoreInfo.png" width="30" height="30"/>
         <image name="MusicIcon.png" width="50" height="50"/>
     </resources>
 </document>

@@ -42,12 +42,12 @@
 
 }
 - (IBAction)moreControls:(id)sender {
-    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"AdditionalInfo.png"]]) {
+    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"MoreInfo.png"]]) {
         [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated.png"] forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = NO;
         self.musicInfoButton.hidden = NO;
     } else {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfo.png"]forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"MoreInfo.png"]forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = YES;
         self.musicInfoButton.hidden = YES;
     }
@@ -85,7 +85,9 @@
     self.playButton.titleLabel.textColor = [UIColor whiteColor];
     self.playButton.titleLabel.shadowColor = [UIColor blackColor];
     
+    self.statsButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
     self.statsButton.titleLabel.textColor = [UIColor blackColor];
+    self.historyButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
     self.historyButton.titleLabel.textColor = [UIColor blackColor];
     
     self.creatorInfoButton.hidden = YES;
