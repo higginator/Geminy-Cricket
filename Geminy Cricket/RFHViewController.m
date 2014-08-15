@@ -493,12 +493,14 @@
             }
         }
         
-        [self updateScoreBoard];
+        //[self updateScoreBoard];
         
         if ([self isGameOver]) {
+            [self updateScoreBoard];
             [self makeNameLabelsBlack];
             [self declareWinner];
         } else if (humanMoveMade) {
+            [self updateScoreBoard];
             [self changeTurnOrder];
             [self changeTurnVisualCue];
             [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
