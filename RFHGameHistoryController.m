@@ -88,6 +88,11 @@
     }
     cell.textLabel.attributedText = mutableString;
     cell.backgroundColor = [UIColor colorWithRed:0 green:.745098 blue:.2745098 alpha:1.0];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    UIView *selectedView = [[UIView alloc] init];
+    selectedView.backgroundColor = [UIColor colorWithRed:0 green:.862745 blue:.2745098 alpha:1.0];
+    cell.selectedBackgroundView = selectedView;
     return cell;
 }
 
