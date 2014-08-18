@@ -10,7 +10,7 @@
 #import "RFHAppDelegate.h"
 
 @interface RFHStatsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *winsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recordLabel;
 @property (weak, nonatomic) IBOutlet UILabel *flawlessVictoriesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *winStreakLabel;
 
@@ -43,7 +43,7 @@
     UIFont *font = [UIFont fontWithName:@"Chalkduster" size:45];
     [record addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, record.length)];
     [record addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, record.length)];
-    self.winsLabel.attributedText = record;
+    self.recordLabel.attributedText = record;
     
     NSMutableAttributedString *flawlessVictories = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Flawless Victories: %lu",appDelegate.flawlessVictories]];
     UIFont *font2 = [UIFont fontWithName:@"Chalkduster" size:20];

@@ -80,9 +80,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
     self.titleLabel.textColor = [UIColor colorWithRed:.760784 green:.1019607 blue:.2666667 alpha:1.0];
     self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.playButton.titleLabel.font = [UIFont fontWithName:@"Papyrus" size:200];
+    self.playButton.titleLabel.font = [UIFont fontWithName:@"ChalkDuster" size:100];
+    self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.playButton.titleLabel.textColor = [UIColor whiteColor];
-    self.playButton.titleLabel.shadowColor = [UIColor blackColor];
+    //self.playButton.titleLabel.shadowColor = [UIColor blackColor];
     
     self.statsButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
     self.statsButton.titleLabel.textColor = [UIColor blackColor];
