@@ -27,6 +27,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="58"/>
                     <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="PLAY">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -46,7 +47,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="Stats">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
                     <connections>
                         <action selector="showStats:" destination="-1" eventType="touchUpInside" id="G8q-o9-mWw"/>
@@ -58,6 +60,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="History">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
