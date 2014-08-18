@@ -51,8 +51,9 @@
     
     BOOL iPhone3Point5Inch;
     
-    UILabel *humanChalkCircle, *robotChalkCircle;
+    UILabel *humanChalkCircle, *robotChalkCircle, *label;
     
+    UIView *fadedView;
     
 }
 
@@ -756,10 +757,12 @@
 
 -(void)declareWinner
 {
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    UIImageView *scrollView = [[UIImageView alloc] initWithFrame:CGRectMake(70, 100, 180, 250)];
-    UIImage *scrollImage = [UIImage imageNamed:@"scroll_90opacity.png"];
-    scrollView.image = scrollImage;
+    
+    //UIImageView *scrollView = [[UIImageView alloc] initWithFrame:CGRectMake(70, 100, 180, 250)];
+    //UIImage *scrollImage = [UIImage imageNamed:@"scroll_90opacity.png"];
+    //scrollView.image = scrollImage;
     
     
     resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -768,7 +771,18 @@
     [resetButton setTitle:@"Replay" forState:UIControlStateNormal];
     resetButton.frame = CGRectMake(120, 250, 65, 30);
     resetButton.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:scrollView];
+    
+    fadedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
+    fadedView.backgroundColor = [UIColor blackColor];
+    //[fadedView.layer setCornerRadius:10.0f];
+    [fadedView setAlpha: 0.1];
+    [self.view addSubview:fadedView];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [fadedView setAlpha:.6];
+    [UIView commitAnimations];
+    appDelegate.fadedView = fadedView;
+    //[self.view addSubview:scrollView];
     [self.view addSubview:resetButton];
     
     homeScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -797,12 +811,14 @@
             appDelegate.flawlessVictories++;
         }
         //create victory label, place on screen
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(30, 150, appDelegate.window.bounds.size.width, 75)];
         labelText = @"VICTORY";
         label.text = labelText;
-        label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
+        //label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
+        label.textColor = human.color;
         //label.font = [label.font fontWithSize:25];
-        label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        //label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        label.font = [UIFont fontWithName:@"Chalkduster" size:50];
         completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, (unsigned long)humanTotal, (unsigned long)robotTotal];
         completedGame.humanVictory = YES;
         [self.view addSubview:label];
@@ -822,11 +838,13 @@
         appDelegate.losses++;
         appDelegate.winStreak = 0;
         //create defeat label, place on screen
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 150, 120, 75)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, appDelegate.window.bounds.size.width, 75)];
         labelText = @"DEFEAT";
         label.text = labelText;
-        label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
-        label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        //label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
+        label.textColor = robotOpponent.color;
+        //label.font = [UIFont fontWithName:@"Zapfino" size:15];
+        label.font = [UIFont fontWithName:@"Chalkduster" size:50];
         completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, (unsigned long)humanTotal, (unsigned long)robotTotal];
         [self.view addSubview:label];
         
@@ -841,7 +859,6 @@
         [self.view addSubview:robotChalkCircle];
     }
     
-    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.gameHistoryController.completedGames addObject:completedGame];
 
 }
@@ -1164,8 +1181,21 @@
 }
 -(void)resetGame
 {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [label setAlpha:0.1];
+    [fadedView setAlpha:0.1];
+    if (humanChalkCircle) {
+        [humanChalkCircle setAlpha:0.1];
+    } else {
+        [robotChalkCircle setAlpha:0.1];
+    }
+    [resetButton setAlpha:0.1];
+    [homeScreenButton setAlpha:0.1];
+    [UIView commitAnimations];
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate performSelector:@selector(resetGame)];
+    //[appDelegate performSelector:@selector(resetGame)];
+    [appDelegate performSelector:@selector(resetGame) withObject:self afterDelay:0.3];
 }
 
 @end

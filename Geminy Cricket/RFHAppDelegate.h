@@ -32,6 +32,7 @@
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic) BOOL audioIsPlaying;
 
+@property (nonatomic) UIView *fadedView;
 
 -(void)resetGame;
 -(void)returnHome;
