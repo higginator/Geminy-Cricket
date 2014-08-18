@@ -765,12 +765,10 @@
     //scrollView.image = scrollImage;
     
     
-    resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    resetButton.layer.cornerRadius = 5.0f;
+    resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
-    [resetButton setTitle:@"Replay" forState:UIControlStateNormal];
-    resetButton.frame = CGRectMake(120, 250, 65, 30);
-    resetButton.backgroundColor = [UIColor clearColor];
+    [resetButton setImage:[UIImage imageNamed:@"replayButton.png"] forState:UIControlStateNormal];
+    resetButton.frame = CGRectMake(185, 410, 50, 50);
     
     fadedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
     fadedView.backgroundColor = [UIColor blackColor];
@@ -785,12 +783,10 @@
     //[self.view addSubview:scrollView];
     [self.view addSubview:resetButton];
     
-    homeScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    homeScreenButton.layer.cornerRadius = 5.0f;
+    homeScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [homeScreenButton addTarget:self action:@selector(returnHome) forControlEvents:UIControlEventTouchUpInside];
-    [homeScreenButton setTitle:@"Home" forState:UIControlStateNormal];
-    homeScreenButton.frame = CGRectMake(120, 210, 65, 30);
-    homeScreenButton.backgroundColor = [UIColor clearColor];
+    [homeScreenButton setImage:[UIImage imageNamed:@"homeButtonWhite.png"] forState:UIControlStateNormal];
+    homeScreenButton.frame = CGRectMake(85, 410, 50, 50);
     [self.view addSubview:homeScreenButton];
 
     
