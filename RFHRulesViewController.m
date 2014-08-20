@@ -576,9 +576,16 @@
 
 -(void)geminyIntro
 {
-    CGRect introFrame = CGRectMake(70, 50, 300, 300);
-    CGRect introLineTwoFrame = CGRectMake(90, 80, 300, 300);
-    CGRect introLineThreeFrame = CGRectMake(110, 110, 300, 300);
+    CGRect introFrame, introLineTwoFrame, introLineThreeFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(70, 21, 300, 300);
+        introLineTwoFrame = CGRectMake(90, 51, 300, 300);
+        introLineThreeFrame = CGRectMake(110, 81, 300, 300);
+    } else {
+        introFrame = CGRectMake(70, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(90, 80, 300, 300);
+        introLineThreeFrame = CGRectMake(110, 110, 300, 300);
+    }
     self.intro = [[UILabel alloc] initWithFrame:introFrame];
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     self.introLineThree = [[UILabel alloc] initWithFrame:introLineThreeFrame];
@@ -588,7 +595,7 @@
     
     self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    self.nextButton.frame = CGRectMake(140, 320, 50, 50);
     [self.nextButton addTarget:self action:@selector(geminyIntroHalfStep) forControlEvents:UIControlEventTouchUpInside];
     [self.nextButton setAlpha:0];
     
@@ -638,8 +645,14 @@
     [self.introLineTwo removeFromSuperview];
     [self.introLineThree removeFromSuperview];
     [self.nextButton removeFromSuperview];
-    CGRect introFrame = CGRectMake(15, 50, 300, 300);
-    CGRect introLineTwoFrame = CGRectMake(125, 80, 300, 300);
+    CGRect introFrame, introLineTwoFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(15, 21, 300, 300);
+        introLineTwoFrame = CGRectMake(125, 51, 300, 300);
+    } else {
+        introFrame = CGRectMake(15, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(125, 80, 300, 300);
+    }
     self.intro = [[UILabel alloc] initWithFrame:introFrame];
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     [self.intro setAlpha:0];
@@ -647,7 +660,7 @@
     
     self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    self.nextButton.frame = CGRectMake(140, 320, 50, 50);
     [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.nextButton];
     
@@ -693,7 +706,12 @@
     [self.nextButton removeFromSuperview];
 
     RFHAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    UIImage *backdrop = [UIImage imageNamed:@"rulesStep3.png"];
+    UIImage *backdrop;
+    if (iPhone3Point5Inch) {
+        backdrop = [UIImage imageNamed:@"rulesStep3small.png"];
+    } else {
+        backdrop = [UIImage imageNamed:@"rulesStep3.png"];
+    }
     UIImageView *bd = [[UIImageView alloc] initWithImage:backdrop];
     bd.frame = CGRectMake(0, 0, delegate.window.bounds.size.width, delegate.window.bounds.size.height);
     [bd setAlpha:0];
@@ -707,8 +725,14 @@
     //self.gemHighlight = [[UIImageView alloc] initWithImage:gemHigh];
     //self.gemHighlight.frame = CGRectMake(gemOneRect.origin.x, gemOneRect.origin.y, 50, 50);
     [self.view addSubview:self.gemHighlight];
-    CGRect introFrame = CGRectMake(112, 50, 300, 300);
-    CGRect introLineTwoFrame = CGRectMake(65, 80, 300, 300);
+    CGRect introFrame, introLineTwoFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(112, 23, 300, 300);
+        introLineTwoFrame = CGRectMake(65, 53, 300, 300);
+    } else {
+        introFrame = CGRectMake(112, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(65, 80, 300, 300);
+    }
     self.intro = [[UILabel alloc] initWithFrame:introFrame];
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     [self.intro setAlpha:0];

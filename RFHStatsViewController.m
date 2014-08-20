@@ -39,19 +39,19 @@
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //self.winsLabel.text = [NSString stringWithFormat:@"Wins: %lu", (unsigned long)appDelegate.wins];
-    NSMutableAttributedString *record = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu - %lu", appDelegate.wins, appDelegate.losses]];
+    NSMutableAttributedString *record = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lu - %lu", (unsigned long)appDelegate.wins, (unsigned long) appDelegate.losses]];
     UIFont *font = [UIFont fontWithName:@"Chalkduster" size:45];
     [record addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, record.length)];
     [record addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, record.length)];
     self.recordLabel.attributedText = record;
     
-    NSMutableAttributedString *flawlessVictories = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Flawless Victories: %lu",appDelegate.flawlessVictories]];
+    NSMutableAttributedString *flawlessVictories = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Flawless Victories: %lu",(unsigned long)appDelegate.flawlessVictories]];
     UIFont *font2 = [UIFont fontWithName:@"Chalkduster" size:20];
     [flawlessVictories addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, flawlessVictories.length)];
     [flawlessVictories addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, flawlessVictories.length)];
     self.flawlessVictoriesLabel.attributedText = flawlessVictories;
     
-    NSMutableAttributedString *winStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Win Streak: %lu",appDelegate.winStreak]];
+    NSMutableAttributedString *winStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Win Streak: %lu",(unsigned long)appDelegate.winStreak]];
     [winStreak addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, winStreak.length)];
     [winStreak addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, winStreak.length)];
     self.winStreakLabel.attributedText = winStreak;
