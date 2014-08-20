@@ -98,4 +98,32 @@
     UIColor *color = colors[colorsIndex];
     return [[self alloc] initWithColor:color Value:val];
 }
+
++(instancetype)levelOne
+{
+    return [[self alloc] initWithColor:[UIColor blackColor] Value:1];
+}
+
++(instancetype)levelTwo
+{
+    return [[self alloc] initWithColor:[UIColor blackColor] Value:2];
+}
+
++(instancetype)levelThree
+{
+    return [[self alloc] initWithColor:[UIColor blackColor] Value:3];
+}
+
+
++(instancetype)levelFour
+{
+    return [[self alloc] initWithColor:[UIColor blackColor] Value:4];
+}
+
++(instancetype)levelFive
+{
+    return [[self alloc] initWithColor:[UIColor blackColor] Value:5];
+}
+
+
 @end

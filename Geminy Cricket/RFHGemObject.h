@@ -23,5 +23,10 @@
 +(instancetype)middleGem;
 +(instancetype)lowRangeGem;
 +(instancetype)highRangeGem;
++(instancetype)levelOne;
++(instancetype)levelTwo;
++(instancetype)levelThree;
++(instancetype)levelFour;
++(instancetype)levelFive;
 
 @end
