@@ -10,6 +10,7 @@
 #import "RFHStatsViewController.h"
 #import "RFHHomeScreenViewController.h"
 #import "RFHGameHistoryController.h"
+#import "RFHRulesViewController.h"
 #import "RFHCreatorInfoViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) UINavigationController *navigationGameHistoryController;
 @property (strong, nonatomic) UINavigationController *navigationStatsController;
 @property (strong, nonatomic) UINavigationController *navigationCreatorInfoController;
+@property (nonatomic, strong) RFHRulesViewController *rulesViewController;
 
 @property (nonatomic) NSUInteger wins;
 @property (nonatomic) NSUInteger losses;

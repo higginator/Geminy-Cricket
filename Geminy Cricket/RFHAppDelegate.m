@@ -32,6 +32,7 @@
     self.navigationStatsController = [[UINavigationController alloc] initWithRootViewController:self.statsViewController];
     
     self.navigationCreatorInfoController = [[UINavigationController alloc] initWithRootViewController:self.creatorInfoController];
+    self.rulesViewController = [[RFHRulesViewController alloc] init];
 
     self.wins = 0;
     self.losses = 0;

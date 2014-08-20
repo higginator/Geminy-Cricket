@@ -27,6 +27,7 @@
 		337974DB19A2A2FC00120D2D /* homeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974DA19A2A2FC00120D2D /* homeButton@2x.png */; };
 		337974DD19A2A5E900120D2D /* homeButtonWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974DC19A2A5E900120D2D /* homeButtonWhite@2x.png */; };
 		337974E319A2B5C500120D2D /* replayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974E219A2B5C500120D2D /* replayButton@2x.png */; };
+		337974E619A4694300120D2D /* RFHRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337974E519A4694300120D2D /* RFHRulesViewController.m */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -88,9 +89,9 @@
 		33797477198DC88F00120D2D /* nextMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextMoveButton@2x.png"; sourceTree = "<group>"; };
 		3379747A198DF24200120D2D /* previousMoveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousMoveButton.png; sourceTree = "<group>"; };
 		3379747B198DF24200120D2D /* previousMoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previousMoveButton@2x.png"; sourceTree = "<group>"; };
-		3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHCreatorInfoViewController.h; sourceTree = "<group>"; };
-		3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHCreatorInfoViewController.m; sourceTree = "<group>"; };
-		3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RFHCreatorInfoViewController.xib; sourceTree = "<group>"; };
+		3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RFHCreatorInfoViewController.h; path = ../RFHCreatorInfoViewController.h; sourceTree = "<group>"; };
+		3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RFHCreatorInfoViewController.m; path = ../RFHCreatorInfoViewController.m; sourceTree = "<group>"; };
+		3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RFHCreatorInfoViewController.xib; path = ../RFHCreatorInfoViewController.xib; sourceTree = "<group>"; };
 		337974A11997EB1D00120D2D /* CreatorInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreatorInfo.png; sourceTree = "<group>"; };
 		337974A5199811E000120D2D /* MusicIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIcon.png; sourceTree = "<group>"; };
 		337974A91998157400120D2D /* MusicIconCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIconCancel.png; sourceTree = "<group>"; };
@@ -105,6 +106,8 @@
 		337974DA19A2A2FC00120D2D /* homeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeButton@2x.png"; sourceTree = "<group>"; };
 		337974DC19A2A5E900120D2D /* homeButtonWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeButtonWhite@2x.png"; sourceTree = "<group>"; };
 		337974E219A2B5C500120D2D /* replayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "replayButton@2x.png"; sourceTree = "<group>"; };
+		337974E419A4694300120D2D /* RFHRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFHRulesViewController.h; sourceTree = "<group>"; };
+		337974E519A4694300120D2D /* RFHRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFHRulesViewController.m; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -194,9 +197,8 @@
 		33B40D9418FA55BE00936260 = {
 			isa = PBXGroup;
 			children = (
-				3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */,
-				3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */,
-				3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */,
+				337974E419A4694300120D2D /* RFHRulesViewController.h */,
+				337974E519A4694300120D2D /* RFHRulesViewController.m */,
 				33D63C74196F1523003B2DE8 /* RFHHomeScreenViewController.h */,
 				33D63C75196F1523003B2DE8 /* RFHHomeScreenViewController.m */,
 				33D63C76196F1523003B2DE8 /* RFHHomeScreenViewController.xib */,
@@ -250,6 +252,9 @@
 				33B40DEA18FAAB7F00936260 /* RFHGameBoard.m */,
 				33B40DE618FA9A9B00936260 /* RFHGemImageContainer.h */,
 				33B40DE718FA9A9C00936260 /* RFHGemImageContainer.m */,
+				3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */,
+				3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */,
+				3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */,
 				33D63C79197387C6003B2DE8 /* canes.mp3 */,
 				33B40DB218FA55BF00936260 /* Images.xcassets */,
 				33D90889195E0B4300F25B8F /* scroll_90opacity.png */,
@@ -486,6 +491,7 @@
 				33D63C8B1975963F003B2DE8 /* RFHCompletedGame.m in Sources */,
 				33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */,
 				33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */,
+				337974E619A4694300120D2D /* RFHRulesViewController.m in Sources */,
 				33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

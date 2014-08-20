@@ -11,6 +11,7 @@
                 <outlet property="historyButton" destination="Rsh-J8-hi9" id="LLr-Vw-beE"/>
                 <outlet property="musicInfoButton" destination="OTv-rM-sOI" id="bKL-FI-Wub"/>
                 <outlet property="playButton" destination="GLT-bJ-F8E" id="RhT-fP-4Tc"/>
+                <outlet property="rulesButton" destination="cqP-3k-W5v" id="fzP-ai-DzM"/>
                 <outlet property="statsButton" destination="Nos-AF-Iws" id="m1y-8H-4w7"/>
                 <outlet property="titleLabel" destination="3Iv-Mv-JQ1" id="irQ-wh-OHX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -61,7 +62,7 @@
                     <size key="titleShadowOffset" width="1" height="0.0"/>
                     <state key="normal" title="History">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
                     <connections>
                         <action selector="showHistory:" destination="-1" eventType="touchUpInside" id="zdn-Nk-8hD"/>
@@ -95,6 +96,19 @@
                     </state>
                     <connections>
                         <action selector="toggleMusic:" destination="-1" eventType="touchUpInside" id="4oO-Y1-4mx"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-3k-W5v">
+                    <rect key="frame" x="206" y="357" width="53" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <size key="titleShadowOffset" width="1" height="0.0"/>
+                    <state key="normal" title="Rules">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="showRules:" destination="-1" eventType="touchUpInside" id="7Kr-iw-CuN"/>
                     </connections>
                 </button>
             </subviews>

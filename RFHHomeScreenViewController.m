@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *creatorInfoButton;
 @property (strong, nonatomic) IBOutlet UIButton *musicInfoButton;
 @property (strong, nonatomic) IBOutlet UIButton *additionalInfoButton;
+@property (strong, nonatomic) IBOutlet UIButton *rulesButton;
 
 @end
 
@@ -30,6 +31,11 @@
     RFHViewController *rvc = [[RFHViewController alloc] init];
     topWindow.rootViewController = rvc;
     self.gameViewController = rvc;
+}
+- (IBAction)showRules:(id)sender {
+    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = appDelegate.rulesViewController;
+    
 }
 
 - (IBAction)showStats:(id)sender {
@@ -85,10 +91,13 @@
     self.playButton.titleLabel.textColor = [UIColor whiteColor];
     //self.playButton.titleLabel.shadowColor = [UIColor blackColor];
     
-    self.statsButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
+    UIFont *subtitleFont = [UIFont fontWithName:@"Chalkduster" size:15];
+    self.statsButton.titleLabel.font = subtitleFont;
     self.statsButton.titleLabel.textColor = [UIColor blackColor];
-    self.historyButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:15];
+    self.historyButton.titleLabel.font = subtitleFont;
     self.historyButton.titleLabel.textColor = [UIColor blackColor];
+    self.rulesButton.titleLabel.font = subtitleFont;
+    self.rulesButton.titleLabel.textColor = [UIColor blackColor];
     
     [self.additionalInfoButton setImage:[UIImage imageNamed:@"MoreInfo.png"] forState:UIControlStateNormal];
     self.creatorInfoButton.hidden = YES;
