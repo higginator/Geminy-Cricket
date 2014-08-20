@@ -572,12 +572,10 @@
 }
 
 
-
-#pragma mark - Custom Game Functions
+#pragma mark - Geminy Rules Functions
 
 -(void)geminyIntro
 {
-    [UIView beginAnimations:nil context:NULL];
     CGRect introFrame = CGRectMake(70, 50, 300, 300);
     CGRect introLineTwoFrame = CGRectMake(90, 80, 300, 300);
     CGRect introLineThreeFrame = CGRectMake(110, 110, 300, 300);
@@ -587,6 +585,13 @@
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
     [self.introLineThree setAlpha:0];
+    
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyIntroHalfStep) forControlEvents:UIControlEventTouchUpInside];
+    [self.nextButton setAlpha:0];
+    
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Geminy Cricket"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"is a game of"];
     NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"territory."];
@@ -603,18 +608,16 @@
     [self.view addSubview:self.intro];
     [self.view addSubview:self.introLineTwo];
     [self.view addSubview:self.introLineThree];
-    
+    [self.view addSubview:self.nextButton];
+
+    [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.4];
     [self.intro setAlpha:1];
     [self.introLineTwo setAlpha:1];
     [self.introLineThree setAlpha:1];
+    [self.nextButton setAlpha:1];
     [UIView commitAnimations];
     
-    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
-    [self.nextButton addTarget:self action:@selector(geminyIntroHalfStep) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.nextButton];
 }
 
 -(void)geminyIntroHalfStep
@@ -624,6 +627,7 @@
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
     [self.introLineThree setAlpha:0];
+    [self.nextButton setAlpha:0];
     [UIView commitAnimations];
     [self performSelector:@selector(geminyIntroPart2) withObject:self afterDelay:0.4];
 }
@@ -640,6 +644,15 @@
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
+    
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.nextButton];
+    
+    [self.nextButton setAlpha:0];
+    
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Control the most squares"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"to win"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:20];
@@ -656,13 +669,9 @@
     [UIView setAnimationDuration:0.4];
     [self.intro setAlpha:1];
     [self.introLineTwo setAlpha:1];
+    [self.nextButton setAlpha:1];
     [UIView commitAnimations];
     
-    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
-    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.nextButton];
 
 }
 
@@ -682,11 +691,6 @@
     [self.intro removeFromSuperview];
     [self.introLineTwo removeFromSuperview];
     [self.nextButton removeFromSuperview];
-    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
-    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.nextButton];
 
     RFHAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     UIImage *backdrop = [UIImage imageNamed:@"rulesStep3.png"];
@@ -709,7 +713,6 @@
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
-    [self.nextButton setAlpha:0];
     [self.gemHighlight setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"To control a square,"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"drag a gem to the board"];
@@ -727,7 +730,6 @@
     [UIView setAnimationDuration:0.4];
     [self.intro setAlpha:1];
     [self.introLineTwo setAlpha:1];
-    [self.nextButton setAlpha:1];
     //[self.gemHighlight setAlpha:1];
     [gemOneLitView setAlpha:1];
     [bd setAlpha:1];
@@ -754,6 +756,8 @@
 {
     
 }
+
+#pragma mark - Custom Game Functions
 
 -(void)makeNameLabelsBlack
 {
