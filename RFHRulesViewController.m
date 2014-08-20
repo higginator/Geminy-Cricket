@@ -48,6 +48,7 @@
     
     UIView *fadedView;
     
+    NSMutableArray *currentRuleWords;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -62,6 +63,7 @@
 -(void)doEverything
 {
 	// Do any additional setup after loading the view, typically from a nib.
+    currentRuleWords = [[NSMutableArray alloc] init];
     usedRobotIndices = [[NSMutableArray alloc] init];
     humanTotal = 0;
     robotScore = 0;
@@ -290,7 +292,7 @@
     [fadedView setAlpha:.6];
     [UIView commitAnimations];
     appDelegate.fadedView = fadedView;
-    [self performSelector:@selector(geminyIntro) withObject:self afterDelay:1.0];
+    [self performSelector:@selector(geminyIntro) withObject:self afterDelay:0];
     
 }
 
@@ -568,12 +570,16 @@
 
 -(void)geminyIntro
 {
+    [UIView beginAnimations:nil context:NULL];
     CGRect introFrame = CGRectMake(70, 50, 300, 300);
     CGRect introLineTwoFrame = CGRectMake(90, 80, 300, 300);
     CGRect introLineThreeFrame = CGRectMake(110, 110, 300, 300);
-    UILabel *intro = [[UILabel alloc] initWithFrame:introFrame];
-    UILabel *introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
-    UILabel *introLineThree = [[UILabel alloc] initWithFrame:introLineThreeFrame];
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    self.introLineThree = [[UILabel alloc] initWithFrame:introLineThreeFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.introLineThree setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Geminy Cricket"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"is a game of"];
     NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"territory."];
@@ -584,12 +590,99 @@
     [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
     [introWordsLineThree addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineThree.length)];
     [introWordsLineThree addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineThree.length)];
-     intro.attributedText = introWords;
-    introLineTwo.attributedText = introWordsLineTwo;
-    introLineThree.attributedText = introWordsLineThree;
-    [self.view addSubview:intro];
-    [self.view addSubview:introLineTwo];
-    [self.view addSubview:introLineThree];
+     self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    self.introLineThree.attributedText = introWordsLineThree;
+    [currentRuleWords addObject:self.intro];
+    [currentRuleWords addObject:self.introLineTwo];
+    [currentRuleWords addObject:self.introLineThree];
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    [self.view addSubview:self.introLineThree];
+    
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [self.introLineThree setAlpha:1];
+    [UIView commitAnimations];
+    
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyIntroHalfStep) forControlEvents:UIControlEventTouchUpInside];
+    [currentRuleWords addObject:self.nextButton];
+    [self.view addSubview:self.nextButton];
+}
+
+-(void)geminyIntroHalfStep
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.introLineThree setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyIntroPart2) withObject:self afterDelay:0.4];
+}
+
+-(void)geminyIntroPart2
+{
+    [self.intro removeFromSuperview];
+    [self.introLineTwo removeFromSuperview];
+    [self.introLineThree removeFromSuperview];
+    [self.nextButton removeFromSuperview];
+    [currentRuleWords removeAllObjects];
+    CGRect introFrame = CGRectMake(15, 50, 300, 300);
+    CGRect introLineTwoFrame = CGRectMake(125, 80, 300, 300);
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Control the most squares"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"to win"];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:20];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    [currentRuleWords addObject:self.intro];
+    [currentRuleWords addObject:self.introLineTwo];
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [UIView commitAnimations];
+    
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
+    [currentRuleWords addObject:self.nextButton];
+    [self.view addSubview:self.nextButton];
+
+}
+
+-(void)geminyRulesRemoveAnimationPart2
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesPart3) withObject:self afterDelay:0.4];
+}
+
+-(void)geminyRulesPart3
+{
+    [self.intro removeFromSuperview];
+    [self.introLineTwo removeFromSuperview];
+    [self.nextButton removeFromSuperview];
+    [currentRuleWords removeAllObjects];
 }
 
 -(void)makeNameLabelsBlack

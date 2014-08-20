@@ -22,6 +22,11 @@
 @property (nonatomic) RFHGemImageContainer *gemFive;
 @property (nonatomic) RFHGemImageContainer *gemSix;
 
+@property (nonatomic) UILabel *intro;
+@property (nonatomic) UILabel *introLineTwo;
+@property (nonatomic) UILabel *introLineThree;
+@property (nonatomic) UIButton *nextButton;
+
 @property (nonatomic) NSMutableArray *moveOrder;
 
 @end
