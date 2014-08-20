@@ -26,6 +26,7 @@
 @property (nonatomic) UILabel *introLineTwo;
 @property (nonatomic) UILabel *introLineThree;
 @property (nonatomic) UIButton *nextButton;
+@property (nonatomic) UIImageView *gemHighlight;
 
 @property (nonatomic) NSMutableArray *moveOrder;
 

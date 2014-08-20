@@ -46,9 +46,10 @@
     
     UILabel *humanChalkCircle, *robotChalkCircle, *label;
     
-    UIView *fadedView;
+    UIView *fadedView, *gemOneLitView;
     
-    NSMutableArray *currentRuleWords;
+    BOOL ruleThree, ruleFour, ruleFive, ruleSix, ruleSeven, ruleEight;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,7 +64,12 @@
 -(void)doEverything
 {
 	// Do any additional setup after loading the view, typically from a nib.
-    currentRuleWords = [[NSMutableArray alloc] init];
+    ruleThree = NO;
+    ruleFour = NO;
+    ruleFive = NO;
+    ruleSix = NO;
+    ruleSeven = NO;
+    ruleEight = NO;
     usedRobotIndices = [[NSMutableArray alloc] init];
     humanTotal = 0;
     robotScore = 0;
@@ -325,17 +331,17 @@
     
     //if gem one is clicked, set touched gem to gem one
     if (human.turn) {
-        if (!self.gemOne.onBoard && CGRectContainsPoint(gemOneRect, location)) {
+        if (!self.gemOne.onBoard && CGRectContainsPoint(gemOneRect, location) && ruleThree) {
             touchedGem = self.gemOne;
-        } else if (!self.gemTwo.onBoard && CGRectContainsPoint(gemTwoRect, location)) {
+        } else if (!self.gemTwo.onBoard && CGRectContainsPoint(gemTwoRect, location) && ruleFour) {
             touchedGem = self.gemTwo;
-        } else if (!self.gemThree.onBoard && CGRectContainsPoint(gemThreeRect, location)) {
+        } else if (!self.gemThree.onBoard && CGRectContainsPoint(gemThreeRect, location) && ruleFive) {
             touchedGem = self.gemThree;
-        } else if (!self.gemFour.onBoard && CGRectContainsPoint(gemFourRect, location)) {
+        } else if (!self.gemFour.onBoard && CGRectContainsPoint(gemFourRect, location) && ruleSix) {
             touchedGem = self.gemFour;
-        } else if (!self.gemFive.onBoard && CGRectContainsPoint(gemFiveRect, location)) {
+        } else if (!self.gemFive.onBoard && CGRectContainsPoint(gemFiveRect, location) && ruleSeven) {
             touchedGem = self.gemFive;
-        } else if (!self.gemSix.onBoard && CGRectContainsPoint(gemSixRect, location)) {
+        } else if (!self.gemSix.onBoard && CGRectContainsPoint(gemSixRect, location) && ruleEight) {
             touchedGem = self.gemSix;
         }
     }
@@ -388,9 +394,10 @@
                 vacantCells[0] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellOneRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                [self performSelector:@selector(geminyRulesRemoveAnimationPart3) withObject:self afterDelay:0];
             }
         } else if (CGRectContainsPoint(cellTwoRectangle, collectionLocation)) {
-            if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -404,7 +411,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellThreeRectangle, collectionLocation)) {
-            if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -418,7 +425,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellFourRectangle, collectionLocation)) {
-            if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -432,7 +439,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellFiveRectangle, collectionLocation)) {
-            if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -446,7 +453,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellSixRectangle, collectionLocation)) {
-            if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -460,7 +467,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellSevenRectangle, collectionLocation)) {
-            if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -474,7 +481,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellEightRectangle, collectionLocation)) {
-            if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -488,7 +495,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellNineRectangle, collectionLocation)) {
-            if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -593,9 +600,6 @@
      self.intro.attributedText = introWords;
     self.introLineTwo.attributedText = introWordsLineTwo;
     self.introLineThree.attributedText = introWordsLineThree;
-    [currentRuleWords addObject:self.intro];
-    [currentRuleWords addObject:self.introLineTwo];
-    [currentRuleWords addObject:self.introLineThree];
     [self.view addSubview:self.intro];
     [self.view addSubview:self.introLineTwo];
     [self.view addSubview:self.introLineThree];
@@ -610,7 +614,6 @@
     self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
     self.nextButton.frame = CGRectMake(140, 350, 50, 50);
     [self.nextButton addTarget:self action:@selector(geminyIntroHalfStep) forControlEvents:UIControlEventTouchUpInside];
-    [currentRuleWords addObject:self.nextButton];
     [self.view addSubview:self.nextButton];
 }
 
@@ -631,7 +634,6 @@
     [self.introLineTwo removeFromSuperview];
     [self.introLineThree removeFromSuperview];
     [self.nextButton removeFromSuperview];
-    [currentRuleWords removeAllObjects];
     CGRect introFrame = CGRectMake(15, 50, 300, 300);
     CGRect introLineTwoFrame = CGRectMake(125, 80, 300, 300);
     self.intro = [[UILabel alloc] initWithFrame:introFrame];
@@ -647,8 +649,6 @@
     [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
     self.intro.attributedText = introWords;
     self.introLineTwo.attributedText = introWordsLineTwo;
-    [currentRuleWords addObject:self.intro];
-    [currentRuleWords addObject:self.introLineTwo];
     [self.view addSubview:self.intro];
     [self.view addSubview:self.introLineTwo];
     
@@ -662,7 +662,6 @@
     self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
     self.nextButton.frame = CGRectMake(140, 350, 50, 50);
     [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
-    [currentRuleWords addObject:self.nextButton];
     [self.view addSubview:self.nextButton];
 
 }
@@ -673,6 +672,7 @@
     [UIView setAnimationDuration:0.4];
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
+    [self.nextButton setAlpha:0];
     [UIView commitAnimations];
     [self performSelector:@selector(geminyRulesPart3) withObject:self afterDelay:0.4];
 }
@@ -682,7 +682,77 @@
     [self.intro removeFromSuperview];
     [self.introLineTwo removeFromSuperview];
     [self.nextButton removeFromSuperview];
-    [currentRuleWords removeAllObjects];
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 350, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.nextButton];
+
+    RFHAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    UIImage *backdrop = [UIImage imageNamed:@"rulesStep3.png"];
+    UIImageView *bd = [[UIImageView alloc] initWithImage:backdrop];
+    bd.frame = CGRectMake(0, 0, delegate.window.bounds.size.width, delegate.window.bounds.size.height);
+    [bd setAlpha:0];
+    [self.view addSubview:bd];
+    
+    gemOneLitView = [[UIView alloc] initWithFrame:CGRectMake(gemOneRect.origin.x, gemOneRect.origin.y, 50, 50)];
+    gemOneLitView.backgroundColor = [UIColor redColor];
+    [gemOneLitView setAlpha: 0];
+    
+    //UIImage *gemHigh = [UIImage imageNamed:@"rulesGemHighlight.png"];
+    //self.gemHighlight = [[UIImageView alloc] initWithImage:gemHigh];
+    //self.gemHighlight.frame = CGRectMake(gemOneRect.origin.x, gemOneRect.origin.y, 50, 50);
+    [self.view addSubview:self.gemHighlight];
+    CGRect introFrame = CGRectMake(112, 50, 300, 300);
+    CGRect introLineTwoFrame = CGRectMake(65, 80, 300, 300);
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.nextButton setAlpha:0];
+    [self.gemHighlight setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"To control a square,"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"drag a gem to the board"];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [self.nextButton setAlpha:1];
+    //[self.gemHighlight setAlpha:1];
+    [gemOneLitView setAlpha:1];
+    [bd setAlpha:1];
+    [fadedView setAlpha:0];
+    [UIView commitAnimations];
+
+    ruleThree = YES;
+
+}
+
+-(void)geminyRulesRemoveAnimationPart3
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.nextButton setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesPart4) withObject:self afterDelay:0.4];
+
+}
+
+-(void)geminyRulesPart4
+{
+    
 }
 
 -(void)makeNameLabelsBlack
