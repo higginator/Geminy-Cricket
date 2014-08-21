@@ -51,6 +51,8 @@
     
     BOOL ruleThree, ruleFour, ruleFive, ruleSix, ruleSeven, ruleEight;
     
+    NSUInteger robotCurrentTurn;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -521,7 +523,7 @@
             [self updateScoreBoard];
             [self changeTurnOrder];
             [self changeTurnVisualCue];
-            [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
+            [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
         }
     }
 }
@@ -796,10 +798,44 @@
     [self.introLineTwo removeFromSuperview];
     
     UIImage *bd;
-    bd = [UIImage imageNamed:@"rulesStep4.png"];
+    if (iPhone3Point5Inch) {
+        bd = [UIImage imageNamed:@"rulesStep4Small.png"];
+    } else {
+        bd = [UIImage imageNamed:@"rulesStep4.png"];
+    }
     
     [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
     
+    CGRect introFrame, introLineTwoFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(112, 23, 300, 300);
+        introLineTwoFrame = CGRectMake(82, 53, 300, 300);
+    } else {
+        introFrame = CGRectMake(112, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(82, 80, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Turns alternate with"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"an opponent."];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [UIView commitAnimations];
+    robotCurrentTurn = 1;
   
 
 }
@@ -897,27 +933,41 @@
     imageContainer.imageView.center = CGPointMake(x,y);
 }
 
+-(void)addButton
+{
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(140, 320, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesRemoveAnimationPart2) forControlEvents:UIControlEventTouchUpInside];
+    [self.nextButton setAlpha:0];
+    [self.view addSubview:self.nextButton];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [self.nextButton setAlpha:1];
+    [UIView commitAnimations];
+
+
+}
+
 -(void)robotMakeTurn
 {
     UICollectionViewCell *cell;
     RFHGemObject *gem;
-    int cellIndex = 0;
-    int index = 0;
-    while (!cell) {
-        cellIndex = arc4random_uniform((uint32_t)[vacantCells count]);
-        if (vacantCells[cellIndex] != [NSNull null]) {
-            cell = vacantCells[cellIndex];
-            board.boardColors[cellIndex] = robotOpponent.color;
-            board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
-        }
+    int cellIndex, index;
+    if (robotCurrentTurn == 1) {
+        cellIndex = 5;
+        index = 0;
+        gem = robotGemHand[0];
+        [usedRobotIndices addObject:[NSNumber numberWithInt:0]];
+        cell = vacantCells[cellIndex];
+        board.boardColors[cellIndex] = robotOpponent.color;
+        board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+        
+        [self addButton];
     }
-    while (!gem) {
-        index = arc4random() % [robotGemHand count];
-        if (![usedRobotIndices containsObject:[NSNumber numberWithInt:index]]) {
-            gem = robotGemHand[index];
-            [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
-        }
-    }
+
+
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
@@ -1013,7 +1063,7 @@
     [resetButton setImage:[UIImage imageNamed:@"replayButton.png"] forState:UIControlStateNormal];
     resetButton.frame = CGRectMake(185, 410, 50, 50);
     
-    fadedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
+    fadedView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
     fadedView.backgroundColor = [UIColor blackColor];
     //[fadedView.layer setCornerRadius:10.0f];
     [fadedView setAlpha: 0.1];

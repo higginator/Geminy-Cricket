@@ -33,6 +33,7 @@
 		3379751819A5495C00120D2D /* rulesStep3Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751719A5495C00120D2D /* rulesStep3Small.png */; };
 		3379751E19A54C0200120D2D /* rulesStep3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751D19A54C0200120D2D /* rulesStep3@2x.png */; };
 		3379752019A54CD000120D2D /* rulesStep4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751F19A54CD000120D2D /* rulesStep4@2x.png */; };
+		3379752219A58C2D00120D2D /* rulesStep4Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379752119A58C2D00120D2D /* rulesStep4Small.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -118,6 +119,7 @@
 		3379751719A5495C00120D2D /* rulesStep3Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep3Small.png; sourceTree = "<group>"; };
 		3379751D19A54C0200120D2D /* rulesStep3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep3@2x.png"; sourceTree = "<group>"; };
 		3379751F19A54CD000120D2D /* rulesStep4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep4@2x.png"; sourceTree = "<group>"; };
+		3379752119A58C2D00120D2D /* rulesStep4Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep4Small.png; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -303,6 +305,7 @@
 				3379751D19A54C0200120D2D /* rulesStep3@2x.png */,
 				3379751719A5495C00120D2D /* rulesStep3Small.png */,
 				3379751F19A54CD000120D2D /* rulesStep4@2x.png */,
+				3379752119A58C2D00120D2D /* rulesStep4Small.png */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
 				33D63C9A1975AD98003B2DE8 /* App_icon120.png */,
@@ -451,6 +454,7 @@
 				337974DB19A2A2FC00120D2D /* homeButton@2x.png in Resources */,
 				33D63CB819786DF9003B2DE8 /* GemLevel3.png in Resources */,
 				337974AE1998196A00120D2D /* gradient.png in Resources */,
+				3379752219A58C2D00120D2D /* rulesStep4Small.png in Resources */,
 				337974D3199DD3D600120D2D /* AdditionalInfoActivated@2x.png in Resources */,
 				33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */,
 				33D63CF3198964C3003B2DE8 /* GemLevel2@2x.png in Resources */,
