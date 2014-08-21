@@ -32,6 +32,7 @@
 		337974EA19A50FA900120D2D /* rulesGemHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974E919A50FA900120D2D /* rulesGemHighlight@2x.png */; };
 		3379751819A5495C00120D2D /* rulesStep3Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751719A5495C00120D2D /* rulesStep3Small.png */; };
 		3379751E19A54C0200120D2D /* rulesStep3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751D19A54C0200120D2D /* rulesStep3@2x.png */; };
+		3379752019A54CD000120D2D /* rulesStep4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751F19A54CD000120D2D /* rulesStep4@2x.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -116,6 +117,7 @@
 		337974E919A50FA900120D2D /* rulesGemHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesGemHighlight@2x.png"; sourceTree = "<group>"; };
 		3379751719A5495C00120D2D /* rulesStep3Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep3Small.png; sourceTree = "<group>"; };
 		3379751D19A54C0200120D2D /* rulesStep3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep3@2x.png"; sourceTree = "<group>"; };
+		3379751F19A54CD000120D2D /* rulesStep4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep4@2x.png"; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -300,6 +302,7 @@
 				337974E919A50FA900120D2D /* rulesGemHighlight@2x.png */,
 				3379751D19A54C0200120D2D /* rulesStep3@2x.png */,
 				3379751719A5495C00120D2D /* rulesStep3Small.png */,
+				3379751F19A54CD000120D2D /* rulesStep4@2x.png */,
 				33D63C981975AD98003B2DE8 /* App_icon58.png */,
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
 				33D63C9A1975AD98003B2DE8 /* App_icon120.png */,
@@ -475,6 +478,7 @@
 				33D63CAE19771E9D003B2DE8 /* GemLevel1.png in Resources */,
 				33D63C9F1975AD98003B2DE8 /* App_icon1024.png in Resources */,
 				33D63CC0197A477A003B2DE8 /* GemLevel4@2x.png in Resources */,
+				3379752019A54CD000120D2D /* rulesStep4@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

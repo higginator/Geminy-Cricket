@@ -46,7 +46,8 @@
     
     UILabel *humanChalkCircle, *robotChalkCircle, *label;
     
-    UIView *fadedView, *gemOneLitView;
+    UIView *gemOneLitView;
+    UIImageView *fadedView;
     
     BOOL ruleThree, ruleFour, ruleFive, ruleSix, ruleSeven, ruleEight;
     
@@ -288,10 +289,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
     
     RFHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    fadedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
+    fadedView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
     fadedView.backgroundColor = [UIColor blackColor];
     //[fadedView.layer setCornerRadius:10.0f];
-    [fadedView setAlpha: 0.1];
+    [fadedView setAlpha:0];
     [self.view addSubview:fadedView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.4];
@@ -697,6 +698,7 @@
     [self.nextButton setAlpha:0];
     [UIView commitAnimations];
     [self performSelector:@selector(geminyRulesPart3) withObject:self afterDelay:0.4];
+
 }
 
 -(void)geminyRulesPart3
@@ -704,18 +706,20 @@
     [self.intro removeFromSuperview];
     [self.introLineTwo removeFromSuperview];
     [self.nextButton removeFromSuperview];
-
+/*
     RFHAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    UIImage *backdrop;
+    UIImage *bd;
     if (iPhone3Point5Inch) {
-        backdrop = [UIImage imageNamed:@"rulesStep3small.png"];
+        bd = [UIImage imageNamed:@"rulesStep3small.png"];
     } else {
-        backdrop = [UIImage imageNamed:@"rulesStep3.png"];
-    }
-    UIImageView *bd = [[UIImageView alloc] initWithImage:backdrop];
-    bd.frame = CGRectMake(0, 0, delegate.window.bounds.size.width, delegate.window.bounds.size.height);
-    [bd setAlpha:0];
-    [self.view addSubview:bd];
+        bd = [UIImage imageNamed:@"rulesStep3.png"];
+    }*/
+    //self.backdrop = [[UIImageView alloc] initWithImage:bd];
+    //self.backdrop.frame = CGRectMake(0, 0, delegate.window.bounds.size.width, delegate.window.bounds.size.height);
+    //[self.backdrop setAlpha:0];
+    //[self.view addSubview:self.backdrop];
+    
+    //fadedView.backgroundColor = [UIColor clearColor];
     
     gemOneLitView = [[UIView alloc] initWithFrame:CGRectMake(gemOneRect.origin.x, gemOneRect.origin.y, 50, 50)];
     gemOneLitView.backgroundColor = [UIColor redColor];
@@ -737,7 +741,6 @@
     self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
-    [self.gemHighlight setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"To control a square,"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"drag a gem to the board"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
@@ -750,18 +753,28 @@
     [self.view addSubview:self.intro];
     [self.view addSubview:self.introLineTwo];
     
+
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.4];
     [self.intro setAlpha:1];
     [self.introLineTwo setAlpha:1];
-    //[self.gemHighlight setAlpha:1];
+    fadedView.backgroundColor = [UIColor clearColor];
     [gemOneLitView setAlpha:1];
-    [bd setAlpha:1];
-    [fadedView setAlpha:0];
+    //[self.backdrop setAlpha:1];
+    //[fadedView setAlpha:0];
     [UIView commitAnimations];
-
+    [self performSelector:@selector(fadeInAnimationRule3) withObject:self afterDelay:0];
     ruleThree = YES;
 
+}
+
+-(void)fadeInAnimationRule3
+{
+    if (iPhone3Point5Inch) {
+            [UIView transitionWithView:self.view duration:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = [UIImage imageNamed:@"rulesStep3Small.png"];} completion:NULL];
+    } else {
+        [UIView transitionWithView:self.view duration:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = [UIImage imageNamed:@"rulesStep3.png"];} completion:NULL];
+    }
 }
 
 -(void)geminyRulesRemoveAnimationPart3
@@ -778,7 +791,17 @@
 
 -(void)geminyRulesPart4
 {
+    ruleThree = NO;
+    [self.intro removeFromSuperview];
+    [self.introLineTwo removeFromSuperview];
     
+    UIImage *bd;
+    bd = [UIImage imageNamed:@"rulesStep4.png"];
+    
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+  
+
 }
 
 #pragma mark - Custom Game Functions
