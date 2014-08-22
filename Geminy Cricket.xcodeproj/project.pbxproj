@@ -35,8 +35,6 @@
 		3379752019A54CD000120D2D /* rulesStep4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379751F19A54CD000120D2D /* rulesStep4@2x.png */; };
 		3379752219A58C2D00120D2D /* rulesStep4Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379752119A58C2D00120D2D /* rulesStep4Small.png */; };
 		3379752919A5B88200120D2D /* rulesStep6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379752719A5B88200120D2D /* rulesStep6@2x.png */; };
-		3379753119A694D400120D2D /* rulesStep10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379752F19A694D400120D2D /* rulesStep10@2x.png */; };
-		3379753219A694D400120D2D /* rulesStep10Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379753019A694D400120D2D /* rulesStep10Small.png */; };
 		3379753919A695AF00120D2D /* rulesStep11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379753719A695AF00120D2D /* rulesStep11@2x.png */; };
 		3379753A19A695AF00120D2D /* rulesStep11Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379753819A695AF00120D2D /* rulesStep11Small.png */; };
 		3379753D19A6990200120D2D /* rulesStep13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379753B19A6990200120D2D /* rulesStep13@2x.png */; };
@@ -48,6 +46,8 @@
 		3379755A19A6D28000120D2D /* rulesStep7Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379755919A6D28000120D2D /* rulesStep7Small.png */; };
 		3379756119A7B6F400120D2D /* rulesStep9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379755F19A7B6F400120D2D /* rulesStep9@2x.png */; };
 		3379756219A7B6F400120D2D /* rulesStep9Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379756019A7B6F400120D2D /* rulesStep9Small.png */; };
+		3379756519A7BD3200120D2D /* rulesStep10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379756319A7BD3200120D2D /* rulesStep10@2x.png */; };
+		3379756619A7BD3200120D2D /* rulesStep10Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379756419A7BD3200120D2D /* rulesStep10Small.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -135,8 +135,6 @@
 		3379751F19A54CD000120D2D /* rulesStep4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep4@2x.png"; sourceTree = "<group>"; };
 		3379752119A58C2D00120D2D /* rulesStep4Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep4Small.png; sourceTree = "<group>"; };
 		3379752719A5B88200120D2D /* rulesStep6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep6@2x.png"; sourceTree = "<group>"; };
-		3379752F19A694D400120D2D /* rulesStep10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep10@2x.png"; sourceTree = "<group>"; };
-		3379753019A694D400120D2D /* rulesStep10Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep10Small.png; sourceTree = "<group>"; };
 		3379753719A695AF00120D2D /* rulesStep11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep11@2x.png"; sourceTree = "<group>"; };
 		3379753819A695AF00120D2D /* rulesStep11Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep11Small.png; sourceTree = "<group>"; };
 		3379753B19A6990200120D2D /* rulesStep13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep13@2x.png"; sourceTree = "<group>"; };
@@ -148,6 +146,8 @@
 		3379755919A6D28000120D2D /* rulesStep7Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep7Small.png; sourceTree = "<group>"; };
 		3379755F19A7B6F400120D2D /* rulesStep9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep9@2x.png"; sourceTree = "<group>"; };
 		3379756019A7B6F400120D2D /* rulesStep9Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep9Small.png; sourceTree = "<group>"; };
+		3379756319A7BD3200120D2D /* rulesStep10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep10@2x.png"; sourceTree = "<group>"; };
+		3379756419A7BD3200120D2D /* rulesStep10Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep10Small.png; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -342,8 +342,8 @@
 				3379755519A6CE2E00120D2D /* rulesStep7@2x.png */,
 				3379755F19A7B6F400120D2D /* rulesStep9@2x.png */,
 				3379756019A7B6F400120D2D /* rulesStep9Small.png */,
-				3379752F19A694D400120D2D /* rulesStep10@2x.png */,
-				3379753019A694D400120D2D /* rulesStep10Small.png */,
+				3379756319A7BD3200120D2D /* rulesStep10@2x.png */,
+				3379756419A7BD3200120D2D /* rulesStep10Small.png */,
 				3379753719A695AF00120D2D /* rulesStep11@2x.png */,
 				3379753819A695AF00120D2D /* rulesStep11Small.png */,
 				3379753B19A6990200120D2D /* rulesStep13@2x.png */,
@@ -479,7 +479,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D63C8219749679003B2DE8 /* RFHStatsViewController.xib in Resources */,
-				3379753219A694D400120D2D /* rulesStep10Small.png in Resources */,
 				3379754219A6A05800120D2D /* rulesStep5@2x.png in Resources */,
 				337974A7199811E000120D2D /* MusicIcon.png in Resources */,
 				3379754819A6A36400120D2D /* rulesStep5Small.png in Resources */,
@@ -487,7 +486,9 @@
 				3379756219A7B6F400120D2D /* rulesStep9Small.png in Resources */,
 				3379753E19A6990200120D2D /* rulesStep13Small.png in Resources */,
 				3379755619A6CE2E00120D2D /* rulesStep7@2x.png in Resources */,
+				3379756519A7BD3200120D2D /* rulesStep10@2x.png in Resources */,
 				3379747C198DF24200120D2D /* previousMoveButton.png in Resources */,
+				3379756619A7BD3200120D2D /* rulesStep10Small.png in Resources */,
 				33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */,
 				33D63CC1197A477A003B2DE8 /* GemLevel4.png in Resources */,
 				337974AA1998157400120D2D /* MusicIconCancel.png in Resources */,
@@ -495,7 +496,6 @@
 				3379753A19A695AF00120D2D /* rulesStep11Small.png in Resources */,
 				337974AC1998174D00120D2D /* gradient7.jpg in Resources */,
 				337974EA19A50FA900120D2D /* rulesGemHighlight@2x.png in Resources */,
-				3379753119A694D400120D2D /* rulesStep10@2x.png in Resources */,
 				337974DD19A2A5E900120D2D /* homeButtonWhite@2x.png in Resources */,
 				33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */,
 				337974B019981ADE00120D2D /* creatorGradient.png in Resources */,

@@ -115,7 +115,7 @@
     
     if ([self turnMoveOrder] == 1) {
         [self populateFirstPlayerGemHand:gemHand];
-        [self populateFirstPlayerGemHand:robotGemHand];
+        [self populateSecondPlayerGemHand:robotGemHand];
         human.turn = YES;
         robotOpponent.turn = NO;
     } else {
@@ -367,6 +367,7 @@
     CGPoint location = [touch locationInView:touch.view];
     
     BOOL humanMoveMade = NO;
+    BOOL needsMoreDelay = NO;
     
     // if my gem is not on the grid when I let go, send it back to it's original location
     CGRect collectionViewRect;
@@ -451,6 +452,9 @@
                 vacantCells[4] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellFiveRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                
+                [self performSelector:@selector(geminyRulesPart10) withObject:self afterDelay:0.4];
+                needsMoreDelay = YES;
             }
         } else if (CGRectContainsPoint(cellSixRectangle, collectionLocation)) {
             if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
@@ -520,7 +524,11 @@
             [self updateScoreBoard];
             [self changeTurnOrder];
             [self changeTurnVisualCue];
-            [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
+            if (needsMoreDelay) {
+                [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:3];
+            } else {
+                [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
+            }
         }
     }
 }
@@ -847,7 +855,10 @@
     [self addButton7];
 }
 
-
+-(void)endRule9
+{
+    [self addButton10];
+}
 
 -(void)geminyRulesPart5
 {
@@ -1046,7 +1057,89 @@
     [self.introLineTwo setAlpha:1];
     [self.introLineThree setAlpha:1];
     [UIView commitAnimations];
+    
+    robotCurrentTurn = 3;
 
+}
+
+-(void)geminyRulesPart10
+{
+    ruleNine = NO;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.introLineThree setAlpha:0];
+    [self.nextButton setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesPart10End) withObject:self afterDelay:0.4];
+}
+
+-(void)geminyRulesPart10End
+{
+    UIImage *bd;
+    if (iPhone3Point5Inch) {
+        bd = [UIImage imageNamed:@"rulesStep10Small.png"];
+    } else {
+        bd = [UIImage imageNamed:@"rulesStep10.png"];
+    }
+    
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+    CGRect introFrame, introLineTwoFrame, introLineThreeFrame, introLineFourFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(15, 21, 300, 300);
+        introLineTwoFrame = CGRectMake(15, 53, 300, 300);
+        introLineThreeFrame = CGRectMake(15, 85, 300, 300);
+        introLineFourFrame = CGRectMake(15, 117, 300, 300);
+    } else {
+        introFrame = CGRectMake(15, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(15, 80, 300, 300);
+        introLineThreeFrame = CGRectMake(15, 110, 300, 300);
+        introLineFourFrame = CGRectMake(15, 140, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    self.introLineThree = [[UILabel alloc] initWithFrame:introLineThreeFrame];
+    self.introLineFour = [[UILabel alloc] initWithFrame:introLineFourFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.introLineThree setAlpha:0];
+    [self.introLineFour setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Don't set up the"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"opponent"];
+    NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"for an"];
+    NSMutableAttributedString *introWordsLineFour = [[NSMutableAttributedString alloc] initWithString:@"easy steal"];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineThree addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineThree.length)];
+    [introWordsLineThree addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineThree.length)];
+    [introWordsLineFour addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineFour.length)];
+    [introWordsLineFour addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineFour.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    self.introLineThree.attributedText = introWordsLineThree;
+    self.introLineFour.attributedText = introWordsLineFour;
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    [self.view addSubview:self.introLineThree];
+    [self.view addSubview:self.introLineFour];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [self.introLineThree setAlpha:1];
+    [self.introLineFour setAlpha:1];
+    [UIView commitAnimations];
+}
+
+-(void)geminyRulesPart11
+{
+    
 }
 
 #pragma mark - Custom Game Functions
@@ -1192,6 +1285,22 @@
     
     
 }
+
+-(void)addButton10
+{
+    self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
+    self.nextButton.frame = CGRectMake(30, 320, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesPart11) forControlEvents:UIControlEventTouchUpInside];
+    [self.nextButton setAlpha:0];
+    [self.view addSubview:self.nextButton];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1];
+    [self.nextButton setAlpha:1];
+    [UIView commitAnimations];
+    
+}
 -(void)robotMakeTurn
 {
     UICollectionViewCell *cell;
@@ -1222,6 +1331,20 @@
         [self endRule7];
         
     }
+    
+    if (robotCurrentTurn == 3) {
+        cellIndex = 2;
+        index = 2;
+        gem = robotGemHand[index];
+        [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
+        cell = vacantCells[cellIndex];
+        board.boardColors[cellIndex] = robotOpponent.color;
+        board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+        
+        [self endRule9];
+        
+    }
+    
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];

@@ -25,6 +25,7 @@
 @property (nonatomic) UILabel *intro;
 @property (nonatomic) UILabel *introLineTwo;
 @property (nonatomic) UILabel *introLineThree;
+@property (nonatomic) UILabel *introLineFour;
 @property (nonatomic) UIButton *nextButton;
 @property (nonatomic) UIImageView *gemHighlight;
 @property (nonatomic) UIImageView *backdrop;
