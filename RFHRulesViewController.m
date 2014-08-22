@@ -847,6 +847,11 @@
     [self addButton4];
 }
 
+-(void)endRule7
+{
+    [self addButton7];
+}
+
 
 
 -(void)geminyRulesPart5
@@ -983,6 +988,11 @@
 
 }
 
+-(void)geminyRulesPart8
+{
+    
+}
+
 #pragma mark - Custom Game Functions
 
 -(void)makeNameLabelsBlack
@@ -1110,12 +1120,12 @@
     
 }
 
--(void)addButton6
+-(void)addButton7
 {
     self.nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.nextButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulesNextArrow.png"]];
-    self.nextButton.frame = CGRectMake(140, 320, 50, 50);
-    [self.nextButton addTarget:self action:@selector(geminyRulesPart7) forControlEvents:UIControlEventTouchUpInside];
+    self.nextButton.frame = CGRectMake(90, 260, 50, 50);
+    [self.nextButton addTarget:self action:@selector(geminyRulesPart8) forControlEvents:UIControlEventTouchUpInside];
     [self.nextButton setAlpha:0];
     [self.view addSubview:self.nextButton];
     
@@ -1152,6 +1162,8 @@
         cell = vacantCells[cellIndex];
         board.boardColors[cellIndex] = robotOpponent.color;
         board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+        
+        [self endRule7];
         
     }
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
