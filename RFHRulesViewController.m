@@ -397,7 +397,7 @@
                 vacantCells[0] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellOneRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
-                [self performSelector:@selector(geminyRulesRemoveAnimationPart3) withObject:self afterDelay:0];
+                [self performSelector:@selector(geminyRulesRemoveAnimationPart3) withObject:self afterDelay:0.4];
             }
         } else if (CGRectContainsPoint(cellTwoRectangle, collectionLocation)) {
             if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree) {
@@ -412,6 +412,8 @@
                 vacantCells[1] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellTwoRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                
+                [self performSelector:@selector(geminyRulesPart7) withObject:self afterDelay:0.4];
             }
         } else if (CGRectContainsPoint(cellThreeRectangle, collectionLocation)) {
             if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix) {
@@ -845,6 +847,8 @@
     [self addButton4];
 }
 
+
+
 -(void)geminyRulesPart5
 {
     [UIView beginAnimations:nil context:NULL];
@@ -932,17 +936,51 @@
     
     [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
     
+    
+    robotCurrentTurn = 2;
+}
+
+-(void)geminyRulesPart7
+{
+    UIImage *bd;
+    if (iPhone3Point5Inch) {
+        bd = [UIImage imageNamed:@"rulesStep7Small.png"];
+    } else {
+        bd = [UIImage imageNamed:@"rulesStep7.png"];
+    }
+    
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+    CGRect introFrame, introLineTwoFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(15, 21, 300, 300);
+        introLineTwoFrame = CGRectMake(15, 53, 300, 300);
+    } else {
+        introFrame = CGRectMake(15, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(15, 80, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"When a move is made,"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"the score updates."];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0];
     [self.intro setAlpha:1];
     [self.introLineTwo setAlpha:1];
     [UIView commitAnimations];
-    
-}
 
--(void)geminyRulesPart7
-{
-    
 }
 
 #pragma mark - Custom Game Functions
@@ -1092,12 +1130,12 @@
 {
     UICollectionViewCell *cell;
     RFHGemObject *gem;
-    int cellIndex, index;
+    int cellIndex = 0, index = 0;
     if (robotCurrentTurn == 1) {
         cellIndex = 5;
         index = 0;
-        gem = robotGemHand[0];
-        [usedRobotIndices addObject:[NSNumber numberWithInt:0]];
+        gem = robotGemHand[index];
+        [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
         cell = vacantCells[cellIndex];
         board.boardColors[cellIndex] = robotOpponent.color;
         board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
@@ -1106,6 +1144,16 @@
     }
 
 
+    if (robotCurrentTurn == 2) {
+        cellIndex = 7;
+        index = 1;
+        gem = robotGemHand[index];
+        [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
+        cell = vacantCells[cellIndex];
+        board.boardColors[cellIndex] = robotOpponent.color;
+        board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+        
+    }
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];

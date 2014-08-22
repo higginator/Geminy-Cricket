@@ -46,6 +46,8 @@
 		3379754219A6A05800120D2D /* rulesStep5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379754119A6A05800120D2D /* rulesStep5@2x.png */; };
 		3379754819A6A36400120D2D /* rulesStep5Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379754719A6A36400120D2D /* rulesStep5Small.png */; };
 		3379755219A6AA4B00120D2D /* rulesStep6Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379755119A6AA4B00120D2D /* rulesStep6Small.png */; };
+		3379755619A6CE2E00120D2D /* rulesStep7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379755519A6CE2E00120D2D /* rulesStep7@2x.png */; };
+		3379755A19A6D28000120D2D /* rulesStep7Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379755919A6D28000120D2D /* rulesStep7Small.png */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -144,6 +146,8 @@
 		3379754119A6A05800120D2D /* rulesStep5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep5@2x.png"; sourceTree = "<group>"; };
 		3379754719A6A36400120D2D /* rulesStep5Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep5Small.png; sourceTree = "<group>"; };
 		3379755119A6AA4B00120D2D /* rulesStep6Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep6Small.png; sourceTree = "<group>"; };
+		3379755519A6CE2E00120D2D /* rulesStep7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesStep7@2x.png"; sourceTree = "<group>"; };
+		3379755919A6D28000120D2D /* rulesStep7Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rulesStep7Small.png; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,6 +338,8 @@
 				3379754119A6A05800120D2D /* rulesStep5@2x.png */,
 				3379752719A5B88200120D2D /* rulesStep6@2x.png */,
 				3379755119A6AA4B00120D2D /* rulesStep6Small.png */,
+				3379755919A6D28000120D2D /* rulesStep7Small.png */,
+				3379755519A6CE2E00120D2D /* rulesStep7@2x.png */,
 				3379752B19A693DE00120D2D /* rulesStep9@2x.png */,
 				3379752C19A693DE00120D2D /* rulesStep9Small.png */,
 				3379752F19A694D400120D2D /* rulesStep10@2x.png */,
@@ -480,6 +486,7 @@
 				3379754819A6A36400120D2D /* rulesStep5Small.png in Resources */,
 				33D63C7A197387C6003B2DE8 /* canes.mp3 in Resources */,
 				3379753E19A6990200120D2D /* rulesStep13Small.png in Resources */,
+				3379755619A6CE2E00120D2D /* rulesStep7@2x.png in Resources */,
 				3379747C198DF24200120D2D /* previousMoveButton.png in Resources */,
 				33D63C78196F1523003B2DE8 /* RFHHomeScreenViewController.xib in Resources */,
 				33D63CC1197A477A003B2DE8 /* GemLevel4.png in Resources */,
@@ -515,6 +522,7 @@
 				337974D8199DD4F600120D2D /* MoreInfo.png in Resources */,
 				337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */,
 				3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */,
+				3379755A19A6D28000120D2D /* rulesStep7Small.png in Resources */,
 				337974D9199DD4F600120D2D /* MoreInfo@2x.png in Resources */,
 				3379747D198DF24200120D2D /* previousMoveButton@2x.png in Resources */,
 				337974BE199BD62200120D2D /* CircleWinner.png in Resources */,
