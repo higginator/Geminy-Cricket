@@ -49,7 +49,7 @@
     UIView *gemOneLitView;
     UIImageView *fadedView;
     
-    BOOL ruleThree, ruleSix, ruleNine;
+    BOOL ruleThree, ruleSix, ruleNine, ruleEleven, ruleThirteen;
     
     NSUInteger robotCurrentTurn;
     
@@ -70,6 +70,8 @@
     ruleThree = NO;
     ruleSix = NO;
     ruleNine = NO;
+    ruleEleven = NO;
+    ruleThirteen = NO;
     usedRobotIndices = [[NSMutableArray alloc] init];
     humanTotal = 0;
     robotScore = 0;
@@ -333,13 +335,13 @@
     if (human.turn) {
         if (!self.gemOne.onBoard && CGRectContainsPoint(gemOneRect, location) && ruleThree) {
             touchedGem = self.gemOne;
-        } else if (!self.gemTwo.onBoard && CGRectContainsPoint(gemTwoRect, location)) {
+        } else if (!self.gemTwo.onBoard && CGRectContainsPoint(gemTwoRect, location) && ruleEleven) {
             touchedGem = self.gemTwo;
         } else if (!self.gemThree.onBoard && CGRectContainsPoint(gemThreeRect, location) && ruleSix) {
             touchedGem = self.gemThree;
         } else if (!self.gemFour.onBoard && CGRectContainsPoint(gemFourRect, location) && ruleNine) {
             touchedGem = self.gemFour;
-        } else if (!self.gemSix.onBoard && CGRectContainsPoint(gemSixRect, location)) {
+        } else if (!self.gemSix.onBoard && CGRectContainsPoint(gemSixRect, location) && ruleThirteen) {
             touchedGem = self.gemSix;
         }
     }
@@ -368,6 +370,7 @@
     
     BOOL humanMoveMade = NO;
     BOOL needsMoreDelay = NO;
+    BOOL needsLessDelay = NO;
     
     // if my gem is not on the grid when I let go, send it back to it's original location
     CGRect collectionViewRect;
@@ -381,7 +384,7 @@
         if (CGRectContainsPoint(cellOneRectangle, collectionLocation)) {
             //if there is already an object here, return the gem to gem hand
             //otherwise, place the gem down
-            if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleSix || ruleNine) {
+            if ([board.boardBools[0] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleSix || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -396,7 +399,7 @@
                 [self performSelector:@selector(geminyRulesRemoveAnimationPart3) withObject:self afterDelay:0.4];
             }
         } else if (CGRectContainsPoint(cellTwoRectangle, collectionLocation)) {
-            if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleNine) {
+            if ([board.boardBools[1] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -412,7 +415,7 @@
                 [self performSelector:@selector(geminyRulesPart7) withObject:self afterDelay:0.4];
             }
         } else if (CGRectContainsPoint(cellThreeRectangle, collectionLocation)) {
-            if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[2] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -426,7 +429,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellFourRectangle, collectionLocation)) {
-            if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[3] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -438,9 +441,12 @@
                 vacantCells[3] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellFourRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                
+                [self performSelector:@selector(geminyRulesPart12) withObject:self afterDelay:0.4];
+                needsLessDelay = YES;
             }
         } else if (CGRectContainsPoint(cellFiveRectangle, collectionLocation)) {
-            if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix) {
+            if ([board.boardBools[4] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -457,7 +463,7 @@
                 needsMoreDelay = YES;
             }
         } else if (CGRectContainsPoint(cellSixRectangle, collectionLocation)) {
-            if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[5] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -471,7 +477,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellSevenRectangle, collectionLocation)) {
-            if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[6] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -483,9 +489,10 @@
                 vacantCells[6] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellSevenRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                
             }
         } else if (CGRectContainsPoint(cellEightRectangle, collectionLocation)) {
-            if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[7] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleEleven || ruleThirteen) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -499,7 +506,7 @@
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
             }
         } else if (CGRectContainsPoint(cellNineRectangle, collectionLocation)) {
-            if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine) {
+            if ([board.boardBools[8] isEqualToNumber:[NSNumber numberWithBool:YES]] || ruleThree || ruleSix || ruleNine || ruleEleven) {
                 touchedGem.imageView.center = touchedGem.gemOriginalCenter;
             } else {
                 touchedGem.onBoard = YES;
@@ -511,6 +518,8 @@
                 vacantCells[8] = [NSNull null];
                 [self centerImage:touchedGem Rect:cellNineRectangle];
                 [self boardCheck:touchedGem collectionLocation:collectionLocation];
+                
+                [self performSelector:@selector(geminyRulesLast) withObject:self afterDelay:0.4];
             }
         }
         
@@ -519,13 +528,17 @@
         if ([self isGameOver]) {
             [self updateScoreBoard];
             [self makeNameLabelsBlack];
-            [self declareWinner];
+            [self performSelector:@selector(declareWinner) withObject:self afterDelay:0.4];
         } else if (humanMoveMade) {
             [self updateScoreBoard];
             [self changeTurnOrder];
             [self changeTurnVisualCue];
             if (needsMoreDelay) {
                 [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:3];
+                needsMoreDelay = NO;
+            } else if (needsLessDelay) {
+                [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:.8];
+                needsLessDelay = NO;
             } else {
                 [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
             }
@@ -1139,7 +1152,147 @@
 
 -(void)geminyRulesPart11
 {
+    ruleEleven = YES;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [self.introLineThree setAlpha:0];
+    [self.introLineFour setAlpha:0];
+    [self.nextButton setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesPart11End) withObject:self afterDelay:0.4];
+
+}
+
+-(void)geminyRulesPart11End
+{
+    UIImage *bd;
+    if (iPhone3Point5Inch) {
+        bd = [UIImage imageNamed:@"rulesStep11Small.png"];
+    } else {
+        bd = [UIImage imageNamed:@"rulesStep11.png"];
+    }
     
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+    CGRect introFrame, introLineTwoFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(115, 21, 300, 300);
+        introLineTwoFrame = CGRectMake(115, 53, 300, 300);
+    } else {
+        introFrame = CGRectMake(115, 50, 300, 300);
+        introLineTwoFrame = CGRectMake(115, 80, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    self.introLineTwo = [[UILabel alloc] initWithFrame:introLineTwoFrame];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Protect"];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"weak gems."];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    [introWordsLineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWordsLineTwo.length)];
+    [introWordsLineTwo addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWordsLineTwo.length)];
+    self.intro.attributedText = introWords;
+    self.introLineTwo.attributedText = introWordsLineTwo;
+    [self.view addSubview:self.intro];
+    [self.view addSubview:self.introLineTwo];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0];
+    [self.intro setAlpha:1];
+    [self.introLineTwo setAlpha:1];
+    [UIView commitAnimations];
+    
+    robotCurrentTurn = 4;
+}
+
+-(void)geminyRulesPart12
+{
+    ruleEleven = NO;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [self.introLineTwo setAlpha:0];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesPart12End) withObject:self afterDelay:0.4];
+}
+
+-(void)geminyRulesPart12End
+{
+    UIImage *bd;
+    if (iPhone3Point5Inch) {
+        bd = [UIImage imageNamed:@"rulesStep13Small.png"];
+    } else {
+        bd = [UIImage imageNamed:@"rulesStep13.png"];
+    }
+    
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+    CGRect introFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(115, 21, 300, 300);
+    } else {
+        introFrame = CGRectMake(115, 50, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    [self.intro setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Finish him!"];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    self.intro.attributedText = introWords;
+    [self.view addSubview:self.intro];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0];
+    [self.intro setAlpha:1];
+    [UIView commitAnimations];
+    
+    ruleThirteen = YES;
+
+}
+
+-(void)geminyRulesLast
+{
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [self.intro setAlpha:0];
+    [fadedView setAlpha:1];
+    [UIView commitAnimations];
+    [self performSelector:@selector(geminyRulesLastEnd) withObject:self afterDelay:0.4];
+    
+}
+
+-(void)geminyRulesLastEnd
+{
+    UIImage *bd;
+    bd = [UIImage imageNamed:@"rulesLast.png"];
+    
+    [UIView transitionWithView:self.view duration:.4 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{fadedView.image = bd;} completion:NULL];
+    
+    CGRect introFrame;
+    if (iPhone3Point5Inch) {
+        introFrame = CGRectMake(60, 131, 300, 300);
+    } else {
+        introFrame = CGRectMake(60, 175, 300, 300);
+    }
+    self.intro = [[UILabel alloc] initWithFrame:introFrame];
+    [self.intro setAlpha:0];
+    NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"You're ready to play!"];
+    UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
+    [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
+    [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
+    self.intro.attributedText = introWords;
+    [self.view addSubview:self.intro];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0];
+    [self.intro setAlpha:1];
+    [UIView commitAnimations];
 }
 
 #pragma mark - Custom Game Functions
@@ -1345,6 +1498,16 @@
         
     }
     
+    if (robotCurrentTurn == 4) {
+        cellIndex = 6;
+        index = 3;
+        gem = robotGemHand[index];
+        [usedRobotIndices addObject:[NSNumber numberWithInt:index]];
+        cell = vacantCells[cellIndex];
+        board.boardColors[cellIndex] = robotOpponent.color;
+        board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+    }
+    
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardObjects[cellIndex] = robotGemImage;
     vacantCells[cellIndex] = [NSNull null];
@@ -1427,36 +1590,19 @@
 
 -(void)declareWinner
 {
-    RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     
-    //UIImageView *scrollView = [[UIImageView alloc] initWithFrame:CGRectMake(70, 100, 180, 250)];
-    //UIImage *scrollImage = [UIImage imageNamed:@"scroll_90opacity.png"];
-    //scrollView.image = scrollImage;
     
-    
-    resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [resetButton addTarget:self action:@selector(resetGame) forControlEvents:UIControlEventTouchUpInside];
-    [resetButton setImage:[UIImage imageNamed:@"replayButton.png"] forState:UIControlStateNormal];
-    resetButton.frame = CGRectMake(185, 410, 50, 50);
-    
-    fadedView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height)];
-    fadedView.backgroundColor = [UIColor blackColor];
-    //[fadedView.layer setCornerRadius:10.0f];
-    [fadedView setAlpha: 0.1];
-    [self.view addSubview:fadedView];
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.4];
-    [fadedView setAlpha:.6];
-    [UIView commitAnimations];
-    appDelegate.fadedView = fadedView;
-    //[self.view addSubview:scrollView];
-    [self.view addSubview:resetButton];
+
     
     homeScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [homeScreenButton addTarget:self action:@selector(returnHome) forControlEvents:UIControlEventTouchUpInside];
     [homeScreenButton setImage:[UIImage imageNamed:@"homeButtonWhite.png"] forState:UIControlStateNormal];
-    homeScreenButton.frame = CGRectMake(85, 410, 50, 50);
+    if (iPhone3Point5Inch) {
+        homeScreenButton.frame = CGRectMake(135, 390, 50, 50);
+    } else {
+        homeScreenButton.frame = CGRectMake(135, 450, 50, 50);
+    }
     [self.view addSubview:homeScreenButton];
     
     
@@ -1471,11 +1617,6 @@
     NSString *labelText;
     if (humanTotal >= 5) {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.wins++;
-        appDelegate.winStreak++;
-        if (humanTotal == 9) {
-            appDelegate.flawlessVictories++;
-        }
         //create victory label, place on screen
         label = [[UILabel alloc] initWithFrame:CGRectMake(30, 150, appDelegate.window.bounds.size.width, 75)];
         labelText = @"VICTORY";
@@ -1485,9 +1626,12 @@
         //label.font = [label.font fontWithSize:25];
         //label.font = [UIFont fontWithName:@"Zapfino" size:15];
         label.font = [UIFont fontWithName:@"Chalkduster" size:50];
-        completedGame.outcome = [NSString stringWithFormat:@"%@ (%lu - %lu)", labelText, (unsigned long)humanTotal, (unsigned long)robotTotal];
-        completedGame.humanVictory = YES;
+        [label setAlpha:0];
         [self.view addSubview:label];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.4];
+        [label setAlpha:1];
+        [UIView commitAnimations];
         
         CGRect humanChalkCircleFrame;
         if (iPhone3Point5Inch) {
@@ -1525,7 +1669,6 @@
         [self.view addSubview:robotChalkCircle];
     }
     
-    [appDelegate.gameHistoryController.completedGames addObject:completedGame];
     
 }
 /*

@@ -34,7 +34,7 @@
 }
 - (IBAction)showRules:(id)sender {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.window.rootViewController = appDelegate.rulesViewController;
+    appDelegate.window.rootViewController = [[RFHRulesViewController alloc] init];
     
 }
 
