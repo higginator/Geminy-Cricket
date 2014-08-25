@@ -55,6 +55,10 @@
     
     UIView *fadedView;
     
+    BOOL robotMovesFirst, robotFirstTurn;
+    
+    NSArray *sortedBest5Gems;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -117,12 +121,16 @@
         [self populateFirstPlayerGemHand:robotGemHand];
         human.turn = YES;
         robotOpponent.turn = NO;
+        robotMovesFirst = NO;
+        robotFirstTurn = NO;
     } else {
         [self populateFirstPlayerGemHand:robotGemHand];
         [self populateSecondPlayerGemHand:gemHand];
         human.turn = NO;
         robotOpponent.turn = YES;
-        [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:2];
+        robotMovesFirst = YES;
+        robotFirstTurn = YES;
+        [self performSelector:@selector(robotMakeTurn2) withObject:self afterDelay:2];
     }
 
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -285,6 +293,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
+    
+    [self setRobotBest5Gems];
 }
 
 -(void)loadView
@@ -504,7 +514,7 @@
             [self updateScoreBoard];
             [self changeTurnOrder];
             [self changeTurnVisualCue];
-            [self performSelector:@selector(robotMakeTurn) withObject:self afterDelay:1];
+            [self performSelector:@selector(robotMakeTurn2) withObject:self afterDelay:1];
         }
     }
 }
@@ -694,6 +704,98 @@
         [self declareWinner];
         [self changeTurnOrder];
     }
+}
+
+-(void)robotMakeTurn2
+{
+    /*
+     array *best5Gems
+     if (robotFirst and firstTurn)
+        placeLowestGemInCorner
+     if (canOverrideOpponent)
+        overrideOpponent
+     else if (haveSameValueGem)
+        placeSameValueGemInCorner
+     else if (middleOpen)
+        placeLowestGemInMiddle
+     else
+        placeLowestGemRandomly
+     */
+    
+    UICollectionViewCell *cell;
+    RFHGemObject *gem;
+    int cellIndex = 0;
+    int index = 0;
+    if (robotMovesFirst && robotFirstTurn) {
+        gem = sortedBest5Gems[index];
+        cellIndex = [self randomBoardCornerIndex];
+        cell = vacantCells[cellIndex];
+        robotFirstTurn = NO;
+    }
+    
+    RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
+    board.boardObjects[cellIndex] = robotGemImage;
+    vacantCells[cellIndex] = [NSNull null];
+    NSString *cellName = [NSString stringWithFormat:@"cell%@Rectangle", [numberMappings objectForKey:[NSString stringWithFormat:@"%d", cellIndex + 1]]];
+    CGRect cellRect = [[myItems objectForKey:cellName] CGRectValue];
+    robotGemImage.imageView.center = CGPointMake(CGRectGetMidX(cellRect) + boardOffsetX, CGRectGetMidY(cellRect) + boardOffsetY);
+    [self setRobotGemOriginalCenter:robotGemImage gemPosition:index+1];
+    [self addRobotMoveToMoveOrder:robotGemImage withCellIndex:cellIndex];
+    [self.view addSubview:robotGemImage.imageView];
+    [self boardCheck:robotGemImage collectionLocation:cell.center];
+    [self changeTurnOrder];
+    
+    [self updateScoreBoard];
+    [self changeTurnVisualCue];
+    if ([self isGameOver]) {
+        [self makeNameLabelsBlack];
+        [self declareWinner];
+        [self changeTurnOrder];
+    }
+
+
+}
+
+-(void)setRobotBest5Gems
+{
+    NSMutableArray *best5Gems = [[NSMutableArray alloc] init];
+    NSUInteger lowestValue = 10;
+    NSUInteger indexOfWeakestGem = -1;
+    RFHGemObject *weakestGem;
+    for (RFHGemObject *gem in robotGemHand) {
+        if (gem.value < lowestValue) {
+            weakestGem = gem;
+            indexOfWeakestGem = [robotGemHand indexOfObject:gem];
+            lowestValue = gem.value;
+        }
+    }
+
+    for (RFHGemObject *gem in robotGemHand) {
+        if ([robotGemHand indexOfObject:gem] != indexOfWeakestGem) {
+            [best5Gems addObject:gem];
+        }
+    }
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
+    sortedBest5Gems = [best5Gems sortedArrayUsingDescriptors:@[sortDescriptor]];
+
+}
+
+-(int)randomBoardCornerIndex
+{
+    UICollectionViewCell *cell;
+    int cellIndex = 0;
+    while (!cell) {
+        cellIndex = arc4random_uniform((uint32_t)[vacantCells count]);
+        if (cellIndex == 0 || cellIndex == 2 || cellIndex == 6 || cellIndex == 8) {
+            if (vacantCells[cellIndex] != [NSNull null]) {
+                cell = vacantCells[cellIndex];
+                board.boardColors[cellIndex] = robotOpponent.color;
+                board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+            }
+        }
+    }
+    return cellIndex;
 }
 
 -(void)setRobotGemOriginalCenter:(RFHGemImageContainer *)robotGemImage gemPosition:(int)gemPosition

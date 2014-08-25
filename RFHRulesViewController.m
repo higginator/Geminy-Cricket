@@ -622,7 +622,7 @@
     
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Geminy Cricket"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"is a game of"];
-    NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"territory."];
+    NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"territory"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:20];
     [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
     [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
@@ -837,7 +837,7 @@
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Turns alternate with"];
-    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"an opponent."];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"an opponent"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
     [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
     [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
@@ -989,7 +989,7 @@
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"When a move is made,"];
-    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"the score updates."];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"the score updates"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
     [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
     [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
@@ -1049,7 +1049,7 @@
     [self.introLineThree setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Higher value gems override"];
     NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"opponent"];
-    NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"gems."];
+    NSMutableAttributedString *introWordsLineThree = [[NSMutableAttributedString alloc] initWithString:@"gems"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
     [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
     [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
@@ -1189,7 +1189,7 @@
     [self.intro setAlpha:0];
     [self.introLineTwo setAlpha:0];
     NSMutableAttributedString *introWords = [[NSMutableAttributedString alloc] initWithString:@"Protect"];
-    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"weak gems."];
+    NSMutableAttributedString *introWordsLineTwo = [[NSMutableAttributedString alloc] initWithString:@"weak gems"];
     UIFont *font = [UIFont fontWithName:@"ChalkDuster" size:17];
     [introWords addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, introWords.length)];
     [introWords addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, introWords.length)];
