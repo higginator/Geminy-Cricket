@@ -57,7 +57,9 @@
     
     BOOL robotMovesFirst, robotFirstTurn;
     
-    NSArray *sortedBest5Gems;
+    NSMutableArray *sortedBest5Gems;
+    
+    NSUInteger indexOfOpenSquare;
     
 }
 
@@ -731,10 +733,23 @@
         cellIndex = [self randomBoardCornerIndex];
         cell = vacantCells[cellIndex];
         robotFirstTurn = NO;
+    } else if ([self robotCanOverrideOpponent]) {
+        gem = [self setRobotOverrideGem];
+        cellIndex = (int) indexOfOpenSquare;
+        cell = vacantCells[indexOfOpenSquare];
+        [sortedBest5Gems removeObject:gem];
+
+    } else if ([self robotHasSameValueGem]) {
+        
+    } else {
+        NSLog(@"Cant override");
+        return;
     }
     
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
+    board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
     board.boardObjects[cellIndex] = robotGemImage;
+    board.boardColors[cellIndex] = robotOpponent.color;
     vacantCells[cellIndex] = [NSNull null];
     NSString *cellName = [NSString stringWithFormat:@"cell%@Rectangle", [numberMappings objectForKey:[NSString stringWithFormat:@"%d", cellIndex + 1]]];
     CGRect cellRect = [[myItems objectForKey:cellName] CGRectValue];
@@ -754,6 +769,219 @@
     }
 
 
+}
+
+-(BOOL)robotHasSameValueGem
+{
+    
+}
+
+-(BOOL)robotCanOverrideOpponent
+{
+    NSArray *visibleCellIndex = self.collectionView.indexPathsForVisibleItems;
+    NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
+    NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
+    
+    NSMutableArray *humanBoardCells = [[NSMutableArray alloc] init];
+    NSMutableArray *humanBoardGems = [[NSMutableArray alloc] init];
+    /*
+    for (int i = 0; i < [vacantCells count]; i++ ) {
+        if (vacantCells[i] == [NSNull null]) {
+            RFHGemImageContainer *gemContainer = board.boardObjects[i];
+            UICollectionViewCell *cell = gemContainer.gem;
+            if (cell.backgroundColor == [UIColor colorWithRed:.0274509 green:.596078 blue:.788235 alpha:1.0]) {
+                [humanBoardCells addObject:cell];
+                NSUInteger index = [vacantCells indexOfObject:cell];
+                RFHGemImageContainer *gemContainer = board.boardObjects[index];
+                [humanBoardGems addObject:gemContainer.gem];
+            }
+        }
+    }
+    */
+    for (int i = 0; i < [board.boardColors count]; i++ ) {
+        if (board.boardColors[i] != [NSNull null]) {
+            if (board.boardColors[i] == human.color) {
+                [humanBoardCells addObject:sortedVisibleCells[i]];
+                RFHGemImageContainer *gemContainer = board.boardObjects[i];
+                [humanBoardGems addObject:gemContainer.gem];
+            }
+        }
+    }
+
+    NSArray *sortedHumanGemsOnBoard = [[NSMutableArray alloc] init];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
+    sortedHumanGemsOnBoard = [humanBoardGems sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    NSLog(@"%@", sortedHumanGemsOnBoard);
+    NSLog(@"%@", sortedBest5Gems);
+    for (RFHGemObject *humanGem in sortedHumanGemsOnBoard) {
+        for (RFHGemObject *robotGem in sortedBest5Gems) {
+            if (robotGem.value > humanGem.value && [self openSquareNearby:humanGem]) {
+                NSLog(@"inside");
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+-(RFHGemObject *)setRobotOverrideGem
+{
+    NSArray *visibleCellIndex = self.collectionView.indexPathsForVisibleItems;
+    NSSortDescriptor *rowDescriptor = [[NSSortDescriptor alloc] initWithKey:@"row" ascending:YES];
+    NSArray *sortedVisibleCells = [visibleCellIndex sortedArrayUsingDescriptors:@[rowDescriptor]];
+    
+    RFHGemObject *robotOverrideGem;
+    NSMutableArray *humanBoardCells = [[NSMutableArray alloc] init];
+    NSMutableArray *humanBoardGems = [[NSMutableArray alloc] init];
+    NSLog(@"how far Am I?");
+    for (int i = 0; i < [board.boardColors count]; i++) {
+        if (board.boardColors[i] != [NSNull null]) {
+            if (board.boardColors[i] == human.color) {
+                [humanBoardCells addObject:sortedVisibleCells[i]];
+                RFHGemImageContainer *gemContainer = board.boardObjects[i];
+                [humanBoardGems addObject:gemContainer.gem];
+            }
+        }
+    }
+    
+    NSArray *sortedHumanGemsOnBoard = [[NSMutableArray alloc] init];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
+    sortedHumanGemsOnBoard = [humanBoardGems sortedArrayUsingDescriptors:@[sortDescriptor]];
+    NSLog(@"I made it this far");
+    for (RFHGemObject *humanGem in sortedHumanGemsOnBoard) {
+        for (RFHGemObject *robotGem in sortedBest5Gems) {
+            if ((robotGem.value > humanGem.value) && [self openSquareNearby:humanGem]) {
+                return robotGem;
+            }
+        }
+    }
+    return robotOverrideGem;
+}
+
+-(BOOL)openSquareNearby:(RFHGemObject *)humanGem {
+    NSLog(@"checking for opensquare nearby");
+    indexOfOpenSquare = 10;
+    RFHGemImageContainer *squareInQuestion;
+    for (int i = 0; i < [board.boardObjects count]; i++) {
+        if (board.boardObjects[i] != [NSNull null]) {
+            RFHGemImageContainer *gemContainer = board.boardObjects[i];
+            if (gemContainer.gem == humanGem) {
+                squareInQuestion = gemContainer;
+            }
+        }
+    }
+
+    NSUInteger index = [board.boardObjects indexOfObject:squareInQuestion];
+    if (index == 0) {
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+    } else if (index == 1) {
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+    } else if (index == 2) {
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+    } else if (index == 3) {
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+    } else if (index == 4) {
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+    } else if (index == 5) {
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index+3] == [NSNull null]) {
+            indexOfOpenSquare = index + 3;
+            return YES;
+        }
+    } else if (index == 6) {
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+
+    } else if (index == 7) {
+        if (board.boardObjects[index+1] == [NSNull null]) {
+            indexOfOpenSquare = index + 1;
+            return YES;
+        }
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+    } else if (index == 8) {
+        if (board.boardObjects[index-1] == [NSNull null]) {
+            indexOfOpenSquare = index - 1;
+            return YES;
+        }
+        if (board.boardObjects[index-3] == [NSNull null]) {
+            indexOfOpenSquare = index - 3;
+            return YES;
+        }
+
+    }
+    return NO;
 }
 
 -(void)setRobotBest5Gems
@@ -777,7 +1005,8 @@
     }
 
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
-    sortedBest5Gems = [best5Gems sortedArrayUsingDescriptors:@[sortDescriptor]];
+    NSArray *sortedArrayBest5Gems = [best5Gems sortedArrayUsingDescriptors:@[sortDescriptor]];
+    sortedBest5Gems = [[NSMutableArray alloc] initWithArray:sortedArrayBest5Gems];
 
 }
 
