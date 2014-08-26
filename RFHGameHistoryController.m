@@ -75,7 +75,7 @@
     NSUInteger lengthOfGameNumber = [numberToString length];
     NSUInteger lengthOfStartOfText = 6;
     NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Game %lu: %@",(unsigned long)gameNumber, game.outcome]];
-    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:17];
+    UIFont *font = [UIFont fontWithName:@"Chalkduster" size:15];
     [mutableString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, lengthOfStartOfText + lengthOfGameNumber)];
     [mutableString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, mutableString.length)];
     NSUInteger length = [mutableString length] - lengthOfStartOfText - lengthOfGameNumber;
