@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *recordLabel;
 @property (weak, nonatomic) IBOutlet UILabel *flawlessVictoriesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *winStreakLabel;
+@property (strong, nonatomic) IBOutlet UILabel *longestWinStreakLabel;
 
 @end
 
@@ -51,10 +52,15 @@
     [flawlessVictories addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, flawlessVictories.length)];
     self.flawlessVictoriesLabel.attributedText = flawlessVictories;
     
-    NSMutableAttributedString *winStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Win Streak: %lu",(unsigned long)appDelegate.winStreak]];
+    NSMutableAttributedString *winStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Current Win Streak: %lu",(unsigned long)appDelegate.winStreak]];
     [winStreak addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, winStreak.length)];
     [winStreak addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, winStreak.length)];
     self.winStreakLabel.attributedText = winStreak;
+    
+    NSMutableAttributedString *longestWinStreak = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Best Win Streak: %lu",(unsigned long)appDelegate.longestWinStreak]];
+    [longestWinStreak addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(0, longestWinStreak.length)];
+    [longestWinStreak addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, longestWinStreak.length)];
+    self.longestWinStreakLabel.attributedText = longestWinStreak;
     
 }
 

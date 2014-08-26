@@ -51,7 +51,7 @@
     
     BOOL iPhone3Point5Inch;
     
-    UILabel *humanChalkCircle, *robotChalkCircle, *label;
+    UILabel *humanChalkCircle, *robotChalkCircle, *label, *longestStreakLabel, *currentStreakLabel;
     
     UIView *fadedView;
     
@@ -733,13 +733,11 @@
         index = (int) [robotGemHand indexOfObject:gem];
         cell = vacantCells[cellIndex];
         robotFirstTurn = NO;
-        [sortedBest5Gems removeObject:gem];
     } else if ([self robotCanOverrideOpponent]) {
         gem = [self setRobotOverrideGem];
         index = (int) [robotGemHand indexOfObject:gem];
         cellIndex = (int) indexOfOpenSquare;
         cell = vacantCells[indexOfOpenSquare];
-        [sortedBest5Gems removeObject:gem];
 
     } else if ([self isMiddleOpen]) {
         //placeLowestGemInMiddle
@@ -747,7 +745,6 @@
         index = (int) [robotGemHand indexOfObject:gem];
         cellIndex = 4;
         cell = vacantCells[cellIndex];
-        [sortedBest5Gems removeObject:gem];
     } else {
         //placeLowestGemRandomly
         gem = sortedBest5Gems[0];
@@ -763,7 +760,7 @@
         }
 
     }
-    
+    [sortedBest5Gems removeObject:gem];
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
     board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
     board.boardObjects[cellIndex] = robotGemImage;
@@ -1026,7 +1023,9 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
     NSArray *sortedArrayBest5Gems = [best5Gems sortedArrayUsingDescriptors:@[sortDescriptor]];
     sortedBest5Gems = [[NSMutableArray alloc] initWithArray:sortedArrayBest5Gems];
-
+    if (!robotMovesFirst) {
+        [sortedBest5Gems removeObjectAtIndex:0];
+    }
 }
 
 -(int)randomBoardCornerIndex
@@ -1153,11 +1152,18 @@
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.wins++;
         appDelegate.winStreak++;
+        if (appDelegate.winStreak > appDelegate.longestWinStreak) {
+            appDelegate.longestWinStreak = appDelegate.winStreak;
+        }
         if (humanTotal == 9) {
             appDelegate.flawlessVictories++;
         }
         //create victory label, place on screen
-        label = [[UILabel alloc] initWithFrame:CGRectMake(30, 150, appDelegate.window.bounds.size.width, 75)];
+        if (iPhone3Point5Inch) {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(30, 140, appDelegate.window.bounds.size.width, 75)];
+        } else {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(30, 150, appDelegate.window.bounds.size.width, 75)];
+        }
         labelText = @"VICTORY";
         label.text = labelText;
         //label.textColor = [UIColor colorWithRed:.22 green:.8 blue:.33 alpha:1.0];
@@ -1184,7 +1190,11 @@
         appDelegate.losses++;
         appDelegate.winStreak = 0;
         //create defeat label, place on screen
-        label = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, appDelegate.window.bounds.size.width, 75)];
+        if (iPhone3Point5Inch) {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(50, 140, appDelegate.window.bounds.size.width, 75)];
+        } else {
+            label = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, appDelegate.window.bounds.size.width, 75)];
+        }
         labelText = @"DEFEAT";
         label.text = labelText;
         //label.textColor = [UIColor colorWithRed:.8 green:.22 blue:.1 alpha:1.0];
@@ -1204,7 +1214,26 @@
         robotChalkCircle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CircleWinner.png"]];
         [self.view addSubview:robotChalkCircle];
     }
+    if (iPhone3Point5Inch) {
+        longestStreakLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, 235, appDelegate.window.bounds.size.width, 75)];
+        currentStreakLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 270, appDelegate.window.bounds.size.width, 75)];
+    } else {
+        longestStreakLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, 250, appDelegate.window.bounds.size.width, 75)];
+        currentStreakLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 290, appDelegate.window.bounds.size.width, 75)];
+
+    }
+    labelText = [NSString stringWithFormat:@"Best Streak: %lu", (long int)appDelegate.longestWinStreak];
+    longestStreakLabel.text = labelText;
+    longestStreakLabel.textColor = [UIColor whiteColor];
+    longestStreakLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
+    [self.view addSubview:longestStreakLabel];
     
+    labelText = [NSString stringWithFormat:@"Current Streak: %lu", (long int)appDelegate.winStreak];
+    currentStreakLabel.text = labelText;
+    currentStreakLabel.textColor = [UIColor whiteColor];
+    currentStreakLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
+    [self.view addSubview:currentStreakLabel];
+
     [appDelegate.gameHistoryController.completedGames addObject:completedGame];
 
 }

@@ -38,9 +38,9 @@
     self.losses = 0;
     self.flawlessVictories = 0;
     self.winStreak = 0;
-    
+    self.longestWinStreak = 0;
     //initialize sound
-
+/*
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
@@ -50,7 +50,7 @@
     
     [self.audioPlayer play];
     self.audioIsPlaying = YES;
-
+*/
 
     self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
     [self.window makeKeyAndVisible];

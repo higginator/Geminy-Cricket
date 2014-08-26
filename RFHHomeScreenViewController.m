@@ -84,7 +84,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]];
-    self.titleLabel.textColor = [UIColor colorWithRed:.760784 green:.1019607 blue:.2666667 alpha:1.0];
+    self.titleLabel.textColor = [UIColor colorWithRed:.341176 green:.070588 blue:.807843 alpha:1.0];
+    self.titleLabel.font = [UIFont fontWithName:@"ChalkDuster" size:29];
     self.playButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.playButton.titleLabel.font = [UIFont fontWithName:@"ChalkDuster" size:100];
     self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
