@@ -723,27 +723,45 @@
      else
         placeLowestGemRandomly
      */
-    
     UICollectionViewCell *cell;
     RFHGemObject *gem;
     int cellIndex = 0;
     int index = 0;
     if (robotMovesFirst && robotFirstTurn) {
-        gem = sortedBest5Gems[index];
+        gem = sortedBest5Gems[0];
         cellIndex = [self randomBoardCornerIndex];
+        index = (int) [robotGemHand indexOfObject:gem];
         cell = vacantCells[cellIndex];
         robotFirstTurn = NO;
+        [sortedBest5Gems removeObject:gem];
     } else if ([self robotCanOverrideOpponent]) {
         gem = [self setRobotOverrideGem];
+        index = (int) [robotGemHand indexOfObject:gem];
         cellIndex = (int) indexOfOpenSquare;
         cell = vacantCells[indexOfOpenSquare];
         [sortedBest5Gems removeObject:gem];
 
-    } else if ([self robotHasSameValueGem]) {
-        
+    } else if ([self isMiddleOpen]) {
+        //placeLowestGemInMiddle
+        gem = sortedBest5Gems[0];
+        index = (int) [robotGemHand indexOfObject:gem];
+        cellIndex = 4;
+        cell = vacantCells[cellIndex];
+        [sortedBest5Gems removeObject:gem];
     } else {
-        NSLog(@"Cant override");
-        return;
+        //placeLowestGemRandomly
+        gem = sortedBest5Gems[0];
+        index = (int) [robotGemHand indexOfObject:gem];
+        cell = nil;
+        while (!cell) {
+            cellIndex = arc4random_uniform((uint32_t)[vacantCells count]);
+            if (vacantCells[cellIndex] != [NSNull null]) {
+                cell = vacantCells[cellIndex];
+                board.boardColors[cellIndex] = robotOpponent.color;
+                board.boardBools[cellIndex] = [NSNumber numberWithBool:YES];
+            }
+        }
+
     }
     
     RFHGemImageContainer *robotGemImage = [[RFHGemImageContainer alloc] initRobotGemContainer:gem Player:robotOpponent onBoard:YES];
@@ -771,9 +789,13 @@
 
 }
 
--(BOOL)robotHasSameValueGem
+-(BOOL)isMiddleOpen
 {
-    
+    if (board.boardBools[4] == [NSNumber numberWithBool:NO]) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 -(BOOL)robotCanOverrideOpponent
@@ -812,8 +834,7 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
     sortedHumanGemsOnBoard = [humanBoardGems sortedArrayUsingDescriptors:@[sortDescriptor]];
     
-    NSLog(@"%@", sortedHumanGemsOnBoard);
-    NSLog(@"%@", sortedBest5Gems);
+
     for (RFHGemObject *humanGem in sortedHumanGemsOnBoard) {
         for (RFHGemObject *robotGem in sortedBest5Gems) {
             if (robotGem.value > humanGem.value && [self openSquareNearby:humanGem]) {
@@ -834,7 +855,6 @@
     RFHGemObject *robotOverrideGem;
     NSMutableArray *humanBoardCells = [[NSMutableArray alloc] init];
     NSMutableArray *humanBoardGems = [[NSMutableArray alloc] init];
-    NSLog(@"how far Am I?");
     for (int i = 0; i < [board.boardColors count]; i++) {
         if (board.boardColors[i] != [NSNull null]) {
             if (board.boardColors[i] == human.color) {
@@ -848,7 +868,6 @@
     NSArray *sortedHumanGemsOnBoard = [[NSMutableArray alloc] init];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
     sortedHumanGemsOnBoard = [humanBoardGems sortedArrayUsingDescriptors:@[sortDescriptor]];
-    NSLog(@"I made it this far");
     for (RFHGemObject *humanGem in sortedHumanGemsOnBoard) {
         for (RFHGemObject *robotGem in sortedBest5Gems) {
             if ((robotGem.value > humanGem.value) && [self openSquareNearby:humanGem]) {
