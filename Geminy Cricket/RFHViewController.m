@@ -835,7 +835,6 @@
     for (RFHGemObject *humanGem in sortedHumanGemsOnBoard) {
         for (RFHGemObject *robotGem in sortedBest5Gems) {
             if (robotGem.value > humanGem.value && [self openSquareNearby:humanGem]) {
-                NSLog(@"inside");
                 return YES;
             }
         }
@@ -876,7 +875,6 @@
 }
 
 -(BOOL)openSquareNearby:(RFHGemObject *)humanGem {
-    NSLog(@"checking for opensquare nearby");
     indexOfOpenSquare = 10;
     RFHGemImageContainer *squareInQuestion;
     for (int i = 0; i < [board.boardObjects count]; i++) {

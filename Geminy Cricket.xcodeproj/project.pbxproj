@@ -13,7 +13,6 @@
 		3379747D198DF24200120D2D /* previousMoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379747B198DF24200120D2D /* previousMoveButton@2x.png */; };
 		3379749D1997E13000120D2D /* RFHCreatorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */; };
 		3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */; };
-		337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A11997EB1D00120D2D /* CreatorInfo.png */; };
 		337974A7199811E000120D2D /* MusicIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A5199811E000120D2D /* MusicIcon.png */; };
 		337974AA1998157400120D2D /* MusicIconCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974A91998157400120D2D /* MusicIconCancel.png */; };
 		337974AC1998174D00120D2D /* gradient7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 337974AB1998174D00120D2D /* gradient7.jpg */; };
@@ -49,6 +48,9 @@
 		3379756E19A8428C00120D2D /* rulesLast@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379756D19A8428C00120D2D /* rulesLast@2x.png */; };
 		3379757119AD25C400120D2D /* AdditionalInfoActivated@.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379756F19AD25C400120D2D /* AdditionalInfoActivated@.png */; };
 		3379757219AD25C400120D2D /* AdditionalInfoActivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379757019AD25C400120D2D /* AdditionalInfoActivated@2x.png */; };
+		3379757519AD398400120D2D /* CreatorInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379757319AD398400120D2D /* CreatorInfo.png */; };
+		3379757619AD398400120D2D /* CreatorInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379757419AD398400120D2D /* CreatorInfo@2x.png */; };
+		3379757819AE4A9900120D2D /* geminyAudioSwing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3379757719AE4A9900120D2D /* geminyAudioSwing.mp3 */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -113,7 +115,6 @@
 		3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RFHCreatorInfoViewController.h; path = ../RFHCreatorInfoViewController.h; sourceTree = "<group>"; };
 		3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RFHCreatorInfoViewController.m; path = ../RFHCreatorInfoViewController.m; sourceTree = "<group>"; };
 		3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RFHCreatorInfoViewController.xib; path = ../RFHCreatorInfoViewController.xib; sourceTree = "<group>"; };
-		337974A11997EB1D00120D2D /* CreatorInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreatorInfo.png; sourceTree = "<group>"; };
 		337974A5199811E000120D2D /* MusicIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIcon.png; sourceTree = "<group>"; };
 		337974A91998157400120D2D /* MusicIconCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicIconCancel.png; sourceTree = "<group>"; };
 		337974AB1998174D00120D2D /* gradient7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient7.jpg; sourceTree = "<group>"; };
@@ -150,6 +151,9 @@
 		3379756D19A8428C00120D2D /* rulesLast@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rulesLast@2x.png"; sourceTree = "<group>"; };
 		3379756F19AD25C400120D2D /* AdditionalInfoActivated@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfoActivated@.png"; sourceTree = "<group>"; };
 		3379757019AD25C400120D2D /* AdditionalInfoActivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AdditionalInfoActivated@2x.png"; sourceTree = "<group>"; };
+		3379757319AD398400120D2D /* CreatorInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreatorInfo.png; sourceTree = "<group>"; };
+		3379757419AD398400120D2D /* CreatorInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreatorInfo@2x.png"; sourceTree = "<group>"; };
+		3379757719AE4A9900120D2D /* geminyAudioSwing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = geminyAudioSwing.mp3; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -316,9 +320,10 @@
 				3379747B198DF24200120D2D /* previousMoveButton@2x.png */,
 				33797476198DC88F00120D2D /* nextMoveButton.png */,
 				33797477198DC88F00120D2D /* nextMoveButton@2x.png */,
+				3379757319AD398400120D2D /* CreatorInfo.png */,
+				3379757419AD398400120D2D /* CreatorInfo@2x.png */,
 				337974D6199DD4F600120D2D /* MoreInfo.png */,
 				337974D7199DD4F600120D2D /* MoreInfo@2x.png */,
-				337974A11997EB1D00120D2D /* CreatorInfo.png */,
 				337974A5199811E000120D2D /* MusicIcon.png */,
 				337974A91998157400120D2D /* MusicIconCancel.png */,
 				337974AD1998196A00120D2D /* gradient.png */,
@@ -355,6 +360,7 @@
 				33D63C991975AD98003B2DE8 /* App_icon80.png */,
 				33D63C9A1975AD98003B2DE8 /* App_icon120.png */,
 				33D63C9B1975AD98003B2DE8 /* App_icon1024.png */,
+				3379757719AE4A9900120D2D /* geminyAudioSwing.mp3 */,
 				33B40DA718FA55BF00936260 /* Supporting Files */,
 			);
 			path = "Geminy Cricket";
@@ -502,7 +508,9 @@
 				33D63C9E1975AD98003B2DE8 /* App_icon120.png in Resources */,
 				337974B019981ADE00120D2D /* creatorGradient.png in Resources */,
 				33D63C9D1975AD98003B2DE8 /* App_icon80.png in Resources */,
+				3379757819AE4A9900120D2D /* geminyAudioSwing.mp3 in Resources */,
 				33D9088A195E0B4300F25B8F /* scroll_90opacity.png in Resources */,
+				3379757619AD398400120D2D /* CreatorInfo@2x.png in Resources */,
 				3379756119A7B6F400120D2D /* rulesStep9@2x.png in Resources */,
 				3379755219A6AA4B00120D2D /* rulesStep6Small.png in Resources */,
 				337974DB19A2A2FC00120D2D /* homeButton@2x.png in Resources */,
@@ -513,6 +521,7 @@
 				33D63CAF19771E9D003B2DE8 /* GemLevel1@2x.png in Resources */,
 				33D63CF3198964C3003B2DE8 /* GemLevel2@2x.png in Resources */,
 				33D63CC5197DA6CB003B2DE8 /* GemLevel5@2x.png in Resources */,
+				3379757519AD398400120D2D /* CreatorInfo.png in Resources */,
 				33D63CBC19799271003B2DE8 /* gemLevel5Purple.png in Resources */,
 				33D63CB919786DF9003B2DE8 /* GemLevel3@2x.png in Resources */,
 				33797478198DC88F00120D2D /* nextMoveButton.png in Resources */,
@@ -525,7 +534,6 @@
 				337974D8199DD4F600120D2D /* MoreInfo.png in Resources */,
 				3379756819A7C98C00120D2D /* rulesStep11Small.png in Resources */,
 				3379756A19A83A6E00120D2D /* rulesStep13Small.png in Resources */,
-				337974A41997EB1D00120D2D /* CreatorInfo.png in Resources */,
 				3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */,
 				3379755A19A6D28000120D2D /* rulesStep7Small.png in Resources */,
 				337974D9199DD4F600120D2D /* MoreInfo@2x.png in Resources */,

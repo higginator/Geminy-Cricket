@@ -40,17 +40,15 @@
     self.winStreak = 0;
     self.longestWinStreak = 0;
     //initialize sound
-/*
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"canes" ofType:@"mp3"];
+
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"geminyAudioSwing" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-    
     self.audioPlayer.numberOfLoops = -1;
-    
+    self.audioPlayer.volume = 0.6;
     [self.audioPlayer play];
     self.audioIsPlaying = YES;
-*/
+
 
     self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
     [self.window makeKeyAndVisible];
