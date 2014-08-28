@@ -49,12 +49,12 @@
 
 }
 - (IBAction)moreControls:(id)sender {
-    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"MoreInfo.png"]]) {
-        [sender setImage:[UIImage imageNamed:@"AdditionalInfoActivated.png"] forState:UIControlStateNormal];
+    if ([[sender currentImage] isEqual:[UIImage imageNamed:@"arrowBegin.png"]]) {
+        [sender setImage:[UIImage imageNamed:@"arrowInfo.png"] forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = NO;
         self.musicInfoButton.hidden = NO;
     } else {
-        [sender setImage:[UIImage imageNamed:@"MoreInfo.png"]forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"arrowBegin.png"]forState:UIControlStateNormal];
         self.creatorInfoButton.hidden = YES;
         self.musicInfoButton.hidden = YES;
     }
@@ -65,12 +65,12 @@
     if (appDelegate.audioIsPlaying) {
         [appDelegate.audioPlayer stop];
         appDelegate.audioIsPlaying = NO;
-        [sender setImage:[UIImage imageNamed:@"MusicIconCancel.png"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"MusicFinalCancel.png"] forState:UIControlStateNormal];
     } else {
         appDelegate.audioPlayer.numberOfLoops = -1;
         [appDelegate.audioPlayer play];
         appDelegate.audioIsPlaying = YES;
-        [sender setImage:[UIImage imageNamed:@"MusicIcon.png"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"MusicFinal.png"] forState:UIControlStateNormal];
     }
     
 }
