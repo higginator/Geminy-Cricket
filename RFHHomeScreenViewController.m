@@ -91,6 +91,7 @@
     self.playButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.playButton.titleLabel.textColor = [UIColor whiteColor];
     //self.playButton.titleLabel.shadowColor = [UIColor blackColor];
+
     
     UIFont *subtitleFont = [UIFont fontWithName:@"Chalkduster" size:15];
     self.statsButton.titleLabel.font = subtitleFont;
@@ -100,7 +101,7 @@
     self.rulesButton.titleLabel.font = subtitleFont;
     self.rulesButton.titleLabel.textColor = [UIColor blackColor];
     
-    [self.additionalInfoButton setImage:[UIImage imageNamed:@"MoreInfo.png"] forState:UIControlStateNormal];
+    [self.additionalInfoButton setImage:[UIImage imageNamed:@"arrowBegin.png"] forState:UIControlStateNormal];
     self.creatorInfoButton.hidden = YES;
     self.musicInfoButton.hidden = YES;
 }
