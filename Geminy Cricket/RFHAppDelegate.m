@@ -10,7 +10,7 @@
 #import "RFHViewController.h"
 #import "RFHHomeScreenViewController.h"
 
-@interface RFHAppDelegate ()
+@interface RFHAppDelegate () <AVAudioPlayerDelegate>
 
 
 @end
@@ -40,7 +40,18 @@
     self.winStreak = 0;
     self.longestWinStreak = 0;
     //initialize sound
+    
+    [self playMusic];
+    
+    self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
 
+#pragma  mark - Music Controls
+
+-(void)playMusic
+{
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"geminyAudioSwing" ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
@@ -49,11 +60,10 @@
     [self.audioPlayer play];
     self.audioIsPlaying = YES;
 
-
-    self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
-    [self.window makeKeyAndVisible];
-    return YES;
 }
+
+
+#pragma  mark - Other
 
 -(void)returnHome
 {

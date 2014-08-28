@@ -12,6 +12,7 @@
 		3360777419AF0999005BF6E9 /* arrowNext.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360777219AF0999005BF6E9 /* arrowNext.png */; };
 		3360777519AF0999005BF6E9 /* arrowPrev.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360777319AF0999005BF6E9 /* arrowPrev.png */; };
 		3360777719AF0C1D005BF6E9 /* GemLevel3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360777619AF0C1D005BF6E9 /* GemLevel3@2x.png */; };
+		3360777919AF1786005BF6E9 /* GeminyLaunch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360777819AF1786005BF6E9 /* GeminyLaunch@2x.png */; };
 		3379749D1997E13000120D2D /* RFHCreatorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */; };
 		3379749E1997E13000120D2D /* RFHCreatorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */; };
 		337974AE1998196A00120D2D /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 337974AD1998196A00120D2D /* gradient.png */; };
@@ -111,6 +112,7 @@
 		3360777219AF0999005BF6E9 /* arrowNext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowNext.png; sourceTree = "<group>"; };
 		3360777319AF0999005BF6E9 /* arrowPrev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowPrev.png; sourceTree = "<group>"; };
 		3360777619AF0C1D005BF6E9 /* GemLevel3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GemLevel3@2x.png"; sourceTree = "<group>"; };
+		3360777819AF1786005BF6E9 /* GeminyLaunch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GeminyLaunch@2x.png"; sourceTree = "<group>"; };
 		3379749A1997E13000120D2D /* RFHCreatorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RFHCreatorInfoViewController.h; path = ../RFHCreatorInfoViewController.h; sourceTree = "<group>"; };
 		3379749B1997E13000120D2D /* RFHCreatorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RFHCreatorInfoViewController.m; path = ../RFHCreatorInfoViewController.m; sourceTree = "<group>"; };
 		3379749C1997E13000120D2D /* RFHCreatorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RFHCreatorInfoViewController.xib; path = ../RFHCreatorInfoViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		33B40D9418FA55BE00936260 = {
 			isa = PBXGroup;
 			children = (
+				3360777819AF1786005BF6E9 /* GeminyLaunch@2x.png */,
 				33B40DA618FA55BF00936260 /* Geminy Cricket */,
 				33B40DBF18FA55BF00936260 /* Geminy CricketTests */,
 				33B40D9F18FA55BF00936260 /* Frameworks */,
@@ -496,6 +499,7 @@
 				33D63CC4197DA6CB003B2DE8 /* GemLevel8.png in Resources */,
 				3379758919AEFBC300120D2D /* musicFinal.png in Resources */,
 				3360777519AF0999005BF6E9 /* arrowPrev.png in Resources */,
+				3360777919AF1786005BF6E9 /* GeminyLaunch@2x.png in Resources */,
 				337974EA19A50FA900120D2D /* rulesGemHighlight@2x.png in Resources */,
 				337974DD19A2A5E900120D2D /* homeButtonWhite@2x.png in Resources */,
 				3379758C19AEFBC300120D2D /* MusicFinalCancel@2x.png in Resources */,

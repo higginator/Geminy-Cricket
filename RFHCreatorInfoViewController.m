@@ -63,6 +63,7 @@
     [higginator addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, higginator.length)];
     self.higginatorLabel.attributedText = higginator;
     
+    
     NSMutableAttributedString *gabeDizon = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Gabe Dizon"]];
     [gabeDizon addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, gabeDizon.length)];
     [gabeDizon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, gabeDizon.length)];
