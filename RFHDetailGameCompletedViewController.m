@@ -853,18 +853,18 @@
     CGRect buttonNextMoveFrame, buttonPreviousMoveFrame;
     
     if (self.iPhone3Point5Inch) {
-        buttonNextMoveFrame = CGRectMake(170, self.y - 20, 50, 50);
-        buttonPreviousMoveFrame = CGRectMake(50, self.y - 20, 50, 50);
+        buttonNextMoveFrame = CGRectMake(170, self.y - 29, 100, 100);
+        buttonPreviousMoveFrame = CGRectMake(50, self.y - 29, 100, 100);
     } else {
         buttonNextMoveFrame = CGRectMake(170, self.y + 20, 100, 100);
         buttonPreviousMoveFrame = CGRectMake(50, self.y + 20, 100, 100);
     }
     self.buttonNextMove.frame = buttonNextMoveFrame;
-    UIImage *backgroundImage = [UIImage imageNamed:@"NextMoveButton.png"];
+    UIImage *backgroundImage = [UIImage imageNamed:@"arrowNext.png"];
     [self.buttonNextMove setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     
     self.buttonPreviousMove.frame = buttonPreviousMoveFrame;
-    backgroundImage = [UIImage imageNamed:@"PreviousMoveButton.png"];
+    backgroundImage = [UIImage imageNamed:@"arrowPrev.png"];
     [self.buttonPreviousMove setBackgroundImage:backgroundImage forState:UIControlStateNormal];
 
     

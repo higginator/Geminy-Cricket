@@ -42,7 +42,7 @@
                     <color key="textColor" red="0.0" green="0.91808832908163263" blue="0.031735266635209279" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nos-AF-Iws">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nos-AF-Iws">
                     <rect key="frame" x="208" y="446" width="48" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -55,7 +55,7 @@
                         <action selector="showStats:" destination="-1" eventType="touchUpInside" id="G8q-o9-mWw"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsh-J8-hi9">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsh-J8-hi9">
                     <rect key="frame" x="201" y="492" width="62" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -68,7 +68,7 @@
                         <action selector="showHistory:" destination="-1" eventType="touchUpInside" id="zdn-Nk-8hD"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Q6-qxS">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Q6-qxS">
                     <rect key="frame" x="20" y="492" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="arrowBegin.png">
@@ -78,7 +78,7 @@
                         <action selector="moreControls:" destination="-1" eventType="touchUpInside" id="I1l-nN-o1y"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-pW-c2e">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-pW-c2e">
                     <rect key="frame" x="60" y="492" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="infoLast.png">
@@ -88,7 +88,7 @@
                         <action selector="showCreatorInfo:" destination="-1" eventType="touchUpInside" id="Esx-Mc-qRs"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTv-rM-sOI">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTv-rM-sOI">
                     <rect key="frame" x="100" y="492" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="musicFinal.png">
@@ -98,7 +98,7 @@
                         <action selector="toggleMusic:" destination="-1" eventType="touchUpInside" id="4oO-Y1-4mx"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-3k-W5v">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-3k-W5v">
                     <rect key="frame" x="206" y="404" width="53" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -113,6 +113,19 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Rsh-J8-hi9" firstAttribute="top" secondItem="Nos-AF-Iws" secondAttribute="bottom" constant="8" id="5nd-Rn-JqE"/>
+                <constraint firstItem="EHC-pW-c2e" firstAttribute="leading" secondItem="Mun-Q6-qxS" secondAttribute="trailing" constant="10" id="8TK-Z4-3Cm"/>
+                <constraint firstAttribute="bottom" secondItem="OTv-rM-sOI" secondAttribute="bottom" constant="46" id="F9D-Sx-Ue6"/>
+                <constraint firstAttribute="bottom" secondItem="Rsh-J8-hi9" secondAttribute="bottom" constant="46" id="GcR-W8-JiI"/>
+                <constraint firstItem="Nos-AF-Iws" firstAttribute="top" secondItem="cqP-3k-W5v" secondAttribute="bottom" constant="8" id="Jn5-vJ-ypU"/>
+                <constraint firstAttribute="bottom" secondItem="Mun-Q6-qxS" secondAttribute="bottom" constant="46" id="R2z-P2-cuC"/>
+                <constraint firstItem="Rsh-J8-hi9" firstAttribute="top" secondItem="Nos-AF-Iws" secondAttribute="bottom" constant="8" id="RQF-Fn-CgE"/>
+                <constraint firstAttribute="bottom" secondItem="EHC-pW-c2e" secondAttribute="bottom" constant="46" id="STW-3x-7iX"/>
+                <constraint firstItem="Mun-Q6-qxS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jDy-8n-t3A"/>
+                <constraint firstItem="Nos-AF-Iws" firstAttribute="top" secondItem="cqP-3k-W5v" secondAttribute="bottom" constant="8" id="joS-eB-h8p"/>
+                <constraint firstItem="OTv-rM-sOI" firstAttribute="leading" secondItem="EHC-pW-c2e" secondAttribute="trailing" constant="10" id="uZU-FR-waI"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
