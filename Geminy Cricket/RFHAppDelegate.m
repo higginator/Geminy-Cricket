@@ -20,6 +20,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
+    [self initializeDataController];
+    return YES;
+}
+
+#pragma mark - App Launch
+
+- (void)initializeDataController {
+    RFHDataController *dataController = [[RFHDataController alloc] init];
+    self.dataController = dataController;
+}
+
+- (void)setupUI {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     RFHHomeScreenViewController *homeScreen = [[RFHHomeScreenViewController alloc] init];
     self.window.rootViewController = homeScreen;
@@ -33,19 +47,13 @@
     
     self.navigationCreatorInfoController = [[UINavigationController alloc] initWithRootViewController:self.creatorInfoController];
     self.rulesViewController = [[RFHRulesViewController alloc] init];
-
-    self.wins = 0;
-    self.losses = 0;
-    self.flawlessVictories = 0;
-    self.winStreak = 0;
-    self.longestWinStreak = 0;
+    
     //initialize sound
     
     [self playMusic];
     
     self.window.backgroundColor = [UIColor colorWithRed:.8392156 green:.8392156 blue:.8392156 alpha:1.0];
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
 #pragma  mark - Music Controls

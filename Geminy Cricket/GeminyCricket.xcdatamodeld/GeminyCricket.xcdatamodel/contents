@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CompletedGame" representedClassName="CompletedGame" syncable="YES" codeGenerationType="class">
+        <attribute name="humanGemHand" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="humanVictory" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="moveOrder" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="outcome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="robotGemHand" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="humanPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HumanPlayer" inverseName="completedGame" inverseEntity="HumanPlayer" syncable="YES"/>
+        <relationship name="robotPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RobotPlayer" inverseName="completedGame" inverseEntity="RobotPlayer" syncable="YES"/>
+    </entity>
+    <entity name="HumanPlayer" representedClassName="HumanPlayer" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="turn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="completedGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompletedGame" inverseName="humanPlayer" inverseEntity="CompletedGame" syncable="YES"/>
+    </entity>
+    <entity name="RobotPlayer" representedClassName="RobotPlayer" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="turn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="completedGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompletedGame" inverseName="robotPlayer" inverseEntity="CompletedGame" syncable="YES"/>
+    </entity>
+    <entity name="Stats" representedClassName="Stats" syncable="YES" codeGenerationType="class">
+        <attribute name="flawlessVictories" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longestWinStreak" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="losses" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wins" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="winStreak" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CompletedGame" positionX="-236" positionY="-105" width="128" height="150"/>
+        <element name="HumanPlayer" positionX="-342" positionY="111" width="128" height="105"/>
+        <element name="RobotPlayer" positionX="-162" positionY="117" width="128" height="105"/>
+        <element name="Stats" positionX="-558" positionY="-81" width="128" height="118"/>
+    </elements>
+</model>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3328E3AC1F8AC2BF007A35EA /* RFHDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3328E3AB1F8AC2BE007A35EA /* RFHDataController.m */; };
+		3328E3AF1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3328E3AD1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld */; };
 		3360777019AF0858005BF6E9 /* arrowNext@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360776E19AF0858005BF6E9 /* arrowNext@2x.png */; };
 		3360777119AF0858005BF6E9 /* arrowPrev@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360776F19AF0858005BF6E9 /* arrowPrev@2x.png */; };
 		3360777419AF0999005BF6E9 /* arrowNext.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360777219AF0999005BF6E9 /* arrowNext.png */; };
@@ -107,6 +109,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3328E3AA1F8AC2BE007A35EA /* RFHDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RFHDataController.h; sourceTree = "<group>"; };
+		3328E3AB1F8AC2BE007A35EA /* RFHDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFHDataController.m; sourceTree = "<group>"; };
+		3328E3AE1F8AC4C7007A35EA /* GeminyCricket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeminyCricket.xcdatamodel; sourceTree = "<group>"; };
 		3360776E19AF0858005BF6E9 /* arrowNext@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowNext@2x.png"; sourceTree = "<group>"; };
 		3360776F19AF0858005BF6E9 /* arrowPrev@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowPrev@2x.png"; sourceTree = "<group>"; };
 		3360777219AF0999005BF6E9 /* arrowNext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowNext.png; sourceTree = "<group>"; };
@@ -238,6 +243,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3328E3B01F8AC4D3007A35EA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3328E3AA1F8AC2BE007A35EA /* RFHDataController.h */,
+				3328E3AB1F8AC2BE007A35EA /* RFHDataController.m */,
+				3328E3AD1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		33B40D9418FA55BE00936260 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +306,7 @@
 				33B40DE518FA69CC00936260 /* Player */,
 				33B40DAF18FA55BF00936260 /* RFHAppDelegate.h */,
 				33B40DB018FA55BF00936260 /* RFHAppDelegate.m */,
+				3328E3B01F8AC4D3007A35EA /* CoreData */,
 				33B40DDB18FA55F500936260 /* RFHViewController.h */,
 				33B40DDC18FA55F500936260 /* RFHViewController.m */,
 				33B40DE918FAAB7F00936260 /* RFHGameBoard.h */,
@@ -450,7 +466,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RFH;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Higgnet;
 				TargetAttributes = {
 					33B40D9C18FA55BE00936260 = {
@@ -574,10 +590,12 @@
 				33B40DDA18FA55D400936260 /* RFHRobotPlayer.m in Sources */,
 				33B40DAD18FA55BF00936260 /* main.m in Sources */,
 				33B40DB118FA55BF00936260 /* RFHAppDelegate.m in Sources */,
+				3328E3AC1F8AC2BF007A35EA /* RFHDataController.m in Sources */,
 				33D63CCB197DA963003B2DE8 /* RFHDetailGameCompletedViewController.m in Sources */,
 				33B40DD918FA55D400936260 /* RFHPlayer.m in Sources */,
 				33D63C8B1975963F003B2DE8 /* RFHCompletedGame.m in Sources */,
 				33B40DEB18FAAB7F00936260 /* RFHGameBoard.m in Sources */,
+				3328E3AF1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld in Sources */,
 				33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */,
 				337974E619A4694300120D2D /* RFHRulesViewController.m in Sources */,
 				33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */,
@@ -630,18 +648,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -654,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -668,25 +698,36 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -702,7 +743,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
 				INFOPLIST_FILE = "Geminy Cricket/Geminy Cricket-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.higgnet.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -720,7 +762,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
 				INFOPLIST_FILE = "Geminy Cricket/Geminy Cricket-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.higgnet.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -744,6 +787,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Geminy CricketTests/Geminy CricketTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.higgnet.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -762,6 +806,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geminy Cricket/Geminy Cricket-Prefix.pch";
 				INFOPLIST_FILE = "Geminy CricketTests/Geminy CricketTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.higgnet.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -799,6 +844,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3328E3AD1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3328E3AE1F8AC4C7007A35EA /* GeminyCricket.xcdatamodel */,
+			);
+			currentVersion = 3328E3AE1F8AC4C7007A35EA /* GeminyCricket.xcdatamodel */;
+			path = GeminyCricket.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 33B40D9518FA55BE00936260 /* Project object */;
 }

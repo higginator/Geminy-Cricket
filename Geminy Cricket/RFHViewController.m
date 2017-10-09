@@ -15,6 +15,8 @@
 #import "RFHAppDelegate.h"
 #import "RFHCompletedGame.h"
 #import "QuartzCore/CALayer.h"
+@import CoreData;
+#import "Stats+CoreDataProperties.h"
 
 @interface RFHViewController ()
 
@@ -1102,6 +1104,7 @@
     return false;
 }
 
+
 -(void)declareWinner
 {
     RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -1146,15 +1149,16 @@
     
     NSInteger robotTotal = 9 - humanTotal;
     NSString *labelText;
+    
     if (humanTotal >= 5) {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.wins++;
-        appDelegate.winStreak++;
-        if (appDelegate.winStreak > appDelegate.longestWinStreak) {
-            appDelegate.longestWinStreak = appDelegate.winStreak;
+        appDelegate.stats.wins++;
+        appDelegate.stats.winStreak++;
+        if (appDelegate.stats.winStreak > appDelegate.stats.longestWinStreak) {
+            appDelegate.stats.longestWinStreak = appDelegate.stats.winStreak;
         }
         if (humanTotal == 9) {
-            appDelegate.flawlessVictories++;
+            appDelegate.stats.flawlessVictories++;
         }
         //create victory label, place on screen
         if (iPhone3Point5Inch) {
@@ -1185,8 +1189,8 @@
         
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.losses++;
-        appDelegate.winStreak = 0;
+        appDelegate.stats.losses++;
+        appDelegate.stats.winStreak = 0;
         //create defeat label, place on screen
         if (iPhone3Point5Inch) {
             label = [[UILabel alloc] initWithFrame:CGRectMake(50, 140, appDelegate.window.bounds.size.width, 75)];
@@ -1220,20 +1224,20 @@
         currentStreakLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 290, appDelegate.window.bounds.size.width, 75)];
 
     }
-    labelText = [NSString stringWithFormat:@"Best Streak: %lu", (long int)appDelegate.longestWinStreak];
+    labelText = [NSString stringWithFormat:@"Best Streak: %lu", (long int)appDelegate.stats.longestWinStreak];
     longestStreakLabel.text = labelText;
     longestStreakLabel.textColor = [UIColor whiteColor];
     longestStreakLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
     [self.view addSubview:longestStreakLabel];
     
-    labelText = [NSString stringWithFormat:@"Current Streak: %lu", (long int)appDelegate.winStreak];
+    labelText = [NSString stringWithFormat:@"Current Streak: %lu", (long int)appDelegate.stats.winStreak];
     currentStreakLabel.text = labelText;
     currentStreakLabel.textColor = [UIColor whiteColor];
     currentStreakLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
     [self.view addSubview:currentStreakLabel];
 
     [appDelegate.gameHistoryController.completedGames addObject:completedGame];
-
+    [appDelegate.dataController saveContext];
 }
 /*
 

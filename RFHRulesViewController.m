@@ -1645,8 +1645,8 @@
         
     } else {
         RFHAppDelegate *appDelegate = (RFHAppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.losses++;
-        appDelegate.winStreak = 0;
+        appDelegate.stats.losses++;
+        appDelegate.stats.winStreak = 0;
         //create defeat label, place on screen
         label = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, appDelegate.window.bounds.size.width, 75)];
         labelText = @"DEFEAT";

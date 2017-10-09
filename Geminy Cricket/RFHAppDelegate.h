@@ -13,6 +13,8 @@
 #import "RFHRulesViewController.h"
 #import "RFHCreatorInfoViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "RFHDataController.h"
+#import "Stats+CoreDataProperties.h"
 
 @interface RFHAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -26,17 +28,15 @@
 @property (strong, nonatomic) UINavigationController *navigationCreatorInfoController;
 @property (nonatomic, strong) RFHRulesViewController *rulesViewController;
 
-@property (nonatomic) NSUInteger wins;
-@property (nonatomic) NSUInteger losses;
-@property (nonatomic) NSUInteger flawlessVictories;
-@property (nonatomic) NSUInteger winStreak;
-@property (nonatomic) NSUInteger longestWinStreak;
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic) BOOL audioIsPlaying;
 
 @property (nonatomic) UIView *fadedView;
 
+@property (nonatomic, strong) RFHDataController *dataController;
+@property (nonatomic, strong) Stats *stats;
+- (void)setupUI;
 -(void)resetGame;
 -(void)returnHome;
 
