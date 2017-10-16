@@ -75,7 +75,7 @@
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"core date completed setup");
+        //NSLog(@"core date completed setup");
         [self fetchStatsManagedObject];
         [self updateUI];
     });
@@ -134,10 +134,10 @@
         }
         NSError *error;
         if (![[self mainMOC] save:&error]) {
-            NSLog(@"main moc unable to save");
+            //NSLog(@"main moc unable to save");
             // main moc unable to save
         } else {
-            NSLog(@"main moc saved");
+           // NSLog(@"main moc saved");
         }
     }];
     
@@ -148,10 +148,10 @@
         }
         NSError *error;
         if (![[self writerMOC] save:&error]) {
-            NSLog(@"writer moc unable to save");
+            //NSLog(@"writer moc unable to save");
             // writer moc unable to save
         } else {
-            NSLog(@"writer moc saved");
+            //NSLog(@"writer moc saved");
         }
     }];
 }
@@ -179,8 +179,6 @@
         NSLog(@"error fetching stats");
     }
     Stats *stats = [items objectAtIndex:0];
-    NSLog(@"stats object is %@", stats);
-    NSLog(@"stats wins losses: %lld %lld", stats.wins, stats.losses);
     RFHAppDelegate *delegate = (RFHAppDelegate *)[UIApplication sharedApplication].delegate;
     delegate.stats = stats;
     

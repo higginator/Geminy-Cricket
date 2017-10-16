@@ -54,6 +54,7 @@
 		3379758A19AEFBC300120D2D /* musicFinal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379758619AEFBC200120D2D /* musicFinal@2x.png */; };
 		3379758B19AEFBC300120D2D /* MusicFinalCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379758719AEFBC300120D2D /* MusicFinalCancel.png */; };
 		3379758C19AEFBC300120D2D /* MusicFinalCancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3379758819AEFBC300120D2D /* MusicFinalCancel@2x.png */; };
+		33B29BFF1F9443EE00D46B90 /* LaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B29BFE1F9443EE00D46B90 /* LaunchVC.m */; };
 		33B40DA118FA55BF00936260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA018FA55BF00936260 /* Foundation.framework */; };
 		33B40DA318FA55BF00936260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA218FA55BF00936260 /* CoreGraphics.framework */; };
 		33B40DA518FA55BF00936260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B40DA418FA55BF00936260 /* UIKit.framework */; };
@@ -159,6 +160,8 @@
 		3379758619AEFBC200120D2D /* musicFinal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicFinal@2x.png"; sourceTree = "<group>"; };
 		3379758719AEFBC300120D2D /* MusicFinalCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MusicFinalCancel.png; sourceTree = "<group>"; };
 		3379758819AEFBC300120D2D /* MusicFinalCancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MusicFinalCancel@2x.png"; sourceTree = "<group>"; };
+		33B29BFD1F9443EE00D46B90 /* LaunchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchVC.h; sourceTree = "<group>"; };
+		33B29BFE1F9443EE00D46B90 /* LaunchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchVC.m; sourceTree = "<group>"; };
 		33B40D9D18FA55BE00936260 /* Geminy Cricket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geminy Cricket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B40DA018FA55BF00936260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33B40DA218FA55BF00936260 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -306,6 +309,8 @@
 				33B40DE518FA69CC00936260 /* Player */,
 				33B40DAF18FA55BF00936260 /* RFHAppDelegate.h */,
 				33B40DB018FA55BF00936260 /* RFHAppDelegate.m */,
+				33B29BFD1F9443EE00D46B90 /* LaunchVC.h */,
+				33B29BFE1F9443EE00D46B90 /* LaunchVC.m */,
 				3328E3B01F8AC4D3007A35EA /* CoreData */,
 				33B40DDB18FA55F500936260 /* RFHViewController.h */,
 				33B40DDC18FA55F500936260 /* RFHViewController.m */,
@@ -598,6 +603,7 @@
 				3328E3AF1F8AC4C7007A35EA /* GeminyCricket.xcdatamodeld in Sources */,
 				33B40DDE18FA55F500936260 /* RFHViewController.m in Sources */,
 				337974E619A4694300120D2D /* RFHRulesViewController.m in Sources */,
+				33B29BFF1F9443EE00D46B90 /* LaunchVC.m in Sources */,
 				33B40DE818FA9A9C00936260 /* RFHGemImageContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
